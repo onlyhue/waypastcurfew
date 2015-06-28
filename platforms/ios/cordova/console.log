@@ -1,0 +1,84 @@
+2015-06-28 16:19:59.225 Firebase[1832:80516] Apache Cordova native platform version 3.8.0 is starting.
+2015-06-28 16:19:59.226 Firebase[1832:80516] Multi-tasking -> Device: YES, App: YES
+2015-06-28 16:19:59.231 Firebase[1832:80516] Unlimited access to network resources
+2015-06-28 16:19:59.274 Firebase[1832:80516] [CDVTimer][keyboard] 0.106990ms
+2015-06-28 16:19:59.275 Firebase[1832:80516] Init FacebookConnect Session
+2015-06-28 16:19:59.284 Firebase[1832:80516] [CDVTimer][facebookconnectplugin] 9.698987ms
+2015-06-28 16:19:59.319 Firebase[1832:80516] [CDVTimer][splashscreen] 33.800006ms
+2015-06-28 16:19:59.339 Firebase[1832:80516] [CDVTimer][file] 20.174026ms
+2015-06-28 16:19:59.339 Firebase[1832:80516] [CDVTimer][TotalPluginStartup] 66.145003ms
+objc[1832]: Class STGenericIntentDateRange is implemented in both /Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/SiriTasks.framework/SiriTasks and /Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/PhotosUI.framework/PhotosUI. One of the two will be used. Which one is undefined.
+2015-06-28 16:19:59.487 Firebase[1832:80516] Resetting plugins due to page load.
+2015-06-28 16:19:59.808 Firebase[1832:80516] Finished load of: file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/D7F56938-E59A-44EA-BE8D-BD554749234D/Firebase.app/www/index.html#/login
+2015-06-28 16:21:38.835 Firebase[2304:82188] Apache Cordova native platform version 3.8.0 is starting.
+2015-06-28 16:21:38.836 Firebase[2304:82188] Multi-tasking -> Device: YES, App: YES
+2015-06-28 16:21:38.840 Firebase[2304:82188] Unlimited access to network resources
+2015-06-28 16:21:38.881 Firebase[2304:82188] [CDVTimer][keyboard] 0.131011ms
+2015-06-28 16:21:38.882 Firebase[2304:82188] Init FacebookConnect Session
+2015-06-28 16:21:38.885 Firebase[2304:82188] [CDVTimer][facebookconnectplugin] 3.428996ms
+2015-06-28 16:21:38.909 Firebase[2304:82188] [CDVTimer][splashscreen] 23.813009ms
+2015-06-28 16:21:38.911 Firebase[2304:82188] [CDVTimer][file] 1.966000ms
+2015-06-28 16:21:38.911 Firebase[2304:82188] [CDVTimer][TotalPluginStartup] 30.140042ms
+objc[2304]: Class STGenericIntentDateRange is implemented in both /Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/SiriTasks.framework/SiriTasks and /Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/PhotosUI.framework/PhotosUI. One of the two will be used. Which one is undefined.
+2015-06-28 16:21:39.010 Firebase[2304:82188] Resetting plugins due to page load.
+2015-06-28 16:21:39.293 Firebase[2304:82188] Finished load of: file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/index.html#/login
+2015-06-28 16:21:46.987 Firebase[2304:82188] -canOpenURL: failed for URL: "fbauth://authorize?sdk_version=3.21.1&response_type=token%2Csigned_request&return_scopes=true&legacy_override=v2.2&e2e=%7B%22init%22%3A1435479706986%7D&scope=email&client_id=120329051634496&state=%7B%22is_open_session%22%3Atrue%2C%22is_active_session%22%3Atrue%2C%22com.facebook.sdk_client_state%22%3Atrue%2C%223_method%22%3A%22fb_application_web_auth%22%2C%220_auth_logger_id%22%3A%2246770695-B13D-4219-A520-9A461566226B%22%7D&redirect_uri=fbconnect%3A%2F%2Fsuccess&sdk=ios&display=touch" - error: "This app is not allowed to query for scheme fbauth"
+2015-06-28 16:21:47.028 Firebase[2304:82188] THREAD WARNING: ['FacebookConnectPlugin'] took '51.072021' ms. Plugin should use a background thread.
+2015-06-28 16:22:09.124 Firebase[2304:82188] ERROR: Error: undefined is not an object (evaluating 'authData.facebook.email')
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/js/controllers/loginController.js:56:54
+g@https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js:12:17728
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:24922:30
+completeOutstandingRequest@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13604:15
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13984:33
+2015-06-28 16:22:14.046 Firebase[2304:82188] ERROR: Error: [$rootScope:infdig] 10 $digest() iterations reached. Aborting!
+Watchers fired in the last 5 iterations: []
+http://errors.angularjs.org/1.3.13/$rootScope/infdig?p0=10&p1=%5B%5D
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:8762:32
+$digest@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:22980:35
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:23205:31
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:24931:42
+completeOutstandingRequest@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13604:15
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13984:33
+2015-06-28 16:22:15.084 Firebase[2304:82188] ERROR: Error: [$rootScope:infdig] 10 $digest() iterations reached. Aborting!
+Watchers fired in the last 5 iterations: []
+http://errors.angularjs.org/1.3.13/$rootScope/infdig?p0=10&p1=%5B%5D
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:8762:32
+$digest@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:22980:35
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:23205:31
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:24931:42
+completeOutstandingRequest@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13604:15
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13984:33
+2015-06-28 16:22:15.650 Firebase[2304:82188] ERROR: Error: Could not resolve 'songs' from state 'main'
+transitionTo@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:40745:26
+go@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:40678:33
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:41728:22
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:24922:30
+completeOutstandingRequest@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13604:15
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13984:33
+2015-06-28 16:22:16.478 Firebase[2304:82188] ERROR: Error: [$rootScope:infdig] 10 $digest() iterations reached. Aborting!
+Watchers fired in the last 5 iterations: []
+http://errors.angularjs.org/1.3.13/$rootScope/infdig?p0=10&p1=%5B%5D
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:8762:32
+$digest@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:22980:35
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:23205:31
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:24931:42
+completeOutstandingRequest@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13604:15
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13984:33
+2015-06-28 16:22:17.099 Firebase[2304:82188] ERROR: Error: [$rootScope:infdig] 10 $digest() iterations reached. Aborting!
+Watchers fired in the last 5 iterations: []
+http://errors.angularjs.org/1.3.13/$rootScope/infdig?p0=10&p1=%5B%5D
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:8762:32
+$digest@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:22980:35
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:23205:31
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:24931:42
+completeOutstandingRequest@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13604:15
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13984:33
+2015-06-28 16:22:17.561 Firebase[2304:82188] ERROR: Error: [$rootScope:infdig] 10 $digest() iterations reached. Aborting!
+Watchers fired in the last 5 iterations: []
+http://errors.angularjs.org/1.3.13/$rootScope/infdig?p0=10&p1=%5B%5D
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:8762:32
+$digest@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:22980:35
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:23205:31
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:24931:42
+completeOutstandingRequest@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13604:15
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/EA5ABEE0-1885-4E29-AAB4-1920A3B1B2A1/data/Containers/Bundle/Application/DD18CA4F-4EBD-4A84-92FC-EA2447278474/Firebase.app/www/lib/ionic/js/ionic.bundle.js:13984:33

@@ -1,0 +1,63 @@
+.centerVertical {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute !important;
+    margin:0 auto;
+    width:100%;
+}
+
+.centerHorizontal {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align:center;
+}
+
+.loginCircle{
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    border: 2px solid;
+    border-color: #2abba1;
+    font-size: 13px;
+    color: #2abba1;
+    background: none;
+}
+
+.circleFill {
+    background: #2abba1;
+    color: #ffffff;
+}
+
+.themeColor {
+    color: #2abba1;
+}
+
+.button-theme {
+    background: #2abba1;
+    border: #2abba1;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0 12px;
+    min-width: 52px;
+    min-height: 47px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    vertical-align: top;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    line-height: 42px;
+}
+
+.wrapping-list .item-content, .wrapping-list .item {
+    overflow: initial;
+    white-space: initial;
+}
