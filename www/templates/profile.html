@@ -1,0 +1,34 @@
+<ion-view view-title="profile">
+    <ion-header-bar class="title bar bar-header">
+        <button class="button icon-left ion-chevron-left button-clear button-dark" ui-sref="main"></button>
+        <h1 class="title">Profile</h1>
+    </ion-header-bar>
+
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">Profile Picture</span>
+                <img ng-src="{{picture}}"/>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">First Name</span>
+                <input type="text" value="{{first_name}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Last Name</span>
+                <input type="text" value="{{last_name}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="text" value="{{email}}">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Gender</span>
+                <input type="text" style="text-transform: capitalize" value="{{gender}}">
+            </label>
+            <div class="col-75 centerHorizontal" style="margin-top: 20px">
+                <button class="button button-block ion-person button-assertive" ng-click="logout()"> Logout</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

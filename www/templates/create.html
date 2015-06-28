@@ -1,0 +1,25 @@
+<ion-view view-title="login">
+    <ion-content class="padding centerVertical col-75" style="height: 100%" scroll="false">
+        <h1 style="text-align: center">Create Account</h1>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Email" ng-model="data.email">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="data.password">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="First Name" ng-model="data.first_name">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Last Name" ng-model="data.last_name">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Gender" ng-model="data.gender">
+            </label>
+        </div>
+        <div style="color: #ff6ed5; text-align: center; margin-top: -10px">{{error}}</div>
+        <button class="button button-block button-balanced" ng-click="create()">Create Account</button>
+        <button class="button button-block button-light" ui-sref="login">Cancel</button>
+    </ion-content>
+</ion-view>
