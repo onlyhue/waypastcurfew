@@ -1,40 +1,25 @@
-<ion-side-menus enable-menu-with-back-views="true">
-    <ion-side-menu-content>
-        <ion-view view-title="main">
-            <ion-content class="padding centerVertical col-75" style="height: 100%" scroll="false">
-                <h3 style="text-align: center">Hello {{first_name}} {{last_name}}!</h3>
+<ion-view view-title="main" class="centerHorizontal">
+    <ion-side-menus enable-menu-with-back-views="true">
+        <ion-side-menu-content>
+            <ion-content class="centerHorizontal col-66" style="top: 25%" scroll="false">
                 <button class="button button-block ion-music-note button-balanced" ui-sref="songs"> Songs</button>
                 <button class="button button-block ion-ios-cart button-calm" ui-sref="items"> Items</button>
                 <button class="button button-block ion-person button-positive" ui-sref="profile"> Profile</button>
             </ion-content>
-        </ion-view>
-    </ion-side-menu-content>
+        </ion-side-menu-content>
 
-    <ion-side-menu side="left" width="150">
+        <ion-side-menu side="right" width="150">
             <ion-list class="item-text-wrap">
-                <ion-item nav-clear menu-close ui-sref="songs">
-                    SONG LIST
+                <ion-item nav-clear menu-close ui-sref="profile"">
+                MY PROFILE
                 </ion-item>
                 <ion-item nav-clear menu-close href="#/app/search">
-                    FEEDBACK / REQUEST
+                    INBOX
                 </ion-item>
                 <ion-item nav-clear menu-close href="#/app/browse">
-                    GROUPS
+                    ABOUT WPC
                 </ion-item>
             </ion-list>
-    </ion-side-menu>
-
-    <ion-side-menu side="right" width="150">
-        <ion-list class="item-text-wrap">
-            <ion-item nav-clear menu-close ui-sref="profile"">
-                MY PROFILE
-            </ion-item>
-            <ion-item nav-clear menu-close href="#/app/search">
-                INBOX
-            </ion-item>
-            <ion-item nav-clear menu-close href="#/app/browse">
-                ABOUT WPC
-            </ion-item>
-        </ion-list>
-    </ion-side-menu>
-</ion-side-menus>
+        </ion-side-menu>
+    </ion-side-menus>
+</ion-view>

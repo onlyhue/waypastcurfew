@@ -13,7 +13,7 @@ var app = angular.module("starter", ["ionic", "firebase", "ngCordova"])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
   .state('login', {
@@ -46,8 +46,18 @@ var app = angular.module("starter", ["ionic", "firebase", "ngCordova"])
     controller: 'createController'
   })
 
+  .state('songs', {
+    url: '/songs',
+    templateUrl: 'templates/songs.html',
+    controller: 'songsController'
+  });
 
-  $ionicConfigProvider.views.forwardCache(true);
-
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/main');
 });
+
+try {
+  // ios
+  cordova.plugins.Keyboard.disableScroll(true);
+} catch (error) {
+  // browser
+}

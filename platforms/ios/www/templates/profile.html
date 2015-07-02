@@ -8,26 +8,26 @@
         <div class="list">
             <label class="item item-input">
                 <span class="input-label">Profile Picture</span>
-                <img ng-src="{{picture}}"/>
+                <img ng-src="{{data.picture}}"/>
             </label>
             <label class="item item-input">
                 <span class="input-label">First Name</span>
-                <input type="text" value="{{first_name}}">
+                <input type="text" value="{{data.first_name}}">
             </label>
             <label class="item item-input">
                 <span class="input-label">Last Name</span>
-                <input type="text" value="{{last_name}}">
+                <input type="text" value="{{data.last_name}}">
             </label>
             <label class="item item-input">
                 <span class="input-label">Email</span>
-                <input type="text" value="{{email}}">
+                <input type="text" value="{{data.email}}">
             </label>
             <label class="item item-input">
                 <span class="input-label">Gender</span>
-                <input type="text" style="text-transform: capitalize" value="{{gender}}">
+                <input type="text" style="text-transform: capitalize" value="{{data.gender}}">
             </label>
             <div class="col-75 centerHorizontal" style="margin-top: 20px">
-                <button class="button button-block ion-person button-assertive" ng-click="logout()"> Logout</button>
+                <button class="button-block ion-person button-theme" ng-click="logout()"> Logout</button>
             </div>
         </div>
     </ion-content>

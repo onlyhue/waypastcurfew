@@ -1,0 +1,17 @@
+<ion-view view-title="songs">
+    <ion-header-bar class="title bar bar-header">
+        <button class="button icon-left ion-chevron-left button-clear button-dark" ui-sref="main"></button>
+        <h1 class="title">Songs</h1>
+    </ion-header-bar>
+
+    <ion-content>
+        <ion-list ng-repeat="(id, song) in songs">
+            <ion-item style="text-align: center">
+                <button style="border: none; margin-top: 5px" class="button button-light" ng-hide="isLoaded(id)"><ion-spinner icon="spiral"></ion-spinner></button>
+                <button class="button" ng-class="{'ion-play button-positive': !isPlaying(id), 'ion-pause button-calm': isPlaying(id)}" ng-click="playPause(id)"></button>
+                <button class="button button-assertive ion-stop" ng-click="stop(id)"></button>
+                <button class="button button-stable" ng-class="{'ion-ios-volume-low': isMuted(id), 'ion-ios-volume-high': !isMuted(id)}" ng-click="muteUnmute(id)"></button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
