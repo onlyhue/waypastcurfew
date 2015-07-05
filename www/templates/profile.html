@@ -1,6 +1,6 @@
 <ion-view view-title="profile">
     <ion-header-bar class="title bar bar-header">
-        <button class="button icon-left ion-chevron-left button-clear button-dark" ui-sref="main"></button>
+        <button class="button icon-left ion-chevron-left button-clear button-dark" nav-direction="back" ui-sref="main"></button>
         <h1 class="title">Profile</h1>
     </ion-header-bar>
 
@@ -27,7 +27,7 @@
                 <input type="text" style="text-transform: capitalize" value="{{data.gender}}">
             </label>
             <div class="col-75 centerHorizontal" style="margin-top: 20px">
-                <button class="button-block ion-person button-theme" ng-click="logout()"> Logout</button>
+                <button class="button-block ion-person button-theme" nav-direction="forward" ng-click="logout()"> Logout</button>
             </div>
         </div>
     </ion-content>

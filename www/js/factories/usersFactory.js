@@ -25,10 +25,12 @@ app.factory("usersFactory", function($firebaseAuth) {
         // update user profile with firebase data
         ref.child(data.email.replace(/\./g, '')).once("value", function(snapshot) {
             var profile = snapshot.val();
-            data.first_name = profile.first_name;
-            data.last_name = profile.last_name;
-            data.gender = profile.gender;
-            data.picture = profile.picture;
+            if (profile != null) {
+                data.first_name = profile.first_name;
+                data.last_name = profile.last_name;
+                data.gender = profile.gender;
+                data.picture = profile.picture;
+            }
         })
     }
 

@@ -15,9 +15,11 @@ app.controller("mainController", function($scope, usersFactory, $firebaseAuth, $
             // facebook account logged in
             email = authObj.$getAuth().facebook.email.replace(/\./g, '');
             ref.once("value", function(snapshot) {
+                console.log(snapshot.child(email).val());
                 if(snapshot.child(email).val() == null) {
-                    // new facebook account, go back to create page
-                    $state.go("create");
+                    // facebook account not created, aunauth and go back to login page
+                    authObj.$unauth();
+                    $state.go("login");
                 }
             });
         } catch (error) {
@@ -40,10 +42,12 @@ app.controller("mainController", function($scope, usersFactory, $firebaseAuth, $
             // update user profile
             ref.child($scope.data.email.replace(/\./g, '')).once("value", function(snapshot) {
                 var profile = snapshot.val();
-                $scope.data.first_name = profile.first_name;
-                $scope.data.last_name = profile.last_name;
-                $scope.data.gender = profile.gender;
-                $scope.data.picture = profile.picture;
+                if (profile != null) {
+                    $scope.data.first_name = profile.first_name;
+                    $scope.data.last_name = profile.last_name;
+                    $scope.data.gender = profile.gender;
+                    $scope.data.picture = profile.picture;
+                }
             })
         }
     })

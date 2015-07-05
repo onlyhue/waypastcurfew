@@ -48,17 +48,17 @@ if (!window.cordova) {
             if (!options.picture) {
                 options.picture = "";
             }
-            
+
             // Try will catch errors when SDK has not been init
             try {
                 FB.ui(options,
-                function (response) {
-                    if (response && (response.request || !response.error_code)) {
-                        s(response);
-                    } else {
-                        f(response);
-                    }
-                });
+                    function (response) {
+                        if (response && (response.request || !response.error_code)) {
+                            s(response);
+                        } else {
+                            f(response);
+                        }
+                    });
             } catch (error) {
                 if (!f) {
                     console.error(error.message);
@@ -74,7 +74,7 @@ if (!window.cordova) {
             if (permissions && permissions.length > 0) {
                 permissionObj.scope = permissions.toString();
             }
-            
+
             FB.login(function (response) {
                 if (response.authResponse) {
                     s(response);
@@ -124,7 +124,7 @@ if (!window.cordova) {
 
         api: function (graphPath, permissions, s, f) {
             // JS API does not take additional permissions
-            
+
             // Try will catch errors when SDK has not been init
             try {
                 FB.api(graphPath, function (response) {
@@ -156,7 +156,7 @@ if (!window.cordova) {
             });
         }
     };
-    
+
     // Bake in the JS SDK
     (function () {
         if (!window.FB) {
