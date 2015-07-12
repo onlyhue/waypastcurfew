@@ -1,25 +1,7 @@
 <ion-view view-title="main" class="centerHorizontal" nav-direction="forward">
-    <ion-side-menus enable-menu-with-back-views="true">
-        <ion-side-menu-content>
-            <ion-content class="centerHorizontal col-66" style="top: 25%" scroll="false">
-                <button class="button button-block ion-music-note button-balanced" ui-sref="songs"> Songs</button>
-                <button class="button button-block ion-ios-cart button-calm" ui-sref="items"> Items</button>
-                <button class="button button-block ion-person button-positive" ui-sref="profile"> Profile</button>
-            </ion-content>
-        </ion-side-menu-content>
-
-        <ion-side-menu side="right" width="150">
-            <ion-list class="item-text-wrap">
-                <ion-item nav-clear menu-close ui-sref="profile"">
-                MY PROFILE
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/search">
-                    INBOX
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/browse">
-                    ABOUT WPC
-                </ion-item>
-            </ion-list>
-        </ion-side-menu>
-    </ion-side-menus>
+    <div id="buttonColor1" ui-sref="songs"><i class="ion-music-note" font-size="10"> Songs</i></div>
+    <div id="buttonColor2" ui-sref="groups"><i class="ion-person-stalker" font-size="10"> Groups</i></div>
+    <div id="buttonColor3" ui-sref="requests"><i class="ion-chatbubbles" font-size="10"> Requests</i></div>
+    <div id="buttonColor4" ui-sref="profile"><i class="ion-gear-b" font-size="10"> Settings</i></div>
+    <div id="buttonColor5" ui-sref="about"><i class="ion-information" font-size="10"> About WPC</i></div>
 </ion-view>

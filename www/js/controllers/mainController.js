@@ -15,7 +15,6 @@ app.controller("mainController", function($scope, usersFactory, $firebaseAuth, $
             // facebook account logged in
             email = authObj.$getAuth().facebook.email.replace(/\./g, '');
             ref.once("value", function(snapshot) {
-                console.log(snapshot.child(email).val());
                 if(snapshot.child(email).val() == null) {
                     // facebook account not created, aunauth and go back to login page
                     authObj.$unauth();

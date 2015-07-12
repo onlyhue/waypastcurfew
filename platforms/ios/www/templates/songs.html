@@ -1,17 +1,42 @@
 <ion-view view-title="songs">
-    <ion-header-bar class="title bar bar-header">
-        <button class="button icon-left ion-chevron-left button-clear button-dark" nav-direction="back" ui-sref="main"></button>
-        <h1 class="title">Songs</h1>
+    <ion-header-bar class="title bar bar-header" style="background: #005dbb; color: white;">
+        <button class="button icon-left ion-ios-arrow-back button-clear button-dark" style="color: white" ui-sref="main"></button>
+        <h1 class="title" style="color: #ffffff">NOW PLAYING</h1>
     </ion-header-bar>
 
-    <ion-content>
-        <ion-list ng-repeat="(id, song) in songs">
-            <ion-item style="text-align: center">
-                <button style="border: none; margin-top: 5px" class="button button-light" ng-hide="isLoaded(id)"><ion-spinner icon="spiral"></ion-spinner></button>
-                <button class="button" ng-class="{'ion-play button-positive': !isPlaying(id), 'ion-pause button-calm': isPlaying(id)}" ng-click="playPause(id)"></button>
-                <button class="button button-assertive ion-stop" ng-click="stop(id)"></button>
-                <button class="button button-stable" ng-class="{'ion-ios-volume-low': isMuted(id), 'ion-ios-volume-high': !isMuted(id)}" ng-click="muteUnmute(id)"></button>
-            </ion-item>
-        </ion-list>
+    <ion-content class="centerHorizontal" scroll="false" style="margin-bottom: -1px;">
+        <div style="height: 25%;">
+            <div style="font-size: 100%">HOSANNA<br><div style="font-size:70%">WAY PAST CURFEW COVER</div></div>
+            <a class="button button-clear" style="border: none; font-size:20px; color: black;" ng-class="{'ion-play': !data.isPlayingAll, 'ion-pause': data.isPlayingAll}" ng-click="playPauseAll()"></a>
+            <a class="button button-clear ion-stop" style="border: none; font-size:20px; color: black" ng-click="stopAll()"></a>
+            <div class="range">
+                {{data.position | date:'m:ss'}}
+                <input type="range" min="0" max="{{data.duration}}" ng-model="data.position" ng-change="positionChange()">
+                {{data.duration | date:'m:ss'}}
+            </div>
+        </div>
+        <div class="row" style="height: 50%; padding:0px;">
+            <div class="col col-20" style="height: 100%; padding: 0px;">
+                <div class="row" style="height: 20%; padding: 0px; margin-bottom: 5px;" ng-repeat="(id, song) in songs">
+                    <button class="button button-stable" ng-class="{'ion-ios-volume-low': isMuted(id), 'ion-ios-volume-high': !isMuted(id)}" ng-click="muteUnmute(id)" style="margin: auto;"></button>
+                </div>
+            </div>
+            <ion-content scroll="true" style="position: relative; padding: 10px">
+                <div class="col col-60" id="lyrics">
+                </div>
+            </ion-content>
+            <div class="col col-20" style="height: 100%; padding: 0px;">
+                <div class="row" style="height: 20%; padding: 0px; margin-bottom: 5px;" ng-repeat="(id, record) in records">
+                    <button class="recordCircle" ng-class="{'recordFill': records[id].selected}" ng-click="recordSelect(id)" style="margin:auto;">{{id}}</button>
+                </div>
+            </div>
+        </div>
+        <div style="height: 25%;">
+            <div class="row" style="height:100%;">
+                <button class="button button-assertive" style="height: 75%; width: 75%; margin: auto;">
+                    RECORD
+                </button>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

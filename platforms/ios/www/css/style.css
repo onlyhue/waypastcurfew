@@ -5,29 +5,111 @@
     text-align:center;
 }
 
+@font-face {
+    font-family: 'Ebrima';
+    src: url('Ebrima.ttf');
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('Century%20Gothic.ttf');
+}
+
+#buttonColor1{
+    background: #01273c;
+    height: 20%;
+    display:block;
+    text-align:center;
+    line-height: 120px;
+    color: white;
+    font-size: 30px;
+    font-family:Ebrima;
+}
+
+#buttonColor2{
+    background: #043172;
+    height: 20%;
+    display:block;
+    text-align: center;
+    line-height: 120px;
+    color: white;
+    font-size: 30px;
+    font-family: Ebrima;
+}
+
+#buttonColor3{
+    background: #005dbb;
+    height: 20%;
+    display:block;
+    text-align: center;
+    line-height: 120px;
+    color: white;
+    font-size: 30px;
+    font-family: Ebrima;
+}
+
+#buttonColor4{
+    background: #19bfef;
+    height: 20%;
+    display:block;
+    text-align: center;
+    line-height: 120px;
+    color: white;
+    font-size: 30px;
+    font-family: Ebrima;
+}
+
+#buttonColor5{
+    background: #ffffff;
+    height: 20%;
+    display:block;
+    text-align: center;
+    line-height: 120px;
+    color: #043172;
+    font-size: 30px;
+    font-family: Ebrima;
+}
+
 .loginCircle{
     width: 40px;
     height: 40px;
     border-radius: 25px;
     border: 2px solid;
-    border-color: #2abba1;
+    border-color: #19bfef;
     font-size: 13px;
-    color: #2abba1;
+    color: #19bfef;
     background: none;
 }
 
 .circleFill {
-    background: #2abba1;
+    background: #19bfef;
+    color: #ffffff;
+}
+
+.recordCircle{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: 2px solid;
+    border-color: #19bfef;
+    font-size: 15px;
+    color: #19bfef;
+    background: none;
+}
+
+.recordFill {
+    background: #19bfef;
     color: #ffffff;
 }
 
 .themeColor {
-    color: #2abba1;
+    color: #005dbb;
+    font-family: Century Gothic;
 }
 
 .button-theme {
-    background: #2abba1;
-    border: #2abba1;
+    background: #19bfef;
+    border: #19bfef;
     color: #ffffff;
     position: relative;
     display: inline-block;
@@ -52,4 +134,9 @@
 
 input[type="text"]:disabled {
     background: #ffffff;
+}
+
+.scroll-bar-indicator
+{
+    display: none;
 }

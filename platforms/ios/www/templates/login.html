@@ -9,17 +9,17 @@
         <div>
             <div class="row" style="margin-top: 20px">
                 <div class="col"></div>
-                <div class="col centerHorizontal"><button class="loginCircle ion-at" ng-class="{'circleFill': email}" ng-click="loginMode('email')"></button></div>
+                <div class="col centerHorizontal"><button class="loginCircle ion-plus-round" ng-class="{'circleFill': email}" ng-click="loginMode('email')"></button></div>
                 <div class="col centerHorizontal"><button class="loginCircle ion-social-facebook" ng-class="{'circleFill': facebook}" ng-click="loginMode('facebook')"></button></div>
-                <div class="col centerHorizontal"><button class="loginCircle ion-plus-round" ng-class="{'circleFill': create}" ng-click="loginMode('create')"></button></div>
+                <div class="col centerHorizontal"><button class="loginCircle ion-person-add" ng-class="{'circleFill': create}" ng-click="loginMode('create')"></button></div>
                 <div class="col"></div>
             </div>
         </div>
 
         <!-- login box -->
-        <div class="centerHorizontal col-66">
+        <div class="centerHorizontal col-66" style="position: relative">
             <!-- email -->
-            <div ng-show="email" style="margin-top: 25px">
+            <div ng-show="email" style="margin-top: 25px; position: absolute; margin-left: auto; margin-right: auto; width: 100%;">
                 <div class="list" ng-enter="loginEmail()">
                     <label class="item item-input">
                         <input type="text" placeholder="Email" ng-model="data.email">
@@ -33,12 +33,12 @@
             </div>
 
             <!-- facebook -->
-            <div ng-show="facebook" style="margin-top: 45px">
+            <div ng-show="facebook" style="margin-top: 45px; position: absolute; margin-left: auto; margin-right: auto; width: 100%;">
                 <button class="button-block button-theme" ng-click="loginFB()">Log In with Facebook</button>
             </div>
 
             <!-- create -->
-            <div ng-show="create" style="margin-top: 25px">
+            <div ng-show="create" style="margin-top: 25px; position: absolute; margin-left: auto; margin-right: auto; width: 100%;">
                 <div class="list" ng-enter="validateEmail()">
                     <label class="item item-input">
                         <input type="text" placeholder="Email" ng-model="data.email">

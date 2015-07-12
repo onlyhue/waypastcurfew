@@ -55,6 +55,8 @@ app.controller("loginController", function($scope, usersFactory, $firebaseAuth, 
                     // not logged in with facebook
                 }
             }
+            //clear variables
+            $scope.data = {};
         })
     })
 
