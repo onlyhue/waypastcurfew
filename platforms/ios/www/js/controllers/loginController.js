@@ -1,4 +1,4 @@
-app.controller("loginController", function($scope, usersFactory, $firebaseAuth, $state) {
+app.controller("loginController", function($scope, usersFactory, $state, $ionicLoading) {
     // selected login mode, default email
     $scope.email = true;
     $scope.facebook = false;
@@ -38,21 +38,28 @@ app.controller("loginController", function($scope, usersFactory, $firebaseAuth, 
         listener = authObj.$onAuth(function(authData) {
             // check for logged in facebook account
             if (authData != null) {
+                $ionicLoading.show({
+                    template: '<ion-spinner></ion-spinner><br>Logging in...'
+                });
+
                 // check for existing facebook email in firebase
                 try {
                     usersFactory.checkEmail(authData.facebook.email.replace(/\./g, ''), function (emailAvailable) {
                         if (emailAvailable) {
                             // firebase account not created, go to create page
                             $state.go("create");
+                            $ionicLoading.hide();
                         } else {
                             // firebase account already created, go to main page
                             $state.go("main");
+                            $ionicLoading.hide();
                         }
                         //update usersFactory profile
-                        usersFactory.setProfile(authData.facebook.email, authData.facebook.cachedUserProfile.first_name, authData.facebook.cachedUserProfile.last_name, authData.facebook.cachedUserProfile.gender, authData.facebook.cachedUserProfile.picture.data.url, $scope.data.password);
+                        usersFactory.pullProfile(authData.facebook.email);
                     })
                 } catch (error) {
                     // not logged in with facebook
+                    usersFactory.pullProfile($scope.data.email);
                 }
             }
             //clear variables
@@ -68,7 +75,7 @@ app.controller("loginController", function($scope, usersFactory, $firebaseAuth, 
         // clear variables
         $scope.data = {};
         $scope.errorCreate = "";
-        $scope.errorLogin = "";
+        $scope.errorEmail = "";
     })
 
     // facebook login method
@@ -98,19 +105,28 @@ app.controller("loginController", function($scope, usersFactory, $firebaseAuth, 
 
     // email login method
     $scope.loginEmail = function() {
+        $ionicLoading.show({
+            template: '<ion-spinner></ion-spinner><br>Logging in...'
+        });
+
         // firebase login with password
         authObj.$authWithPassword({
             email: $scope.data.email,
             password: $scope.data.password
         }).then(function() {
             $state.go("main");
+            $ionicLoading.hide();
         }).catch(function(error) {
+            $ionicLoading.hide();
             $scope.errorEmail = "Invalid email or password!";
         });
     }
 
     // email and password validation method
     $scope.validateEmail = function() {
+        $ionicLoading.show({
+            template: '<ion-spinner></ion-spinner><br>Validating...'
+        });
         // check for existing email in firebase
         usersFactory.checkEmail($scope.data.email, function (emailAvailable) {
             if (emailAvailable) {
@@ -119,16 +135,19 @@ app.controller("loginController", function($scope, usersFactory, $firebaseAuth, 
                     // passwords not matching display error message
                     $scope.$apply(function () {
                         $scope.errorCreate = "Passwords do not match!";
+                        $ionicLoading.hide();
                     })
                 } else {
                     // email and password validated, go to next page
                     // ***ADD VALID-EMAIL VERIFICATION STEPS HERE***
                     $state.go("create");
+                    $ionicLoading.hide();
                     usersFactory.setProfile($scope.data.email, null, null, null, null, $scope.data.password);
                 }
             } else {
                 // email not available, display error message
                 $scope.$apply(function () {
+                    $ionicLoading.hide();
                     $scope.errorCreate = "Email already exists!";
                 })
             }

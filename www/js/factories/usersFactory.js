@@ -60,8 +60,35 @@ app.factory("usersFactory", function($firebaseAuth) {
             data.password = password;
         },
 
-        getProfile: function() {
+        returnProfile: function() {
             return data;
+        },
+
+        pullProfile: function(email) {
+            ref.child(email.replace(/\./g, '')).once("value", function(snapshot) {
+                var profile = snapshot.val();
+                if (profile != null) {
+                    data.email = email;
+                    data.first_name = profile.first_name;
+                    data.last_name = profile.last_name;
+                    data.gender = profile.gender;
+                    data.picture = profile.picture;
+                }
+            })
+        },
+
+        pushProfile: function() {
+            if (data.picture == null) {
+                data.picture = "";
+            }
+            var profile = {
+                email: data.email,
+                first_name: data.first_name,
+                last_name: data.last_name,
+                gender: data.gender,
+                picture: data.picture
+            };
+            ref.child(data.email.replace(/\./g, '')).set(profile);
         }
     };
 });

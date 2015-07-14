@@ -1,0 +1,29 @@
+<ion-view view-title="forgot" nav-direction="forward">
+    <ion-content>
+        <div class="centerHorizontal col-66" style="margin-top: 50%;">
+            <!-- title -->
+            <h2 class="centerHorizontal themeColor">Password Reset</h2>
+
+            <!-- subtext -->
+            <div class="themeColor" style="text-align: left; padding: 5px;">
+                Enter your email address to reset your password.
+            </div>
+
+            <!-- login box -->
+            <div class="list" style="margin-top: 10px" ng-enter="resetPassword()">
+                <label class="item item-input">
+                    <input type="text" placeholder="Email" ng-model="data.email">
+                </label>
+            </div>
+
+            <!-- error text -->
+            <div class="themeColor centerHorizontal" style="margin-top: -10px">{{data.error}}</div>
+
+            <!-- submit button -->
+            <button class="button-block button-theme" style="margin-top: 10px" ng-click="resetPassword()">Submit</button>
+
+            <!-- cancel button -->
+            <button class="button-block button-theme" style="margin-top: 10px" ng-click="cancel()">Cancel</button>
+        </div>
+    </ion-content>
+</ion-view>

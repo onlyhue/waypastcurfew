@@ -15,59 +15,14 @@
     src: url('Century%20Gothic.ttf');
 }
 
-#buttonColor1{
-    background: #01273c;
-    height: 20%;
-    display:block;
-    text-align:center;
-    line-height: 120px;
+.mainButton{
+    border: 2px solid;
+    height: 100%;
+    width: 100%;
+    margin: auto;
     color: white;
     font-size: 30px;
     font-family:Ebrima;
-}
-
-#buttonColor2{
-    background: #043172;
-    height: 20%;
-    display:block;
-    text-align: center;
-    line-height: 120px;
-    color: white;
-    font-size: 30px;
-    font-family: Ebrima;
-}
-
-#buttonColor3{
-    background: #005dbb;
-    height: 20%;
-    display:block;
-    text-align: center;
-    line-height: 120px;
-    color: white;
-    font-size: 30px;
-    font-family: Ebrima;
-}
-
-#buttonColor4{
-    background: #19bfef;
-    height: 20%;
-    display:block;
-    text-align: center;
-    line-height: 120px;
-    color: white;
-    font-size: 30px;
-    font-family: Ebrima;
-}
-
-#buttonColor5{
-    background: #ffffff;
-    height: 20%;
-    display:block;
-    text-align: center;
-    line-height: 120px;
-    color: #043172;
-    font-size: 30px;
-    font-family: Ebrima;
 }
 
 .loginCircle{
@@ -132,8 +87,14 @@
     white-space: initial;
 }
 
-input[type="text"]:disabled {
-    background: #ffffff;
+input[type="text"]:disabled, input[type="password"]:disabled {
+    color: black;
+    background: white;
+}
+
+input[type="text"]:read-only, input[type="password"]:read-only {
+    color: black;
+    background: white;
 }
 
 .scroll-bar-indicator

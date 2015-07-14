@@ -1,57 +1,60 @@
 <ion-view view-title="login" nav-direction="forward">
-    <ion-content scroll="false" style="top: 25%">
-        <!-- logo -->
-        <div>
-            <h1 class="centerHorizontal themeColor">OnlyHue</h1>
-        </div>
-
-        <!-- login choice -->
-        <div>
-            <div class="row" style="margin-top: 20px">
-                <div class="col"></div>
-                <div class="col centerHorizontal"><button class="loginCircle ion-plus-round" ng-class="{'circleFill': email}" ng-click="loginMode('email')"></button></div>
-                <div class="col centerHorizontal"><button class="loginCircle ion-social-facebook" ng-class="{'circleFill': facebook}" ng-click="loginMode('facebook')"></button></div>
-                <div class="col centerHorizontal"><button class="loginCircle ion-person-add" ng-class="{'circleFill': create}" ng-click="loginMode('create')"></button></div>
-                <div class="col"></div>
+    <ion-content>
+        <div style="margin-top: 45%;">
+            <!-- logo -->
+            <div>
+                <h1 class="centerHorizontal themeColor">OnlyHue</h1>
             </div>
-        </div>
 
-        <!-- login box -->
-        <div class="centerHorizontal col-66" style="position: relative">
-            <!-- email -->
-            <div ng-show="email" style="margin-top: 25px; position: absolute; margin-left: auto; margin-right: auto; width: 100%;">
-                <div class="list" ng-enter="loginEmail()">
-                    <label class="item item-input">
-                        <input type="text" placeholder="Email" ng-model="data.email">
-                    </label>
-                    <label class="item item-input">
-                        <input type="password" placeholder="Password" ng-model="data.password">
-                    </label>
+            <!-- login choice -->
+            <div>
+                <div class="row" style="margin-top: 20px">
+                    <div class="col"></div>
+                    <div class="col centerHorizontal"><button class="loginCircle ion-plus-round" ng-class="{'circleFill': email}" ng-click="loginMode('email')"></button></div>
+                    <div class="col centerHorizontal"><button class="loginCircle ion-social-facebook" ng-class="{'circleFill': facebook}" ng-click="loginMode('facebook')"></button></div>
+                    <div class="col centerHorizontal"><button class="loginCircle ion-person-add" ng-class="{'circleFill': create}" ng-click="loginMode('create')"></button></div>
+                    <div class="col"></div>
                 </div>
-                <div class="themeColor centerHorizontal" style="margin-top: -10px">{{errorEmail}}</div>
-                <button class="button-block button-theme" style="margin-top: 10px" ng-click="loginEmail()">Login</button>
             </div>
 
-            <!-- facebook -->
-            <div ng-show="facebook" style="margin-top: 45px; position: absolute; margin-left: auto; margin-right: auto; width: 100%;">
-                <button class="button-block button-theme" ng-click="loginFB()">Log In with Facebook</button>
-            </div>
-
-            <!-- create -->
-            <div ng-show="create" style="margin-top: 25px; position: absolute; margin-left: auto; margin-right: auto; width: 100%;">
-                <div class="list" ng-enter="validateEmail()">
-                    <label class="item item-input">
-                        <input type="text" placeholder="Email" ng-model="data.email">
-                    </label>
-                    <label class="item item-input">
-                        <input type="password" placeholder="Password" ng-model="data.password">
-                    </label>
-                    <label class="item item-input">
-                        <input type="password" placeholder="Confirm Password" ng-model="data.confirmPassword">
-                    </label>
+            <!-- login box -->
+            <div class="centerHorizontal col-66" style="position: relative">
+                <!-- email -->
+                <div ng-show="email" style="margin-top: 25px; position: absolute; margin-left: auto; margin-right: auto; width: 100%;">
+                    <div class="list" ng-enter="loginEmail()">
+                        <label class="item item-input">
+                            <input type="text" placeholder="Email" ng-model="data.email">
+                        </label>
+                        <label class="item item-input">
+                            <input type="password" placeholder="Password" ng-model="data.password">
+                        </label>
+                    </div>
+                    <div class="themeColor centerHorizontal" style="margin-top: -10px">{{errorEmail}}</div>
+                    <button class="button-block button-theme" style="margin-top: 10px" ng-click="loginEmail()">Login</button>
+                    <div class="themeColor" style="text-align: left; margin-top: 10px;" ui-sref="forgot">Forgot your password?</div>
                 </div>
-                <div class="themeColor centerHorizontal" style="margin-top: -10px">{{errorCreate}}</div>
-                <button class="button-block button-theme" style="margin-top: 10px" ng-click="validateEmail()">Create Account</button>
+
+                <!-- facebook -->
+                <div ng-show="facebook" style="margin-top: 45px; position: absolute; margin-left: auto; margin-right: auto; width: 100%;">
+                    <button class="button-block button-theme" ng-click="loginFB()">Log In with Facebook</button>
+                </div>
+
+                <!-- create -->
+                <div ng-show="create" style="margin-top: 25px; position: absolute; margin-left: auto; margin-right: auto; width: 100%;">
+                    <div class="list" ng-enter="validateEmail()">
+                        <label class="item item-input">
+                            <input type="text" placeholder="Email" ng-model="data.email">
+                        </label>
+                        <label class="item item-input">
+                            <input type="password" placeholder="Password" ng-model="data.password">
+                        </label>
+                        <label class="item item-input">
+                            <input type="password" placeholder="Confirm Password" ng-model="data.confirmPassword">
+                        </label>
+                    </div>
+                    <div class="themeColor centerHorizontal" style="margin-top: -10px">{{errorCreate}}</div>
+                    <button class="button-block button-theme" style="margin-top: 10px" ng-click="validateEmail()">Create Account</button>
+                </div>
             </div>
         </div>
     </ion-content>

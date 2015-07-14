@@ -1,4 +1,4 @@
-app.controller("itemsController", function($scope, itemsFactory, $firebaseArray) {
+app.controller("itemsController", function($scope, itemsFactory) {
     var ref = itemsFactory.$ref();
     $scope.items = $firebaseArray(ref);
 

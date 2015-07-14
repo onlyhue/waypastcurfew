@@ -1,4 +1,4 @@
-app.controller("songsController", function($scope, $cordovaMedia, songsFactory, $q, $timeout, $interval) {
+app.controller("songsController", function($scope, songsFactory, $q, $timeout, $interval) {
     $scope.songsList = songsFactory;
     $scope.songs = {};
     $scope.data = {};
