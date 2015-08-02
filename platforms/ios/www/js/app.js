@@ -58,7 +58,7 @@ var app = angular.module("starter", ["ionic", "firebase", "ngCordova"])
                 controller: 'forgotController'
             });
 
-        $urlRouterProvider.otherwise('/main');
+        $urlRouterProvider.otherwise('/login');
 
         $ionicConfigProvider.views.forwardCache(true);
         $ionicConfigProvider.views.swipeBackEnabled(false);

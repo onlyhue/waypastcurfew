@@ -1,17 +1,10 @@
-app.controller("profileController", function($scope, usersFactory, $state, $ionicLoading, $interval) {
+app.controller("profileController", function($scope, usersFactory, $state, $ionicLoading) {
     // retrieve firebase authentication object
     var authObj = usersFactory.getAuthObj();
 
     // on page enter,
     $scope.$on('$ionicView.beforeEnter', function() {
         $scope.data = usersFactory.returnProfile();
-
-        if ($scope.data.last_name == null) {
-            $ionicLoading.show({
-                template: '<ion-spinner></ion-spinner><br>Loading...'
-            });
-        }
-
         $scope.data.edit = false;
         $scope.data.topRight = "Edit";
         $scope.data.topLeft = "Main";
@@ -20,18 +13,12 @@ app.controller("profileController", function($scope, usersFactory, $state, $ioni
         $scope.data.passwordLabel = "Password";
         $scope.data.oldPassword = "password";
         $scope.data.error = "";
-
-        var loading = $interval(function() {
-            if ($scope.data.last_name != null) {
-                $ionicLoading.hide();
-                $interval.cancel(loading);
-            }
-        }, 250);
-    })
+    });
 
     // logout method
     $scope.logout = function() {
-        authObj.$unauth();
+        facebookConnectPlugin.logout();
+        usersFactory.unauth();
         $state.go("login");
     };
 
@@ -50,10 +37,6 @@ app.controller("profileController", function($scope, usersFactory, $state, $ioni
     };
 
     $scope.editOrSave = function() {
-        if($scope.data.edit && !$scope.data.edited && !$scope.data.changePassword) {
-            return;
-        }
-
         $scope.data.edit = !$scope.data.edit;
         if ($scope.data.edit) {
             $scope.data.topRight = "Done";
@@ -78,6 +61,7 @@ app.controller("profileController", function($scope, usersFactory, $state, $ioni
                     $ionicLoading.show({
                         template: '<ion-spinner></ion-spinner><br>Loading...'
                     });
+                    //usersFactory.changePassword();
                     authObj.$changePassword({
                         email: $scope.data.email,
                         oldPassword: $scope.data.oldPassword,
@@ -95,7 +79,6 @@ app.controller("profileController", function($scope, usersFactory, $state, $ioni
                         $scope.data.topLeft = "Cancel";
                         $scope.data.error = "Incorrect old password!";
                         $ionicLoading.hide();
-                        return;
                     });
                 } else {
                     $scope.data.edit = true;

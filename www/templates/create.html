@@ -1,14 +1,14 @@
 <ion-view view-title="create" nav-direction="forward">
-    <ion-content class="centerHorizontal col-75 padding" style="top: 9%">
+    <ion-content class="centerHorizontal col-75 padding" style="top: 6%">
         <h1 class="themeColor">Update Profile</h1>
         <div class="list">
-            <div style="text-align: left; padding: 15px 0px 5px 0px" ng-hide="hideEmail">Email:</div>
-            <label class="item item-input" style="padding: 1px 0px 1px 10px" ng-hide="hideEmail">
+            <div style="text-align: left; padding: 15px 0px 5px 0px" ng-hide="data.hideEmail">Email:</div>
+            <label class="item item-input" style="padding: 1px 0px 1px 10px" ng-hide="data.hideEmail">
                 <input type="text" value="{{data.email}}" disabled="true">
             </label>
 
-            <div style="text-align: left; padding: 15px 0px 5px 0px" ng-hide="hidePassword">Password:</div>
-            <label class="item item-input" style="padding: 1px 0px 1px 10px" ng-hide="hidePassword">
+            <div style="text-align: left; padding: 15px 0px 5px 0px" ng-hide="data.hidePassword">Password:</div>
+            <label class="item item-input" style="padding: 1px 0px 1px 10px" ng-hide="data.hidePassword">
                 <input type="password" ng-model="data.password" ng-enter="create()">
             </label>
 
@@ -27,7 +27,8 @@
                 <input type="text" value="{{data.gender}}" ng-model="data.gender" ng-enter="create()">
             </label>
         </div>
-        <div style="color: #ff6ed5; text-align: center; margin-top: -10px">{{error}}</div>
-        <button class="button-block button-theme" style="margin-top: 10px" ng-click="create()">Save</button>
+        <div class="themeColor" style="text-align: center; margin-top: -10px">{{data.error}}</div>
+        <button class="button-block button-theme" style="margin-top: 10px" ng-click="createUser()">Save</button>
+        <button class="button-block button-theme" style="margin-top: 10px" ng-click="cancel()">Cancel</button>
     </ion-content>
 </ion-view>

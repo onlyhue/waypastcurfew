@@ -75,7 +75,7 @@ app.controller("songsController", function($scope, songsFactory, $q, $timeout, $
         }
 
         return defer.promise;
-    }
+    };
 
     //songs assignment
     for (i = 0; i < $scope.songsList.length; i++) {
@@ -98,11 +98,11 @@ app.controller("songsController", function($scope, songsFactory, $q, $timeout, $
 
     $scope.isLoaded = function(id) {
         return $scope.songs[id].isLoaded;
-    }
+    };
 
     $scope.isMuted = function (id) {
         return $scope.songs[id].isMuted;
-    }
+    };
 
     $scope.muteUnmute = function(id) {
         if ($scope.songs[id].isMuted) {
@@ -129,7 +129,7 @@ app.controller("songsController", function($scope, songsFactory, $q, $timeout, $
         } else {
             $scope.songs[id].volume = $scope.data.volume / 100 * $scope.data.volumePercent[id] / 100;
         }
-    }
+    };
 
     $scope.volumeChangeAll = function() {
         if (isApp) {
@@ -141,7 +141,7 @@ app.controller("songsController", function($scope, songsFactory, $q, $timeout, $
                 $scope.songs[id].volume = $scope.data.volume / 100 * $scope.data.volumePercent[id] / 100;
             }
         }
-    }
+    };
 
     $scope.positionChange = function() {
         if (isApp) {
@@ -153,7 +153,7 @@ app.controller("songsController", function($scope, songsFactory, $q, $timeout, $
                 $scope.songs[id].currentTime = $scope.data.position / 1000;
             }
         }
-    }
+    };
 
     $scope.playPauseAll = function() {
         for (var id in $scope.songs) {
@@ -180,7 +180,7 @@ app.controller("songsController", function($scope, songsFactory, $q, $timeout, $
         } else {
             $interval.cancel($scope.data.one);
         }
-    }
+    };
 
     $scope.stopAll = function() {
         if (isApp) {
@@ -197,7 +197,7 @@ app.controller("songsController", function($scope, songsFactory, $q, $timeout, $
             $scope.songs[id].isPlaying = false;
         }
         $scope.data.isPlayingAll = false;
-    }
+    };
 
     document.getElementById("lyrics").innerHTML = "Only you can make this world seem right\n\
                                                     Only you can make the darkness bright\n\

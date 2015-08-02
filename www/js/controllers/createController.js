@@ -1,46 +1,52 @@
 app.controller("createController", function($scope, usersFactory, $state) {
-    // retrieve firebase reference + authentication object
-    var ref = usersFactory.getRef();
-    var authObj = usersFactory.getAuthObj();
-
     // on page enter, prepare page based on facebook or email account
     $scope.$on('$ionicView.beforeEnter', function() {
+        // retrieve profile
         $scope.data = usersFactory.returnProfile();
-        if ($scope.data.password == null) {
-            // facebook account, capitalize first letter of gender
-            $scope.data.gender = $scope.data.gender.charAt(0).toUpperCase() + $scope.data.gender.slice(1);
-        } else {
+        // check if password already entered
+        if ($scope.data.password != null) {
             // email account, hide email and password fields
-            $scope.hideEmail = true;
-            $scope.hidePassword = true;
+            $scope.data.hideEmail = true;
+            $scope.data.hidePassword = true;
+        } else {
+            // facebook account, show email and password fields
+            $scope.data.hideEmail = false;
+            $scope.data.hidePassword = false;
         }
-    })
+    });
 
     // create account method
-    $scope.create = function() {
-        if ($scope.data.first_name == "" || $scope.data.first_name == null || $scope.data.last_name == "" || $scope.data.last_name == null || $scope.data.gender == "" || $scope.data.gender == null) {
-            $scope.error = "Please complete all fields!";
+    $scope.createUser = function() {
+        // check if all fields are completed
+        if ($scope.data.first_name == "" || $scope.data.first_name == null ||
+            $scope.data.last_name == "" || $scope.data.last_name == null ||
+            $scope.data.gender == "" || $scope.data.gender == null ||
+            $scope.data.password == "" || $scope.data.password == null) {
+            // incomplete field(s), display error message
+            $scope.data.error = "Please complete all fields!";
         } else {
-            authObj.$createUser({
-                email: $scope.data.email,
-                password: $scope.data.password
-            }).then(function (userData) {
-                // login to firebase
-                return authObj.$authWithPassword({
-                    email: $scope.data.email,
-                    password: $scope.data.password
-                });
-            }).then(function (authData) {
-                // account successfully logged in, set profile
-                usersFactory.setProfile($scope.data.email, $scope.data.first_name, $scope.data.last_name, $scope.data.gender, $scope.data.picture, null);
-                // push profile to firebase
+            // all fields are complete, create account
+            usersFactory.createUser().then(function() {
+                // success, push profile and go to main page
                 usersFactory.pushProfile();
-                // go to main page
                 $state.go("main");
-            }).catch(function (error) {
-                // error (most likely invalid password), display error message
-                $scope.error = "Invalid password!";
-            })
+            }, function(error) {
+                // error, display error message
+                $scope.data.error = "An error occured!";
+                console.log(error);
+            });
         }
+    };
+
+    // on page leave, clear variables
+    $scope.$on('$ionicView.leave', function() {
+        // clear variables
+        $scope.data = {};
+    });
+
+    // cancel account creation
+    $scope.cancel = function() {
+        usersFactory.unauth();
+        $state.go("login");
     }
 });

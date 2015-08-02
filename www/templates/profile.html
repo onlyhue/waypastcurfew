@@ -42,7 +42,7 @@
         </div>
         <div class="col-75 centerHorizontal" style="margin-top: 20px">
             <div class="themeColor" style="margin-top: -20px; padding: 10px;">{{data.error}}</div>
-            <button class="button-block ion-person button-theme" nav-direction="forward" ng-click="logout()"> Logout</button>
+            <button class="button-block ion-person button-theme" nav-direction="forward" ng-click="logout()" ng-show="!data.edit"> Logout</button>
         </div>
     </ion-content>
 </ion-view>

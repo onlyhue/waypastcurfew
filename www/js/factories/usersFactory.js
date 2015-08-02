@@ -1,38 +1,12 @@
-app.factory("usersFactory", function($firebaseAuth) {
+app.factory("usersFactory", function($firebaseAuth, $q) {
     // initiate firebase reference + authentication object
     var ref = new Firebase("https//incandescent-heat-862.firebaseIO.com/users");
     var authObj = $firebaseAuth(ref);
 
-    // user profile data
+    // initialize user profile data object
     var data = {};
-    data.email;
-    data.first_name;
-    data.last_name;
-    data.gender;
-    data.picture;
-    data.password;
 
-    // refresh user profile on restart
-    if (authObj.$getAuth() != null) {
-        try {
-            // facebook account logged in
-            data.email = authObj.$getAuth().facebook.email;
-        } catch (error) {
-            // email account logged in
-            data.email = authObj.$getAuth().password.email;
-        }
-
-        // update user profile with firebase data
-        ref.child(data.email.replace(/\./g, '')).once("value", function(snapshot) {
-            var profile = snapshot.val();
-            if (profile != null) {
-                data.first_name = profile.first_name;
-                data.last_name = profile.last_name;
-                data.gender = profile.gender;
-                data.picture = profile.picture;
-            }
-        })
-    }
+    var listener;
 
     // factory methods
     return {
@@ -44,20 +18,10 @@ app.factory("usersFactory", function($firebaseAuth) {
             return authObj;
         },
 
-        // checks for existing email in firebase
         checkEmail: function(email, callback) {
             ref.child(email.replace(/\./g, '')).once("value", function(snapshot) {
                 callback(snapshot.val() == null);
             })
-        },
-
-        setProfile: function(email, firstName, lastName, gender, picture, password) {
-            data.email = email;
-            data.first_name = firstName;
-            data.last_name = lastName;
-            data.gender = gender;
-            data.picture = picture;
-            data.password = password;
         },
 
         returnProfile: function() {
@@ -66,14 +30,7 @@ app.factory("usersFactory", function($firebaseAuth) {
 
         pullProfile: function(email) {
             ref.child(email.replace(/\./g, '')).once("value", function(snapshot) {
-                var profile = snapshot.val();
-                if (profile != null) {
-                    data.email = email;
-                    data.first_name = profile.first_name;
-                    data.last_name = profile.last_name;
-                    data.gender = profile.gender;
-                    data.picture = profile.picture;
-                }
+                data = snapshot.val();
             })
         },
 
@@ -89,6 +46,92 @@ app.factory("usersFactory", function($firebaseAuth) {
                 picture: data.picture
             };
             ref.child(data.email.replace(/\./g, '')).set(profile);
+        },
+
+        createUser: function() {
+            var deferred = $q.defer();
+            authObj.$createUser({
+                email: data.email,
+                password: data.password
+            }).then(function () {
+                // firebase account created, log in to firebase
+                authObj.$authWithPassword({
+                    email: data.email,
+                    password: data.password
+                });
+            }).then(function () {
+                // firebase account logged in, resolve promise
+                deferred.resolve();
+            }).catch(function (error) {
+                // error occurred, reject promise
+                deferred.reject(error);
+            });
+            return deferred.promise;
+        },
+
+        loginEmail: function(email, password) {
+            var deferred = $q.defer();
+            // firebase login with password
+            authObj.$authWithPassword({
+                email: email,
+                password: password
+            }).then(function() {
+                deferred.resolve();
+            }).catch(function(error) {
+                deferred.reject(error);
+            });
+            return deferred.promise;
+        },
+
+        setProfile: function(email, first_name, last_name, gender, picture, password) {
+            data.email = email;
+            data.first_name = first_name;
+            data.last_name = last_name;
+            data.gender = gender;
+            data.picture = picture;
+            data.password = password;
+        },
+
+        loginFacebook: function(token) {
+            var deferred = $q.defer();
+            authObj.$authWithOAuthToken("facebook", token, function(error, authData) {
+                if (error) {
+                    deferred.reject(error);
+                } else {
+                    deferred.resolve(authData);
+                }
+            });
+            return deferred.promise;
+        },
+
+        registerListener: function() {
+            var deferred = $q.defer();
+            listener = authObj.$onAuth(function(authData) {
+                if (authData != null && authData.facebook != null) {
+                    deferred.resolve(authData);
+                }
+            });
+            return deferred.promise;
+        },
+
+        unregisterListener: function() {
+            listener();
+        },
+
+        resetPassword: function(email) {
+            var deferred = $q.defer();
+            authObj.$resetPassword({
+                email: email
+            }).then(function() {
+                deferred.resolve();
+            }).catch(function(error) {
+                deferred.reject(error);
+            });
+            return deferred.promise;
+        },
+
+        unauth: function() {
+            authObj.$unauth();
         }
     };
 });

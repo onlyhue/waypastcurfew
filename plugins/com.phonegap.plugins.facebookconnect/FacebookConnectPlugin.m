@@ -267,7 +267,7 @@
     
     // save the callbackId for the login callback
     self.loginCallbackId = command.callbackId;
-    
+
     // Check if the session is open or not
     if (FBSession.activeSession.isOpen) {
         // Reauthorize if the session is already open.
