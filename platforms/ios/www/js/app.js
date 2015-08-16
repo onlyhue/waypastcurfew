@@ -29,12 +29,6 @@ var app = angular.module("starter", ["ionic", "firebase", "ngCordova"])
                 controller: 'mainController'
             })
 
-            .state('profile', {
-                url: '/profile',
-                templateUrl: 'templates/profile.html',
-                controller: 'profileController'
-            })
-
             .state('create', {
                 url: '/create',
                 templateUrl: 'templates/create.html',
@@ -57,6 +51,42 @@ var app = angular.module("starter", ["ionic", "firebase", "ngCordova"])
                 url: '/songs',
                 templateUrl: 'templates/songs.html',
                 controller: 'songsController'
+            })
+
+            .state('aboutWPC', {
+                url: '/aboutWPC',
+                templateUrl: 'templates/aboutWPC.html',
+                controller: 'aboutWPCController'
+            })
+
+            .state('myGroups', {
+                url: '/myGroups',
+                templateUrl: 'templates/myGroups.html',
+                controller: 'myGroupsController'
+            })
+
+            .state('myAccount', {
+                url: '/myAccount',
+                templateUrl: 'templates/myAccount.html',
+                controller: 'myAccountController'
+            })
+
+            .state('voteSong', {
+                url: '/voteSong',
+                templateUrl: 'templates/voteSong.html',
+                controller: 'voteSongController'
+            })
+
+            .state('feedback', {
+                url: '/feedback',
+                templateUrl: 'templates/feedback.html',
+                controller: 'feedbackController'
+            })
+
+            .state('upgrades', {
+                url: '/upgrades',
+                templateUrl: 'templates/upgrades.html',
+                controller: 'upgradesController'
             });
 
         $urlRouterProvider.otherwise('/login');

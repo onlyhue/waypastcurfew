@@ -3,6 +3,7 @@ app.factory("songsFactory", function($firebaseObject) {
     var ref;
     var firebaseObj;
     var userID;
+    var clientFirebaseObj;
 
     return {
         assignRef: function(theUserID) {
@@ -13,6 +14,12 @@ app.factory("songsFactory", function($firebaseObject) {
         getFirebaseObj: function() {
             firebaseObj = $firebaseObject(ref);
             return firebaseObj;
+        },
+
+        getClientFirebaseObj: function() {
+            var clientRef = new Firebase("https//incandescent-heat-862.firebaseIO.com/songs/imustnotbeknown@hotmailcom");
+            clientFirebaseObj = $firebaseObject(clientRef);
+            return clientFirebaseObj;
         },
 
         getUserID: function() {

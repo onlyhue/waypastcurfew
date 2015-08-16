@@ -1,0 +1,107 @@
+<ion-view view-title="myAccount" nav-transition="none">
+    <!-- header bar -->
+    <div class="row" style="border: none; height: 10%; padding: 0px; margin: 0px; background: #19BFEF;">
+        <div class="container" style="border: none">
+            <div class="div1" style="background: white;" ng-click="main()"></div>
+            <div class="div2" style="background: #19BFEF;"></div>
+        </div>
+        <div class="col col-20" style="padding: 0px; margin-left: 62%; text-align: center; height:100%;">
+            <div class="row" style="height: 50%; margin-top: 30%;">
+                <button style="color: white; background: #19bfef; border: none; text-decoration: underline;" ng-click="editOrCancel()">{{data.topRight}}</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- body -->
+    <div class="list" style="height: 85%; padding: 0px; margin: 0px; background: #19BFEF;">
+        <!-- First Name -->
+        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;">
+            <p style="font-size: 115%; font-weight: 500; color: white;">
+                First Name
+            </p>
+        </div>
+        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;">
+            <input type="text" style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;" ng-model="data.first_name" ng-change="nameEdited()" ng-readonly="!data.edit">
+        </div>
+
+        <!-- Last Name -->
+        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;">
+            <p style="font-size: 115%; font-weight: 500; color: white;">
+                Last Name
+            </p>
+        </div>
+        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;">
+            <input type="text" style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;" ng-model="data.last_name" ng-change="nameEdited()" ng-readonly="!data.edit">
+        </div>
+
+        <!-- Email Address -->
+        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;">
+            <p style="font-size: 115%; font-weight: 500; color: white;">
+                Email Address
+            </p>
+        </div>
+        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;">
+            <input style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;" ng-model="data.email" readonly>
+        </div>
+
+        <!-- Logout button -->
+        <div style="position: absolute; top: 47%; left: 40%; height: 5%; width: 20%;" ng-hide="data.edit" ng-click="logout()">
+            <button style="height: 100%; width: 100%; background: white; color: #19bfef; border: none; border-radius: 5px;">Logout</button>
+        </div>
+
+        <!-- Old Password -->
+        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;" ng-show="data.edit">
+            <p style="font-size: 115%; font-weight: 500; color: white;">
+                Old Password
+            </p>
+        </div>
+        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;" ng-show="data.edit">
+            <input type="password" style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;" ng-model="data.oldPassword" ng-change="passwordChanged()" ng-readonly="!data.edit">
+        </div>
+
+        <!-- New Password -->
+        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;" ng-show="data.edit">
+            <p style="font-size: 115%; font-weight: 500; color: white;">
+                New Password
+            </p>
+        </div>
+        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;" ng-show="data.edit">
+            <input type="password" style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;"  ng-model="data.newPassword" ng-change="passwordChanged()" ng-readonly="!data.edit">
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;" ng-show="data.edit">
+            <p style="font-size: 115%; font-weight: 500; color: white;">
+                Confirm Password
+            </p>
+        </div>
+        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;" ng-show="data.edit">
+            <input type="password" style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;" ng-model="data.confirmPassword" ng-change="passwordChanged()" ng-readonly="!data.edit">
+        </div>
+
+        <div class="row" style="height: 5%; margin-top: -4%; padding: 0px; text-align: center;">
+            <div class="col" style="padding: 0px; margin-top: -1%; color: white;">{{data.error}}</div>
+        </div>
+
+        <!-- Submit button -->
+        <div style="height: 40%; text-align: center; padding: 0%;" ng-show="data.edit">
+            <button style="font-size: 90%; height: 14%; width: 20%;background: white; color: #19bfef; border: none; border-radius: 5px;" ng-click="save()">Save</button>
+        </div>
+    </div>
+
+    <!-- footer tabs -->
+    <div class="row" style="height: 5%; padding: 0px; margin-bottom: 5px;">
+        <button class="col accountActiveTab">
+            My Account
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="voteSong">
+            Vote Song
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="feedback">
+            Feedback
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="upgrades">
+            Upgrades
+        </button>
+    </div>
+</ion-view>

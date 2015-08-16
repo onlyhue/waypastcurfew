@@ -1,7 +1,21 @@
 app.controller("songsController", function($scope, $state, songsFactory, tracksFactory, $ionicModal) {
     // initialize data object
     $scope.data = {};
-    $scope.data.availableSongs = songsFactory.getFirebaseObj();
+    $scope.data.availableSongs = {};
+    $scope.data.clientSongs = songsFactory.getClientFirebaseObj();
+    $scope.data.clientSongs.$loaded().then(function(data) {
+        angular.forEach(data, function(value, key) {
+            $scope.data.availableSongs[key] = value;
+            $scope.data.availableSongs[key].uploader = "imustnotbeknown@hotmailcom";
+        })
+    });
+    $scope.data.ownSongs = songsFactory.getFirebaseObj();
+    $scope.data.ownSongs.$loaded().then(function(data) {
+        angular.forEach(data, function(value, key) {
+            $scope.data.availableSongs[key] = value;
+            $scope.data.availableSongs[key].uploader = songsFactory.getUserID();
+        })
+    });
     angular.forEach($scope.data.availableSongs, function(value, key) {
         $scope.data.availableSongs[key].downloaded = false;
     });
@@ -25,7 +39,9 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
             $scope.data.song.stop();
             $scope.data.song.release();
         } else {
-            $scope.data.song.pause();
+            if ($scope.data.song != null) {
+                $scope.data.song.pause();
+            }
         }
         $scope.data.song = null;
     });
@@ -45,7 +61,7 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
             delete $scope.data.availableSongs[key];
             delete $scope.data.songs[key];
         } else {
-            tracksFactory.assignRef(songsFactory.getUserID().replace(/\./g, ''), key, song);
+            tracksFactory.assignRef(song.uploader, key, song);
             $state.go("tracks");
         }
     };
@@ -90,7 +106,7 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
     $scope.preview = function() {
         if ($scope.data.song == null) {
             if (isApp) {
-                $scope.data.song = new Media($scope.data.selectedSong.url, mediaSuccess, null, mediaStatus, i);
+                $scope.data.song = new Media($scope.data.selectedSong.url, null, null, null, 0);
             } else {
                 $scope.data.song = new Audio($scope.data.selectedSong.url);
             }
