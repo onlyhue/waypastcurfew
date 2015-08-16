@@ -20,6 +20,36 @@
     src: url('Magna.ttf');
 }
 
+@font-face {
+    font-family: 'Calibri Light';
+    src: url('Calibril.ttf');
+}
+
+@font-face {
+    font-family: 'Nexa Light';
+    src: url('Nexa Light.otf');
+}
+
+@font-face {
+    font-family: 'Nexa Bold';
+    src: url('Nexa Bold.otf');
+}
+
+@font-face {
+    font-family: 'Aller Light';
+    src: url('Aller_Lt.ttf');
+}
+
+@font-face {
+    font-family: 'Aller';
+    src: url('Aller_Rg.ttf');
+}
+
+@font-face {
+    font-family: 'Aller Bold';
+    src: url('Aller_Bd.ttf');
+}
+
 .mainButton {
     border: 2px solid;
     height: 100%;

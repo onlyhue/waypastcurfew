@@ -7,7 +7,7 @@
         </div>
         <div class="col col-offset-10" style="height: 100%; padding: 0px; background: white;">
             <div class="row" style="height: 100%;">
-                <input type="text" placeholder="Search" ng-model="data.search" ng-change="search()" style="width: 65%; margin-left: -2%; border: 1px solid #19bfef; border-radius: 5px; height: 50%; margin-top: 5%; -webkit-appearance: none;">
+                <input type="text" placeholder="SEARCH" ng-model="data.search" ng-change="search()" style="width: 65%; margin-left: -2%; border: 1px solid #19bfef; border-radius: 5px; height: 50%; margin-top: 5%; -webkit-appearance: none;">
             </div>
         </div>
     </div>
@@ -15,9 +15,9 @@
     <!-- body -->
     <ion-scroll class="list" style="height: 80%; margin: 0px; padding: 10px;">
         <div class="row song" style="margin-bottom: 5px; padding: 5px 0px;" ng-repeat="(key, song) in data.songs">
-            <div class="col col-75" style="padding-left: 10%;" ng-click="details(key)">
-                <span>{{song.title}}</span><br>
-                <span style="font-size: 75%">{{song.artist}} | {{song.genre}}</span>
+            <div class="col col-75" style="padding-left: 10%" ng-click="details(key)">
+                <span style="font-size: 130%; font-family: Calibri Light;">{{song.title | uppercase}}</span><br>
+                <span style="font-size: 75%; font-family: Calibri Light">{{song.artist}} | {{song.genre}}</span>
             </div>
             <div class="col col-25" style="margin-left: 3%;">
                 <button class="songCircle" ng-class="{'downloadButtonOffset ion-ios-download-outline': data.available, 'ion-ios-play': data.downloaded}" ng-class-odd="'oddRowSongButton'" ng-class-even="'evenRowSongButton'" ng-click="downloadOrPlay(key, song)"></button>
@@ -26,15 +26,15 @@
     </ion-scroll>
 
     <!-- filter tab -->
-    <div class="list" style="height: 10%; padding: 5px 0px;">
+    <div class="list" style="height: 10%; padding: 3px 0px;">
         <div class="row" style="height: 40%; padding: 0px; margin-bottom: 5px; text-align: center;">
-            <div class="col" style="padding: 0px; color: #19BFEF;">Showing</div>
+            <div class="col" style="padding: 0px; color: #19BFEF; font-family: Aller Light; font-size: 75%;">SHOWING</div>
         </div>
         <div class="row" style="height: 60%; padding: 0px; margin-bottom: 5px;">
-            <button class="col col-33" ng-class="{'songsFilterSelected': data.available, 'songsFilterUnselected': data.downloaded}" style="font-size: 80%; height: 70%; margin-left: 17%; border: none;" ng-click="available()">
+            <button class="col col-33" ng-class="{'songsFilterSelected': data.available, 'songsFilterUnselected': data.downloaded}" style="font-size: 80%; height: 70%; margin-left: 17%; border: none; font-family: Aller Light; font-size: 75%;" ng-click="available()">
                 AVAILABLE
             </button>
-            <button class="col col-33" ng-class="{'songsFilterSelected': data.downloaded, 'songsFilterUnselected': data.available}" style="font-size: 80%; height: 70%; border: none;" ng-click="downloaded()">
+            <button class="col col-33" ng-class="{'songsFilterSelected': data.downloaded, 'songsFilterUnselected': data.available}" style="font-size: 80%; height: 70%; border: none; font-family: Aller Light; font-size: 75%;" ng-click="downloaded()">
                 DOWNLOADED
             </button>
         </div>
