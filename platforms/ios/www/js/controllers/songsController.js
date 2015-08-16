@@ -1,228 +1,100 @@
-app.controller("songsController", function($scope, songsFactory, $q, $timeout, $interval) {
-    $scope.songsList = songsFactory;
-    $scope.songs = {};
+app.controller("songsController", function($scope, $state, songsFactory, tracksFactory, $ionicModal) {
+    // initialize data object
     $scope.data = {};
-    $scope.data.volume = 100;
-    $scope.data.volumePercent = {};
-    $scope.data.volumePercentTemp = {};
-    $scope.data.position = 0;
-    $scope.data.duration = 0;
-    $scope.data.isPlayingAll = false;
-
+    $scope.data.availableSongs = songsFactory.getFirebaseObj();
+    angular.forEach($scope.data.availableSongs, function(value, key) {
+        $scope.data.availableSongs[key].downloaded = false;
+    });
+    $scope.data.downloadedSongs = {};
+    $scope.data.songs = $scope.data.availableSongs;
+    $scope.data.search = "";
+    $scope.data.available = true;
+    $scope.data.downloaded = false;
     var isApp = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+    $scope.data.song;
 
-    var mediaSuccess = function(id, status) {
-        $scope.$apply(function() {
-            $scope.songs[id].isLoaded = true;
-            if (isApp) {
-                $scope.data.duration = Math.floor($scope.songs[id].getDuration() * 1000);
+    $ionicModal.fromTemplateUrl('templates/songOverlay.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.modal = modal;
+    });
+
+    $scope.$on('modal.hidden', function() {
+        if (isApp) {
+            $scope.data.song.stop();
+            $scope.data.song.release();
+        } else {
+            $scope.data.song.pause();
+        }
+        $scope.data.song = null;
+    });
+
+    $scope.hide = function() {
+        $scope.modal.hide();
+    }
+
+    $scope.details = function(key) {
+        $scope.modal.show();
+        $scope.data.selectedSong = $scope.data.songs[key];
+    };
+
+    $scope.downloadOrPlay = function(key, song) {
+        if ($scope.data.available) {
+            $scope.data.downloadedSongs[key] = angular.copy($scope.data.songs[key]);
+            delete $scope.data.availableSongs[key];
+            delete $scope.data.songs[key];
+        } else {
+            tracksFactory.assignRef(songsFactory.getUserID().replace(/\./g, ''), key, song);
+            $state.go("tracks");
+        }
+    };
+
+    $scope.search = function() {
+        if ($scope.data.songsTemp != null) {
+            $scope.data.songs = $scope.data.songsTemp;
+        }
+        $scope.data.songsTemp = angular.copy($scope.data.songs);
+        $scope.data.songs = {}
+        angular.forEach($scope.data.songsTemp, function(value, key) {
+            if (key.indexOf($scope.data.search.toLowerCase()) != -1 || value.genre.toLowerCase().indexOf($scope.data.search.toLowerCase()) != -1) {
+                $scope.data.songs[key] = angular.copy($scope.data.songsTemp[key]);
             }
         });
     };
 
-    var mediaStatus = function(id, status) {
-        if (status == 4) {
-            $scope.$apply(function() {
-                $scope.songs[id].isPlaying = false;
-                $scope.data.position = 0;
-                $scope.data.isPlayingAll = false;
-            });
-        }
+    $scope.available = function() {
+        $scope.data.available = true;
+        $scope.data.downloaded = false;
+        $scope.data.songs = $scope.data.availableSongs;
+        $scope.data.songsTemp = null;
+        $scope.search();
     };
 
-    $scope.playPause = function(id) {
-        if ($scope.songs[id].isPlaying) {
-            $scope.songs[id].isPlaying = false;
-            $scope.songs[id].pause();
-        } else {
-            $scope.songs[id].isPlaying = true;
-            $scope.songs[id].play();
-        }
+    $scope.downloaded = function() {
+        $scope.data.downloaded = true;
+        $scope.data.available = false;
+        $scope.data.songs = $scope.data.downloadedSongs;
+        $scope.data.songsTemp = null;
+        $scope.search();
     };
 
-    $scope.stop = function(id) {
-        if (isApp) {
-            $scope.songs[id].stop();
-        } else {
-            $scope.songs[id].pause();
-            $scope.songs[id].currentTime = 0;
-        }
-        $scope.songs[id].isPlaying = false;
+    $scope.delete = function() {
+        var key = $scope.data.selectedSong.artist.toLowerCase() + " - " + $scope.data.selectedSong.title.toLowerCase();
+        $scope.data.availableSongs[key] = angular.copy($scope.data.selectedSong);
+        delete $scope.data.songs[key];
+        delete $scope.data.downloadedSongs[key];
+        $scope.modal.hide();
     };
 
-    var load = function(song) {
-        var defer = $q.defer();
-
-        if (isApp) {
-            $timeout(function() {
-                $scope.playPause(song.id);
-                $scope.stop(song.id);
-                defer.resolve(song);
-            }, 1000);
-        } else {
-            $scope.playPause(song.id);
-            $scope.stop(song.id);
-            song.addEventListener("ended", function() {
-                $scope.stop(song.id);
-                $scope.data.position = 0;
-                $scope.data.isPlayingAll = false;
-            });
-            song.addEventListener("loadeddata", function () {
-                $scope.songs[song.id].isLoaded = true;
-                $scope.data.duration = Math.floor(song.duration * 1000);
-                defer.resolve(song);
-            })
-        }
-
-        return defer.promise;
-    };
-
-    //songs assignment
-    for (i = 0; i < $scope.songsList.length; i++) {
-        var song;
-
-        if (isApp) {
-            song = new Media($scope.songsList[i].url, mediaSuccess, null, mediaStatus, i)
-        } else {
-            song = new Audio($scope.songsList[i].url);
-            song.id = i;
-        }
-
-        $scope.songs[song.id] = song;
-
-        load($scope.songs[song.id]);
-
-        $scope.songs[song.id].isMuted = false;
-        $scope.data.volumePercent[song.id] = 100;
-    }
-
-    $scope.isLoaded = function(id) {
-        return $scope.songs[id].isLoaded;
-    };
-
-    $scope.isMuted = function (id) {
-        return $scope.songs[id].isMuted;
-    };
-
-    $scope.muteUnmute = function(id) {
-        if ($scope.songs[id].isMuted) {
-            $scope.songs[id].isMuted = false;
+    $scope.preview = function() {
+        if ($scope.data.song == null) {
             if (isApp) {
-                $scope.songs[id].setVolume($scope.data.volumePercentTemp[id] / 100);
+                $scope.data.song = new Media($scope.data.selectedSong.url, mediaSuccess, null, mediaStatus, i);
             } else {
-                $scope.songs[id].muted = false;
+                $scope.data.song = new Audio($scope.data.selectedSong.url);
             }
-        } else {
-            $scope.songs[id].isMuted = true;
-            if (isApp) {
-                $scope.data.volumePercentTemp[id] = $scope.data.volumePercent[id];
-                $scope.songs[id].setVolume(0.0);
-            } else {
-                $scope.songs[id].muted = true;
-            }
+            $scope.data.song.play();
         }
-    };
-
-    $scope.volumeChange = function(id) {
-        if (isApp) {
-            $scope.songs[id].setVolume($scope.data.volume / 100 * $scope.data.volumePercent[id] / 100);
-        } else {
-            $scope.songs[id].volume = $scope.data.volume / 100 * $scope.data.volumePercent[id] / 100;
-        }
-    };
-
-    $scope.volumeChangeAll = function() {
-        if (isApp) {
-            for (var id in $scope.songs) {
-                $scope.songs[id].setVolume($scope.data.volume / 100 * $scope.data.volumePercent[id] / 100);
-            }
-        } else {
-            for (var id in $scope.songs) {
-                $scope.songs[id].volume = $scope.data.volume / 100 * $scope.data.volumePercent[id] / 100;
-            }
-        }
-    };
-
-    $scope.positionChange = function() {
-        if (isApp) {
-            for (var id in $scope.songs) {
-                $scope.songs[id].seekTo($scope.data.position);
-            }
-        } else {
-            for (var id in $scope.songs) {
-                $scope.songs[id].currentTime = $scope.data.position / 1000;
-            }
-        }
-    };
-
-    $scope.playPauseAll = function() {
-        for (var id in $scope.songs) {
-            $scope.playPause(id);
-        }
-
-        $scope.data.isPlayingAll = !$scope.data.isPlayingAll;
-
-        if ($scope.data.isPlayingAll) {
-            $scope.data.seeker = $interval(function() {
-                if (isApp) {
-                    $scope.songs[0].getCurrentPosition(function(position) {
-                        if (position == -1) {
-                            $interval.cancel($scope.data.seeker);
-                        } else {
-                            $scope.data.position = position * 1000;
-                        }
-                        $scope.ha = $scope.data.position;
-                    });
-                } else {
-                    $scope.data.position = $scope.songs[0].currentTime * 1000;
-                }
-            }, 50);
-        } else {
-            $interval.cancel($scope.data.one);
-        }
-    };
-
-    $scope.stopAll = function() {
-        if (isApp) {
-            for (var id in $scope.songs) {
-                $scope.songs[id].stop();
-            }
-        } else {
-            for (var id in $scope.songs) {
-                $scope.songs[id].pause();
-                $scope.songs[id].currentTime = 0;
-            }
-        }
-        for (var id in $scope.songs) {
-            $scope.songs[id].isPlaying = false;
-        }
-        $scope.data.isPlayingAll = false;
-    };
-
-    document.getElementById("lyrics").innerHTML = "Only you can make this world seem right\n\
-                                                    Only you can make the darkness bright\n\
-                                                    Only you and you alone can thrill me like you do\n\
-                                                    And fill my heart with love for only you\n\
-                                                    \n\
-                                                    Only you can make this change in me\n\
-                                                    For it's true, you are my destiny\n\
-                                                    When you hold my hand I understand the magic that you do\n\
-                                                    You're my dream come true, my one and only you\n\
-                                                    \n\
-                                                    Only you can make this change in me\n\
-                                                    For it's true, you are my destiny\n\
-                                                    When you hold my hand I understand the magic that you do\n\
-                                                    You're my dream come true, my one and only you\n\
-                                                    \n\
-                                                    (One and only you)".replace(/\n/g, "<br>");
-
-    $scope.records = {};
-    for (i = 1; i < 6; i++) {
-        $scope.records[i] = {};
-        $scope.records[i].selected = false;
-    }
-
-    $scope.recordSelect = function(id) {
-        $scope.records[id].selected = !$scope.records[id].selected;
     }
 });

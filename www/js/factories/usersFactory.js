@@ -107,7 +107,7 @@ app.factory("usersFactory", function($firebaseAuth, $q) {
         registerListener: function() {
             var deferred = $q.defer();
             listener = authObj.$onAuth(function(authData) {
-                if (authData != null && authData.facebook != null) {
+                if (authData != null) {
                     deferred.resolve(authData);
                 }
             });

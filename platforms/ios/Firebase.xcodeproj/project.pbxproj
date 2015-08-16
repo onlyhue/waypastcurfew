@@ -55,6 +55,7 @@
 		B7CC4CBDEECD4C139BE7D327 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 69367752132E43089C7B6D33 /* CDVSplashScreen.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F89FCF9ABDA440779D25D3FC /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D2A2726E394786B40F5D3F /* CDVLogger.m */; };
+		ADCEC26E9CA84C9FAC0D84C7 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B28F8DA38EFD4731B6152444 /* CDVStatusBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,8 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Firebase/config.xml; sourceTree = "<group>"; };
 		F9F103C1B2074B98801A27B8 /* CDVSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSplashScreen.h; path = "cordova-plugin-splashscreen/CDVSplashScreen.h"; sourceTree = "<group>"; };
 		FC08E4311465470BAA1E230C /* CDVFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVFile.h; path = "cordova-plugin-file/CDVFile.h"; sourceTree = "<group>"; };
+		B28F8DA38EFD4731B6152444 /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		A804E88E37C64723912C92E0 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +278,8 @@
 				D7F61F25B71E4ED39325599D /* CDVSound.h */,
 				69367752132E43089C7B6D33 /* CDVSplashScreen.m */,
 				F9F103C1B2074B98801A27B8 /* CDVSplashScreen.h */,
+				B28F8DA38EFD4731B6152444 /* CDVStatusBar.m */,
+				A804E88E37C64723912C92E0 /* CDVStatusBar.h */,
 			);
 			name = Plugins;
 			path = Firebase/Plugins;
@@ -359,7 +364,7 @@
 				LastUpgradeCheck = 510;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = 992355HGU5;
+						DevelopmentTeam = 57FBE3Z9CK;
 					};
 				};
 			};
@@ -475,6 +480,7 @@
 				2166222D6C574F41A53B9FEC /* CDVInAppBrowser.m in Sources */,
 				20F4D638758A4826815515EB /* CDVSound.m in Sources */,
 				B7CC4CBDEECD4C139BE7D327 /* CDVSplashScreen.m in Sources */,
+				ADCEC26E9CA84C9FAC0D84C7 /* CDVStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

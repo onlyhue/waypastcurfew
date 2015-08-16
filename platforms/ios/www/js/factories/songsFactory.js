@@ -1,11 +1,22 @@
-app.factory("songsFactory", function() {
-    var songs = [];
+app.factory("songsFactory", function($firebaseObject) {
+    // set global firebase reference, firebase object and userID
+    var ref;
+    var firebaseObj;
+    var userID;
 
-    songs.push({url: "mp3/Only You 1.mp3"});
-    songs.push({url: "mp3/Only You 2.mp3"});
-    songs.push({url: "mp3/Only You 3.mp3"});
-    songs.push({url: "mp3/Only You 4.mp3"});
-    songs.push({url: "mp3/Only You 5.mp3"});
+    return {
+        assignRef: function(theUserID) {
+            userID = theUserID;
+            ref = new Firebase("https//incandescent-heat-862.firebaseIO.com/songs/" + userID);
+        },
 
-    return songs;
+        getFirebaseObj: function() {
+            firebaseObj = $firebaseObject(ref);
+            return firebaseObj;
+        },
+
+        getUserID: function() {
+            return userID;
+        }
+    };
 });

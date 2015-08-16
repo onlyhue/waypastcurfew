@@ -6,31 +6,38 @@ app.controller("loginController", function($scope, usersFactory, $state, $ionicL
     $scope.$on('$ionicView.beforeEnter', function() {
         // default select mode
         $scope.data.emailSelect = true;
-        // register facebook login listener
+        // register login listener
         usersFactory.registerListener().then(function(authData) {
             $ionicLoading.show({
                 template: '<ion-spinner></ion-spinner><br>Logging in...'
             });
-            // check for existing facebook email in firebase
-            usersFactory.checkEmail(authData.facebook.email.replace(/\./g, ''), function (emailAvailable) {
-                if (emailAvailable) {
-                    // firebase account not created, update profile and go to create page
-                    usersFactory.setProfile(authData.facebook.email,
-                        authData.facebook.cachedUserProfile.first_name,
-                        authData.facebook.cachedUserProfile.last_name,
-                        authData.facebook.cachedUserProfile.gender.charAt(0).toUpperCase() +
-                        authData.facebook.cachedUserProfile.gender.slice(1),
-                        authData.facebook.cachedUserProfile.picture.data.url,
-                        null);
-                    $state.go("create");
-                    $ionicLoading.hide();
-                } else {
-                    // firebase account already created, update profile and go to main page
-                    usersFactory.pullProfile(authData.facebook.email);
-                    $state.go("main");
-                    $ionicLoading.hide();
-                }
-            })
+            if (authData.facebook != null) {
+                // check for existing facebook email in firebase
+                usersFactory.checkEmail(authData.facebook.email.replace(/\./g, ''), function (emailAvailable) {
+                    if (emailAvailable) {
+                        // firebase account not created, update profile and go to create page
+                        usersFactory.setProfile(authData.facebook.email,
+                            authData.facebook.cachedUserProfile.first_name,
+                            authData.facebook.cachedUserProfile.last_name,
+                            authData.facebook.cachedUserProfile.gender.charAt(0).toUpperCase() +
+                            authData.facebook.cachedUserProfile.gender.slice(1),
+                            authData.facebook.cachedUserProfile.picture.data.url,
+                            null);
+                        $state.go("create");
+                        $ionicLoading.hide();
+                    } else {
+                        // firebase account already created, update profile and go to main page
+                        usersFactory.pullProfile(authData.facebook.email);
+                        $state.go("main");
+                        $ionicLoading.hide();
+                    }
+                })
+            } else {
+                // login success, go to main page
+                $state.go("main");
+                usersFactory.pullProfile(authData.password.email);
+                $ionicLoading.hide();
+            }
         })
     });
 
@@ -57,7 +64,7 @@ app.controller("loginController", function($scope, usersFactory, $state, $ionicL
 
     // on page leave, unsubscribe listener + clear variables
     $scope.$on('$ionicView.leave', function() {
-        // unregister facebook login listener
+        // unregister login listener
         usersFactory.unregisterListener();
         // clear variables
         $scope.data = {};
@@ -103,9 +110,7 @@ app.controller("loginController", function($scope, usersFactory, $state, $ionicL
             });
             // attempt firebase login
             usersFactory.loginEmail($scope.data.email, $scope.data.password).then(function () {
-                // login success, go to main page
-                $state.go("main");
-                $ionicLoading.hide();
+                // login success, go to main page (handled by login listener)
             }, function (error) {
                 // login error, display error message
                 $ionicLoading.hide();

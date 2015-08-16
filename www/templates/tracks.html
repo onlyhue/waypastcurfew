@@ -1,0 +1,43 @@
+<ion-view view-title="tracks" cache-view="false">
+    <ion-header-bar class="title bar bar-header" style="background: #005dbb; color: white;">
+        <button class="button icon-left ion-ios-arrow-back button-clear button-dark" style="color: white" ng-click="songsPage()"></button>
+        <h1 class="title" style="color: #ffffff">NOW PLAYING</h1>
+    </ion-header-bar>
+
+    <ion-content class="centerHorizontal" scroll="false">
+        <div style="height: 25%; margin-top: 9px;">
+            <div style="font-size: 100%">{{data.song.title}}<br><div style="font-size:70%">{{data.song.artist}}</div></div>
+            <a class="button button-clear" style="border: none; font-size:20px; color: black;" ng-class="{'ion-play': !data.isPlayingAll, 'ion-pause': data.isPlayingAll}" ng-click="playPauseAll()"></a>
+            <a class="button button-clear ion-stop" style="border: none; font-size:20px; color: black" ng-click="stopAll()"></a>
+            <div class="range">
+                {{data.position | date:'m:ss'}}
+                <input type="range" min="0" max="{{data.duration}}" ng-model="data.position" ng-change="positionChange()">
+                {{data.duration | date:'m:ss'}}
+            </div>
+        </div>
+        <div class="row" style="height: 50%; padding:0px;">
+            <div class="col col-20" style="height: 100%; padding: 0px;">
+                <div class="row" style="height: 20%; padding: 0px; margin-bottom: 5px;" ng-repeat="(id, track) in data.tracks">
+                    <button class="button button-stable" ng-class="{'ion-ios-volume-low': track.isMuted, 'ion-ios-volume-high': !track.isMuted}" ng-click="muteUnmute(id)" style="margin: auto;"></button>
+                </div>
+            </div>
+            <ion-content scroll="true" style="position: relative; padding: 10px">
+                <div class="col col-60" id="lyrics">
+                </div>
+            </ion-content>
+            <div class="col col-20" style="height: 100%; padding: 0px;">
+                <div class="row" style="height: 20%; padding: 0px; margin-bottom: 5px;" ng-repeat="(id, record) in data.records">
+                    <button class="recordCircle" ng-class="{'recordFill': data.records[id].selected}" ng-click="recordSelect(id)" style="margin:auto;">{{id}}</button>
+                </div>
+            </div>
+        </div>
+        <div style="height: 25%;">
+            <div class="row" style="height:100%;">
+                <button class="button button-positive" style="height: 75%; width: 75%; margin: auto;">
+                    <p style="margin: 0px;">RECORD</p>
+                    <p style="font-size: 14px; margin: 0px;">Coming soon!</p>
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

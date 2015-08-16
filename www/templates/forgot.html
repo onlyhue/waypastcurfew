@@ -2,28 +2,31 @@
     <ion-content>
         <div class="centerHorizontal col-66" style="margin-top: 50%;">
             <!-- title -->
-            <h2 class="centerHorizontal themeColor">Password Reset</h2>
+            <h2 class="centerHorizontal themeColor normalSkyBlue" style="font-size: 50px; font-family: Ebrima">Password Reset</h2>
 
             <!-- subtext -->
-            <div class="themeColor" style="text-align: left; padding: 5px;">
+            <div class="themeColor normalSkyBlue" style="text-align: middle; padding: 5px; font-size: 12px">
                 Enter your email address to reset your password.
             </div>
 
             <!-- login box -->
             <div class="list" style="margin-top: 10px" ng-enter="resetPassword()">
-                <label class="item item-input">
-                    <input type="text" placeholder="Email" ng-model="data.email">
+                <label class="item item-input item-input3">
+                    <input type="text" placeholder="EMAIL" ng-model="data.email">
                 </label>
             </div>
 
             <!-- error text -->
             <div class="themeColor centerHorizontal" style="margin-top: -10px">{{data.error}}</div>
 
-            <!-- submit button -->
-            <button class="button-block button-theme" style="margin-top: 10px" ng-click="resetPassword()">Submit</button>
-
-            <!-- cancel button -->
-            <button class="button-block button-theme" style="margin-top: 10px" ng-click="cancel()">Cancel</button>
+            <div>
+                <div class="row" style="margin-top:10%">
+                    <!-- submit button -->
+                    <div class="col"><button class="button-block button-theme" style="margin-top: 5%; max-width: 100%;" ng-click="resetPassword()">Submit</button></div>
+                    <!-- cancel button -->
+                    <div class="col"><button class="button-block button-theme" style="margin-top: 5%; max-width: 100%;" ng-click="cancel()">Cancel</button></div>
+                </div>
+            </div>
         </div>
     </ion-content>
 </ion-view>

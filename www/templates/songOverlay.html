@@ -1,0 +1,51 @@
+<ion-modal-view style="background: #01273c; color: white; width: 80%; min-height: initial; height: 50%; top: 25%; left: 10%; right: 10%; bottom: 25%;">
+    <!-- cross -->
+    <div class="row" style="height: 10%; margin-bottom: 5px;">
+        <button class="col-10 col-offset-90 ion-close" style="background: none; border: none; color: white" ng-click="hide()"></button>
+    </div>
+
+    <!-- title -->
+    <div class="row" style="height: 20%; margin-bottom: 5px;">
+        <div class="col col-80 col-offset-10" style="border-bottom: 1px solid white; height: 100%; text-align: center; font-size: 7.5vw; padding-top: 8%; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            {{data.selectedSong.title}}
+        </div>
+    </div>
+
+    <!-- artist and key -->
+    <div class="row" style="height: 18%; margin-bottom: 5px;">
+        <div class="col col-40 col-offset-10" style="max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+            <span style="font-weight: bold">Artist</span><br>
+            {{data.selectedSong.artist}}
+        </div>
+        <div class="col col-40">
+            <span style="font-weight: bold">Key</span><br>
+            C
+        </div>
+    </div>
+
+    <!-- label and uploaded -->
+    <div class="row" style="height: 18%; margin-bottom: 5px;">
+        <div class="col col-40 col-offset-10">
+            <span style="font-weight: bold">Label</span><br>
+            {{data.selectedSong.genre}}
+        </div>
+        <div class="col col-40">
+            <span style="font-weight: bold">Uploader</span><br>
+            WayPastCurfew
+        </div>
+    </div>
+
+    <!-- key and preview-->
+    <div class="row" style="height: 30%; margin-bottom: 5px;">
+        <div class="col col-40 col-offset-10">
+            <span style="font-weight: bold">Tracks</span><br>
+            Vocals<br>
+            Instrumentals<br>
+            Harmony<br>
+        </div>
+        <div class="col col-50" style="padding-top: 8%; text-align: center;">
+            <button style="width: 70%; border: none; background: white; border-radius: 5px; font-size: 130%;" ng-click="preview()">Preview</button>
+            <button style="width: 70%; margin-top: 2%; border: none; background: white; border-radius: 5px; font-size: 130%;" ng-show="data.downloaded" ng-click="delete()">Delete</button>
+        </div>
+    </div>
+</ion-modal-view>
