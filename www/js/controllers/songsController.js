@@ -1,19 +1,23 @@
-app.controller("songsController", function($scope, $state, songsFactory, tracksFactory, $ionicModal) {
+app.controller("songsController", function($scope, $state, songsFactory, tracksFactory, usersFactory, $ionicModal) {
     // initialize data object
     $scope.data = {};
     $scope.data.availableSongs = {};
-    $scope.data.clientSongs = songsFactory.getClientFirebaseObj();
+    $scope.data.clientSongs = songsFactory.getClientSongs();
     $scope.data.clientSongs.$loaded().then(function(data) {
+        var clientUID = songsFactory.getClientUID();
         angular.forEach(data, function(value, key) {
             $scope.data.availableSongs[key] = value;
-            $scope.data.availableSongs[key].uploader = "imustnotbeknown@hotmailcom";
+            $scope.data.availableSongs[key].uploader = "WayPastCurfew";
+            $scope.data.availableSongs[key].uid = clientUID;
         })
     });
-    $scope.data.ownSongs = songsFactory.getFirebaseObj();
+    $scope.data.ownSongs = songsFactory.getSongs();
     $scope.data.ownSongs.$loaded().then(function(data) {
+        var uid = songsFactory.getUID();
         angular.forEach(data, function(value, key) {
             $scope.data.availableSongs[key] = value;
-            $scope.data.availableSongs[key].uploader = songsFactory.getUserID();
+            $scope.data.availableSongs[key].uploader = usersFactory.returnProfile().displayName;
+            $scope.data.availableSongs[key].uid = songsFactory.getUID();
         })
     });
     angular.forEach($scope.data.availableSongs, function(value, key) {
@@ -48,7 +52,7 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
 
     $scope.hide = function() {
         $scope.modal.hide();
-    }
+    };
 
     $scope.details = function(key) {
         $scope.modal.show();
@@ -61,7 +65,7 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
             delete $scope.data.availableSongs[key];
             delete $scope.data.songs[key];
         } else {
-            tracksFactory.assignRef(song.uploader, key, song);
+            tracksFactory.pullTracks(song.uid, key, song);
             $state.go("tracks");
         }
     };
@@ -77,6 +81,11 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
                 $scope.data.songs[key] = angular.copy($scope.data.songsTemp[key]);
             }
         });
+    };
+
+    $scope.clear = function() {
+        $scope.data.search = "";
+        $scope.search();
     };
 
     $scope.available = function() {
@@ -112,5 +121,5 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
             }
             $scope.data.song.play();
         }
-    }
+    };
 });

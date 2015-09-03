@@ -36,12 +36,12 @@
 
                 <!-- facebook -->
                 <div ng-show="data.facebookSelect" style="margin-top: 45px; position: absolute; margin-left: auto; margin-right: auto; width: 200%;">
-                    <button class="button-block button-theme" ng-click="loginFB()">Connect with Facebook</button>
+                    <button class="button-block button-theme" ng-click="loginFB()">Login with Facebook</button>
                 </div>
 
                 <!-- create -->
                 <div ng-show="data.createSelect" style="margin-top: 8%; position: absolute; margin-left: auto; margin-right: auto; width: 100%;">
-                    <div class="list" ng-enter="validateEmail()">
+                    <div class="list" ng-enter="createAccount()">
                         <label class="item item-input item-input3">
                             <input type="text" placeholder="EMAIL" ng-model="data.email">
                         </label>
@@ -53,7 +53,7 @@
                         </label>
                     </div>
                     <div class="themeColor centerHorizontal normalSkyBlue" style="margin-top: -10px">{{data.error}}</div>
-                    <button class="button-block button-theme" style="margin-top: 16%; margin-left: 25%" ng-click="validateEmail()">Create Account</button>
+                    <button class="button-block button-theme" style="margin-top: 16%; margin-left: 25%" ng-click="createAccount()">Create Account</button>
                 </div>
             </div>
         </div>

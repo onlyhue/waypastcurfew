@@ -8,10 +8,10 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.phonegap.plugins.facebookconnect/facebookConnectPlugin.js",
-        "id": "com.phonegap.plugins.facebookconnect.FacebookConnectPlugin",
+        "file": "plugins/cordova-plugin-console/www/logger.js",
+        "id": "cordova-plugin-console.logger",
         "clobbers": [
-            "facebookConnectPlugin"
+            "cordova.logger"
         ]
     },
     {
@@ -22,17 +22,53 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-console/www/logger.js",
-        "id": "cordova-plugin-console.logger",
-        "clobbers": [
-            "cordova.logger"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-device/www/device.js",
         "id": "cordova-plugin-device.device",
         "clobbers": [
             "device"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+        "id": "cordova-plugin-splashscreen.SplashScreen",
+        "clobbers": [
+            "navigator.splashscreen"
+        ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.facebookconnect/facebookConnectPlugin.js",
+        "id": "com.phonegap.plugins.facebookconnect.FacebookConnectPlugin",
+        "clobbers": [
+            "facebookConnectPlugin"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "id": "cordova-plugin-statusbar.statusbar",
+        "clobbers": [
+            "window.StatusBar"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-media/www/MediaError.js",
+        "id": "cordova-plugin-media.MediaError",
+        "clobbers": [
+            "window.MediaError"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-media/www/Media.js",
+        "id": "cordova-plugin-media.Media",
+        "clobbers": [
+            "window.Media"
         ]
     },
     {
@@ -180,57 +216,21 @@ module.exports = [
             "cordova"
         ],
         "runs": true
-    },
-    {
-        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-        "id": "cordova-plugin-inappbrowser.inappbrowser",
-        "clobbers": [
-            "cordova.InAppBrowser.open",
-            "window.open"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-media/www/MediaError.js",
-        "id": "cordova-plugin-media.MediaError",
-        "clobbers": [
-            "window.MediaError"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-media/www/Media.js",
-        "id": "cordova-plugin-media.Media",
-        "clobbers": [
-            "window.Media"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-        "id": "cordova-plugin-splashscreen.SplashScreen",
-        "clobbers": [
-            "navigator.splashscreen"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-        "id": "cordova-plugin-statusbar.statusbar",
-        "clobbers": [
-            "window.StatusBar"
-        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "com.ionic.keyboard": "1.0.4",
-    "com.phonegap.plugins.facebookconnect": "0.11.0",
-    "cordova-plugin-console": "1.0.0",
-    "cordova-plugin-device": "1.0.0",
-    "cordova-plugin-file": "2.1.0",
-    "cordova-plugin-inappbrowser": "1.0.0",
-    "cordova-plugin-media": "1.0.1",
-    "cordova-plugin-splashscreen": "2.0.0",
+    "cordova-plugin-console": "1.0.1",
+    "cordova-plugin-device": "1.0.1",
+    "cordova-plugin-splashscreen": "2.1.0",
     "cordova-plugin-whitelist": "1.0.0",
-    "cordova-plugin-statusbar": "1.0.1"
+    "com.phonegap.plugins.facebookconnect": "0.11.0",
+    "cordova-plugin-inappbrowser": "1.0.1",
+    "cordova-plugin-statusbar": "1.0.1",
+    "cordova-plugin-media": "1.0.1",
+    "cordova-plugin-file": "3.0.0"
 }
 // BOTTOM OF METADATA
 });

@@ -5,8 +5,8 @@ app.factory("tracksFactory", function($firebaseArray) {
     var song;
 
     return {
-        assignRef: function(userID, songKey, theSong) {
-            ref = new Firebase("https//incandescent-heat-862.firebaseIO.com/tracks/" + userID + "/" + songKey);
+        pullTracks: function(userID, songKey, theSong) {
+            ref = new Firebase("https//onlyhue.firebaseIO.com/tracks/" + userID + "/" + songKey);
             song = theSong;
         },
 
@@ -17,10 +17,6 @@ app.factory("tracksFactory", function($firebaseArray) {
 
         getSong: function() {
             return song;
-        },
-
-        getLyrics: function() {
-            return song.lyrics;
         }
     };
 });

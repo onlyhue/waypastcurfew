@@ -1,14 +1,12 @@
-app.controller("voteSongController", function($scope, $state, $ionicViewSwitcher, votesFactory, usersFactory) {
+app.controller("voteSongController", function($scope, $state, $ionicViewSwitcher, songsFactory, votesFactory) {
     $scope.data = {};
     var userID;
 
     $scope.$on('$ionicView.beforeEnter', function() {
-        votesFactory.getSongsFirebaseObj().$loaded().then(function(data) {
+        songsFactory.getClientSongs().$loaded().then(function(data) {
             $scope.data.songs = angular.copy(data);
-            userID = usersFactory.returnProfile().email.replace(/\./g, '');
-            votesFactory.assignRef(userID);
-            $scope.data.votes = votesFactory.getVotesFirebaseObj();
-            $scope.data.votes.$loaded().then(function(data) {
+            votesFactory.getVotes().$loaded().then(function(data) {
+                $scope.data.votes = data;
                 angular.forEach($scope.data.votes, function(value, key) {
                     $scope.data.songs[key].selected = value;
                 })

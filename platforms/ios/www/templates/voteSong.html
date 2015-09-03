@@ -13,8 +13,8 @@
             <div class="item" style="padding: 1% 10%; border: none;" ng-repeat="(key, value) in data.songs">
                 <div class="row voteItem">
                     <div class="col col-80" style="color: #19bfef; margin-top: 2%; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                        <span class="voteTitle">{{value.title}}</span> <br/>
-                        {{value.artist}} | {{value.genre}}
+                        <span class="voteTitle" style="font-size: 180%; font-family: Calibri Light;">{{value.title}}</span> <br/>
+                        <span class="voteTitle" style="font-size: 100%; font-family: Calibri Light;">{{value.artist}} | {{value.genre}}</span>
                     </div>
                     <div class="col" style="text-align: center;">
                         <button class="voteCircle" ng-class="{'voteCircleFill': data.songs[key].selected}" ng-click="voteSong(key)"></button>
@@ -26,17 +26,17 @@
 
     <!-- footer nav bar -->
     <div class="row" style="height: 5%; padding: 0px; margin-bottom: 5px;">
-        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="myAccount">
-            My Account
+        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="aboutWPC">
+            About WPC
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="timeline">
+            Timeline
         </button>
         <button class="col accountActiveTab">
-            Vote Song
+            Vote
         </button>
         <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="feedback">
             Feedback
-        </button>
-        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="upgrades">
-            Upgrades
         </button>
     </div>
 </ion-view>

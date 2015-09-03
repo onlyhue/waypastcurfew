@@ -87,6 +87,12 @@ var app = angular.module("starter", ["ionic", "firebase", "ngCordova"])
                 url: '/upgrades',
                 templateUrl: 'templates/upgrades.html',
                 controller: 'upgradesController'
+            })
+
+            .state('timeline', {
+                url: '/timeline',
+                templateUrl: 'templates/timeline.html',
+                controller: 'timelineController'
             });
 
         $urlRouterProvider.otherwise('/login');

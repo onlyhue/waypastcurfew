@@ -10,11 +10,32 @@ app.controller("myAccountController", function($scope, $state, $ionicViewSwitche
     // on page enter,
     $scope.$on('$ionicView.beforeEnter', function() {
         $scope.data = usersFactory.returnProfile();
+        $scope.data.displayNameTemp = angular.copy($scope.data.displayName);
+        $scope.data.emailTemp = angular.copy($scope.data.email);
         $scope.data.edit = false;
         $scope.data.topRight = "Edit";
         $scope.data.nameEdited = false;
+        $scope.data.emailEdited = false;
+        if (authObj.$getAuth().facebook != null) {
+            $scope.data.facebookAccount = true;
+        } else {
+            $scope.data.facebookAccount = false;
+        }
         $scope.data.passwordChanged = false;
         $scope.data.error = "";
+    });
+
+    // on page leave,
+    $scope.$on('$ionicView.leave', function() {
+        $scope.data.displayName = $scope.data.displayNameTemp;
+        $scope.data.email = $scope.data.emailTemp;
+        $scope.data.topRight = "Edit";
+        $scope.data.oldPassword = "";
+        $scope.data.newPassword = "";
+        $scope.data.confirmPassword = "";
+        $scope.data.passwordChanged = false;
+        $scope.data.error = "";
+        $scope.data.edit = false;
     });
 
     // logout method
@@ -28,8 +49,8 @@ app.controller("myAccountController", function($scope, $state, $ionicViewSwitche
 
     $scope.editOrCancel = function() {
         if($scope.data.edit) {
-            $scope.data.first_name = $scope.data.first_nameTemp;
-            $scope.data.last_name = $scope.data.last_nameTemp;
+            $scope.data.displayName = $scope.data.displayNameTemp;
+            $scope.data.email = $scope.data.emailTemp;
             $scope.data.topRight = "Edit";
             $scope.data.oldPassword = "";
             $scope.data.newPassword = "";
@@ -38,8 +59,8 @@ app.controller("myAccountController", function($scope, $state, $ionicViewSwitche
             $scope.data.error = "";
             $scope.data.edit = false;
         } else {
-            $scope.data.first_nameTemp = angular.copy($scope.data.first_name);
-            $scope.data.last_nameTemp = angular.copy($scope.data.last_name);
+            $scope.data.displayNameTemp = angular.copy($scope.data.displayName);
+            $scope.data.emailTemp = angular.copy($scope.data.email);
             $scope.data.topRight = "Cancel";
             $scope.data.edit = true;
             $scope.data.error = "";
@@ -66,9 +87,9 @@ app.controller("myAccountController", function($scope, $state, $ionicViewSwitche
                         usersFactory.pushProfile();
                         $scope.data.nameEdited = false;
                     }
-                    $scope.data.error = "Password changed!";
                     $ionicLoading.hide();
                 }).catch(function(error) {
+                    $scope.data.displayNameTemp = $scope.data.displayName;
                     $scope.data.edit = true;
                     $scope.data.topRight = "Cancel";
                     $scope.data.error = "Incorrect old password!";
@@ -79,9 +100,21 @@ app.controller("myAccountController", function($scope, $state, $ionicViewSwitche
                 $scope.data.error = "Passwords do not match!";
                 return;
             }
-        } else if ($scope.data.nameEdited) {
-            usersFactory.pushProfile();
+        }
+        if ($scope.data.nameEdited || $scope.data.emailEdited) {
+            var re = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b$/;
+            if (!re.test($scope.data.email)) {
+                // invalid email, display error message
+                $scope.data.error = "Invalid email!";
+                return;
+            }
+            if (authObj.$getAuth().facebook != null) {
+                usersFactory.pushProfile(authObj.$getAuth().auth.uid);
+            } else {
+                usersFactory.pushProfile();
+            }
             $scope.data.nameEdited = false;
+            $scope.data.emailEdited = false;
         }
         $scope.data.edit = false;
         $scope.data.topRight = "Edit";
@@ -95,6 +128,10 @@ app.controller("myAccountController", function($scope, $state, $ionicViewSwitche
     $scope.nameEdited = function() {
         $scope.data.nameEdited = true;
     };
+
+    $scope.emailEdited = function() {
+        $scope.data.emailEdited = true;
+    }
 
     $scope.passwordChanged = function() {
         $scope.data.passwordChanged = true;

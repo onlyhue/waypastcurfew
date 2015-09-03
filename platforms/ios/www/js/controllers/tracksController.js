@@ -20,6 +20,8 @@ app.controller("tracksController", function($scope, $q, $timeout, $interval, tra
                         track = new Audio($scope.data.tracksList[i].url);
                     }
                     $scope.data.tracks[i] = track;
+                    $scope.data.tracks[i].icon = $scope.data.tracksList[i].icon;
+                    $scope.data.tracks[i].label = $scope.data.tracksList[i].label;
                     load(track);
                 }
             });
@@ -115,6 +117,7 @@ app.controller("tracksController", function($scope, $q, $timeout, $interval, tra
         track = $scope.data.tracks[id];
         if (track.isMuted) {
             track.isMuted = false;
+            track.opacity = 1.0;
             if (isApp) {
                 track.setVolume(1.0);
             } else {
@@ -122,6 +125,7 @@ app.controller("tracksController", function($scope, $q, $timeout, $interval, tra
             }
         } else {
             track.isMuted = true;
+            track.opacity = 0.25;
             if (isApp) {
                 track.setVolume(0.0);
             } else {

@@ -14,78 +14,68 @@
 
     <!-- body -->
     <div class="list" style="height: 85%; padding: 0px; margin: 0px; background: #19BFEF;">
-        <!-- First Name -->
-        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;">
-            <p style="font-size: 115%; font-weight: 500; color: white;">
-                First Name
+        <!-- Display Name -->
+        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;;">
+            <p style="font-size: 115%; font-weight: 500; color: white; font-family: Nexa Bold">
+                Display Name
             </p>
         </div>
-        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;">
-            <input type="text" style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;" ng-model="data.first_name" ng-change="nameEdited()" ng-readonly="!data.edit">
-        </div>
-
-        <!-- Last Name -->
-        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;">
-            <p style="font-size: 115%; font-weight: 500; color: white;">
-                Last Name
-            </p>
-        </div>
-        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;">
-            <input type="text" style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;" ng-model="data.last_name" ng-change="nameEdited()" ng-readonly="!data.edit">
+        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;;">
+            <input type="text" style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;" ng-model="data.displayName" ng-change="nameEdited()" ng-readonly="!data.edit">
         </div>
 
         <!-- Email Address -->
-        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;">
-            <p style="font-size: 115%; font-weight: 500; color: white;">
+        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;;">
+            <p style="font-size: 115%; font-weight: 500; color: white;  font-family: Nexa Bold">
                 Email Address
             </p>
         </div>
-        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;">
-            <input style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;" ng-model="data.email" readonly>
+        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;;">
+            <input style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;" ng-model="data.email" ng-change="emailEdited()" ng-readonly="!data.edit || !data.facebookAccount">
         </div>
 
         <!-- Logout button -->
-        <div style="position: absolute; top: 47%; left: 40%; height: 5%; width: 20%;" ng-hide="data.edit" ng-click="logout()">
-            <button style="height: 100%; width: 100%; background: white; color: #19bfef; border: none; border-radius: 5px;">Logout</button>
+        <div style="position: absolute; top: 32.3%; left: 39.5%; height: 6%; width: 21%;;" ng-hide="data.edit" ng-click="logout()">
+            <button style="font-size: 80%; font-family: Calibri Light; height: 100%; width: 100%; background: white; color: #19bfef; border: none; border-radius: 5px;">Logout</button>
         </div>
 
         <!-- Old Password -->
-        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;" ng-show="data.edit">
-            <p style="font-size: 115%; font-weight: 500; color: white;">
+        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;;" ng-show="data.edit && !data.facebookAccount">
+            <p style="font-size: 115%; font-weight: 500; color: white;  font-family: Nexa Bold">
                 Old Password
             </p>
         </div>
-        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;" ng-show="data.edit">
+        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;;" ng-show="data.edit && !data.facebookAccount">
             <input type="password" style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;" ng-model="data.oldPassword" ng-change="passwordChanged()" ng-readonly="!data.edit">
         </div>
 
         <!-- New Password -->
-        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;" ng-show="data.edit">
-            <p style="font-size: 115%; font-weight: 500; color: white;">
+        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;;" ng-show="data.edit && !data.facebookAccount">
+            <p style="font-size: 115%; font-weight: 500; color: white; font-family: Nexa Bold">
                 New Password
             </p>
         </div>
-        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;" ng-show="data.edit">
+        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;;" ng-show="data.edit && !data.facebookAccount">
             <input type="password" style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;"  ng-model="data.newPassword" ng-change="passwordChanged()" ng-readonly="!data.edit">
         </div>
 
         <!-- Confirm Password -->
-        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;" ng-show="data.edit">
-            <p style="font-size: 115%; font-weight: 500; color: white;">
+        <div class="row" style="height: 5%; padding: 0% 18%; margin: 0px;;" ng-show="data.edit && !data.facebookAccount">
+            <p style="font-size: 115%; font-weight: 500; color: white;  font-family: Nexa Bold">
                 Confirm Password
             </p>
         </div>
-        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;" ng-show="data.edit">
+        <div class="row" style="height: 10%; padding: 0% 20%; margin: 0px;;" ng-show="data.edit && !data.facebookAccount">
             <input type="password" style="border: none; font-size: 12px; height: 50%; width: 100%; background: white; color: grey; text-align: center;" ng-model="data.confirmPassword" ng-change="passwordChanged()" ng-readonly="!data.edit">
         </div>
 
-        <div class="row" style="height: 5%; margin-top: -4%; padding: 0px; text-align: center;">
+        <div class="row" style="height: 5%; margin-top: -4%; padding: 0px; text-align: center;;">
             <div class="col" style="padding: 0px; margin-top: -1%; color: white;">{{data.error}}</div>
         </div>
 
         <!-- Submit button -->
-        <div style="height: 40%; text-align: center; padding: 0%;" ng-show="data.edit">
-            <button style="font-size: 90%; height: 14%; width: 20%;background: white; color: #19bfef; border: none; border-radius: 5px;" ng-click="save()">Save</button>
+        <div style="height: 40%; text-align: center; padding: 0%;;" ng-show="data.edit">
+            <button style="font-size: 80%; font-family: Calibri Light; height: 15%; width: 21%;background: white; color: #19bfef; border: none; border-radius: 5px;" ng-click="save()">Save</button>
         </div>
     </div>
 
@@ -93,12 +83,6 @@
     <div class="row" style="height: 5%; padding: 0px; margin-bottom: 5px;">
         <button class="col accountActiveTab">
             My Account
-        </button>
-        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="voteSong">
-            Vote Song
-        </button>
-        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="feedback">
-            Feedback
         </button>
         <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="upgrades">
             Upgrades

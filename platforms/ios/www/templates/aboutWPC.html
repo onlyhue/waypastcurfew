@@ -1,15 +1,16 @@
-<ion-view view-title="aboutWPC">
-    <div class="row" style="border: none; height: 10%; padding: 0px; margin: 0px; background: #DA560C;">
+<ion-view view-title="aboutWPC" nav-transition="none">
+    <div class="row" style="height: 10%; padding: 0px; background: #DA560C;">
         <div class="container" style="border: none">
             <div class="div1" style="background: white;" ng-click="main()"></div>
             <div class="div2" style="background: #DA560C;"></div>
         </div>
     </div>
-    <div class="list" style="position: relative; z-index: 2; height: 90%; padding: 0px; margin: 0px; background: #DA560C;">
+
+    <div class="list" style="position: relative; z-index: 2; height: 85%; padding: 0px; margin-bottom: 0px; background: #DA560C;">
         <div class="row" style="height: 12%; width: 100%; padding: 0px; margin: 0px;">
             <img src="/img/wpc/Header.png" style="padding: 0px; max-width: 100%; height: auto;">
         </div>
-        <div class="row" style="height: 24%; text-align: center; padding: 15% 19%; margin: 0px;">
+        <div class="row" style="height: 24%; text-align: center; padding: 15% 19%; margin: 0;">
             <p class="wpcFont" style="color: white;">
                 WAYPASTCURFEW
             </p>
@@ -24,9 +25,20 @@
                 These Youth Worship Leaders also hold weekly performances on Friday evenings at Sentosa, Palawan Beach!
             </p>
         </div>
-        <div class="row">
+    </div>
 
-        </div>
-
+    <div class="row" style="height: 5%; width: 100%; padding: 0; margin: 0;">
+        <button class="col accountActiveTab" style="background: #DA560C;">
+            About WPC
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="timeline">
+            Timeline
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="voteSong">
+            Vote
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="feedback">
+            Feedback
+        </button>
     </div>
 </ion-view>

@@ -7,7 +7,11 @@
         </div>
         <div class="col col-offset-10" style="height: 100%; padding: 0px; background: white;">
             <div class="row" style="height: 100%;">
-                <input type="text" placeholder="SEARCH" ng-model="data.search" ng-change="search()" style="width: 65%; margin-left: -2%; border: 1px solid #19bfef; border-radius: 5px; height: 50%; margin-top: 5%; -webkit-appearance: none;">
+                <div class="item item-input" style="padding: 0% 3%; width: 65%; margin-left: -2%; border: 1px solid #19bfef; border-radius: 5px; height: 50%; margin-top: 5%;">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="text" placeholder="SEARCH" ng-model="data.search" ng-change="search()" style="padding-right: 2%; margin-left: 2%; text-align: left;"/>
+                    <i class="ion-ios-close placeholder-icon" style="margin-right: -4%; width: 25%; font-size: 120%; padding: 0px;" ng-show="data.search" data-tap-disabled="true" on-touch="clear()"></i>
+                </div>
             </div>
         </div>
     </div>

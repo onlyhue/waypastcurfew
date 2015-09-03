@@ -39,6 +39,17 @@
         "is_top_level": true,
         "variables": {}
     },
+    "com.phonegap.plugins.facebookconnect": {
+        "source": {
+            "type": "registry",
+            "path": "com.phonegap.plugins.facebookconnect"
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "998885986831037",
+            "APP_NAME": "WayPastCurfew"
+        }
+    },
     "cordova-plugin-inappbrowser": {
         "source": {
             "type": "registry",
@@ -47,16 +58,13 @@
         "is_top_level": true,
         "variables": {}
     },
-    "com.phonegap.plugins.facebookconnect": {
+    "cordova-plugin-statusbar": {
         "source": {
             "type": "registry",
-            "path": "phonegap-facebook-plugin"
+            "id": "cordova-plugin-statusbar"
         },
         "is_top_level": true,
-        "variables": {
-            "APP_ID": "120329051634496",
-            "APP_NAME": "Firebase"
-        }
+        "variables": {}
     },
     "cordova-plugin-media": {
         "source": {
@@ -72,22 +80,6 @@
             "id": "cordova-plugin-file"
         },
         "is_top_level": false,
-        "variables": {}
-    },
-    "cordova-plugin-statusbar": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-statusbar"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "org.apache.cordova.statusbar": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.statusbar"
-        },
-        "is_top_level": true,
         "variables": {}
     }
 }

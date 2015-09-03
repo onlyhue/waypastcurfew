@@ -48,7 +48,7 @@ if (cordova.platformId == "browser") {
             if (!options.picture) {
                 options.picture = "";
             }
-            
+
             // Try will catch errors when SDK has not been init
             try {
                 FB.ui(options,
@@ -74,7 +74,7 @@ if (cordova.platformId == "browser") {
             if (permissions && permissions.length > 0) {
                 permissionObj.scope = permissions.toString();
             }
-            
+
             FB.login(function (response) {
                 if (response.authResponse) {
                     s(response);
@@ -124,7 +124,7 @@ if (cordova.platformId == "browser") {
 
         api: function (graphPath, permissions, s, f) {
             // JS API does not take additional permissions
-            
+
             // Try will catch errors when SDK has not been init
             try {
                 FB.api(graphPath, function (response) {
@@ -156,7 +156,7 @@ if (cordova.platformId == "browser") {
             });
         }
     };
-    
+
     // Bake in the JS SDK
     (function () {
         if (!window.FB) {

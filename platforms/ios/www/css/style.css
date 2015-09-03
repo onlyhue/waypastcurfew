@@ -20,6 +20,36 @@
     src: url('Magna.ttf');
 }
 
+@font-face {
+    font-family: 'Calibri Light';
+    src: url('Calibril.ttf');
+}
+
+@font-face {
+    font-family: 'Nexa Light';
+    src: url('Nexa Light.otf');
+}
+
+@font-face {
+    font-family: 'Nexa Bold';
+    src: url('Nexa Bold.otf');
+}
+
+@font-face {
+    font-family: 'Aller Light';
+    src: url('Aller_Lt.ttf');
+}
+
+@font-face {
+    font-family: 'Aller';
+    src: url('Aller_Rg.ttf');
+}
+
+@font-face {
+    font-family: 'Aller Bold';
+    src: url('Aller_Bd.ttf');
+}
+
 .mainButton {
     border: 2px solid;
     height: 100%;
@@ -119,7 +149,6 @@ input[type="text"], input[type="password"] {
     font-weight: 200;
     background: white;
     text-align: center;
-    vertical-align: middle;
 }
 
 ::-webkit-input-placeholder {
@@ -277,4 +306,63 @@ input[type="text"]:read-only, input[type="password"]:read-only {
 .downloadButtonOffset {
     padding-left: 1px;
     font-size: 175%;
+}
+
+select.custom-dropdown {
+    -webkit-appearance: none;  /*REMOVES DEFAULT CHROME & SAFARI STYLE*/
+    -moz-appearance: none;  /*REMOVES DEFAULT FIREFOX STYLE*/
+    border: 0 !important;  /*REMOVES BORDER*/
+
+    background-color: #0d98e8;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px;
+    width: 35%;
+    cursor: pointer;
+}
+
+.djTitle {
+    height:100%;
+    width: 100%;
+    text-align: center;
+    vertical-align: bottom;
+    padding-top: 15%;
+    font-size: 180%;
+    text-transform: uppercase;
+    color: #19bfef;
+
+}
+
+.startRecord {
+    height: 100%;
+    width: 80%;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 2px solid #19bfef;
+    background: white;
+    color: #19bfef;
+    position: absolute;
+    z-index: 3;
+    margin: 0% 10%;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    background-color: #19bfef;
+    height: 5%;
+    width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    border: none;
+    -webkit-appearance: none;
+    position: relative;
+    z-index: 1;
+    width: 18px;
+    height: 18px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#19bfef));
 }

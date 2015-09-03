@@ -1,6 +1,6 @@
-app.controller("feedbackController", function($scope, $state, $ionicViewSwitcher, songsFactory, feedbackFactory) {
+app.controller("feedbackController", function($scope, $state, $ionicViewSwitcher, songsFactory, usersFactory, feedbackFactory) {
     $scope.data = {};
-    $scope.data.clientSongs = songsFactory.getClientFirebaseObj();
+    $scope.data.clientSongs = songsFactory.getClientSongs();
 
     $scope.main = function() {
         $ionicViewSwitcher.nextDirection('back');
@@ -17,11 +17,27 @@ app.controller("feedbackController", function($scope, $state, $ionicViewSwitcher
             || (selectedNodeKey.value != "KEY")
             || ($scope.data.newSong != null && $scope.data.newSong != "")
             || ($scope.data.feedback != null && $scope.data.feedback != "")) {
+            if (selectedNodeSong.value != "SONG TITLE" && selectedNodeKey.value == "KEY") {
+                $scope.data.message = "Please select a song!";
+                return;
+            } else if (selectedNodeSong.value == "SONG TITLE" && selectedNodeKey.value != "KEY") {
+                $scope.data.message = "Please select a key!";
+                return;
+            }
             var feedback = {};
+            feedback["user"] = usersFactory.returnProfile().uid;
             feedback["song"] = selectedNodeSong.value;
             feedback["key"] = selectedNodeKey.value;
-            feedback["newSong"] = $scope.data.newSong;
-            feedback["feedback"] = $scope.data.feedback;
+            if ($scope.data.newSong == null) {
+                feedback["newSong"] = "";
+            } else {
+                feedback["newSong"] = $scope.data.newSong;
+            }
+            if ($scope.data.feedback == null) {
+                feedback["feedback"] = "";
+            } else {
+                feedback["feedback"] = $scope.data.feedback;
+            }
             feedbackFactory.addFeedback(feedback);
             document.getElementById("song").selectedIndex = "0";
             document.getElementById("key").selectedIndex = "0";

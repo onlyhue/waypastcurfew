@@ -1,6 +1,6 @@
 app.factory("usersFactory", function($firebaseAuth, $q) {
     // initiate firebase reference + authentication object
-    var ref = new Firebase("https//incandescent-heat-862.firebaseIO.com/users");
+    var ref = new Firebase("https//onlyhue.firebaseIO.com/users");
     var authObj = $firebaseAuth(ref);
 
     // initialize user profile data object
@@ -18,51 +18,49 @@ app.factory("usersFactory", function($firebaseAuth, $q) {
             return authObj;
         },
 
-        checkEmail: function(email, callback) {
-            ref.child(email.replace(/\./g, '')).once("value", function(snapshot) {
+        checkUID: function(uid, callback) {
+            ref.child(uid).once("value", function(snapshot) {
                 callback(snapshot.val() == null);
-            })
+            });
         },
 
         returnProfile: function() {
             return data;
         },
 
-        pullProfile: function(email) {
-            ref.child(email.replace(/\./g, '')).once("value", function(snapshot) {
+        pullProfile: function(uid) {
+            var deferred = $q.defer();
+            ref.child(uid).once("value", function(snapshot) {
                 data = snapshot.val();
-            })
+                data.uid = uid;
+                deferred.resolve();
+            });
+            return deferred.promise;
         },
 
         pushProfile: function() {
-            if (data.picture == null) {
-                data.picture = "";
-            }
             var profile = {
-                email: data.email,
-                first_name: data.first_name,
-                last_name: data.last_name,
-                gender: data.gender,
-                picture: data.picture
+                displayName: data.displayName,
+                email: data.email
             };
-            ref.child(data.email.replace(/\./g, '')).set(profile);
+            ref.child(data.uid).set(profile);
         },
 
-        createUser: function() {
+        createUser: function(email, password) {
             var deferred = $q.defer();
             authObj.$createUser({
-                email: data.email,
-                password: data.password
-            }).then(function () {
+                email: email,
+                password: password
+            }).then(function() {
                 // firebase account created, log in to firebase
-                authObj.$authWithPassword({
-                    email: data.email,
-                    password: data.password
+                return authObj.$authWithPassword({
+                    email: email,
+                    password: password
                 });
-            }).then(function () {
+            }).then(function(authData) {
                 // firebase account logged in, resolve promise
-                deferred.resolve();
-            }).catch(function (error) {
+                deferred.resolve(authData);
+            }).catch(function(error) {
                 // error occurred, reject promise
                 deferred.reject(error);
             });
@@ -83,13 +81,16 @@ app.factory("usersFactory", function($firebaseAuth, $q) {
             return deferred.promise;
         },
 
-        setProfile: function(email, first_name, last_name, gender, picture, password) {
-            data.email = email;
-            data.first_name = first_name;
-            data.last_name = last_name;
-            data.gender = gender;
-            data.picture = picture;
-            data.password = password;
+        setProfile: function(uid, displayName, email) {
+            if (uid != null) {
+                data.uid = uid;
+            }
+            if (displayName != null) {
+                data.displayName = displayName;
+            }
+            if (email != null) {
+                data.email = email;
+            }
         },
 
         loginFacebook: function(token) {

@@ -1,29 +1,33 @@
 app.factory("songsFactory", function($firebaseObject) {
     // set global firebase reference, firebase object and userID
     var ref;
-    var firebaseObj;
-    var userID;
-    var clientFirebaseObj;
+    var songs;
+    var uid;
+    var clientRef = new Firebase("https//onlyhue.firebaseIO.com/songs/facebook:10153560146409496");
+    var clientSongs = $firebaseObject(clientRef);
+    var clientUID = "facebook:10153560146409496";
 
     return {
-        assignRef: function(theUserID) {
-            userID = theUserID;
-            ref = new Firebase("https//incandescent-heat-862.firebaseIO.com/songs/" + userID);
+        pullSongs: function(userID) {
+            uid = userID;
+            ref = new Firebase("https//onlyhue.firebaseIO.com/songs/" + uid);
+            songs = $firebaseObject(ref);
         },
 
-        getFirebaseObj: function() {
-            firebaseObj = $firebaseObject(ref);
-            return firebaseObj;
+        getSongs: function() {
+            return songs;
         },
 
-        getClientFirebaseObj: function() {
-            var clientRef = new Firebase("https//incandescent-heat-862.firebaseIO.com/songs/imustnotbeknown@hotmailcom");
-            clientFirebaseObj = $firebaseObject(clientRef);
-            return clientFirebaseObj;
+        getClientSongs: function() {
+            return clientSongs;
         },
 
-        getUserID: function() {
-            return userID;
+        getUID: function() {
+            return uid;
+        },
+
+        getClientUID: function() {
+            return clientUID;
         }
     };
 });

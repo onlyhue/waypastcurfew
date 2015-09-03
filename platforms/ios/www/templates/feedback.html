@@ -12,8 +12,8 @@
         <!-- Request for new KEY -->
         <div class="row" style="width: 100%; height: 8%; padding: 0% 10%; color: #19bfef; text-align: left;">
             <p>
-                <span style="font-size: 120%; font-weight: 500;">CHANGE KEY</span> <br>
-                <span style="font-size: 80%;">Request for a new key of an existing song</span>
+                <span style="font-size: 120%; font-weight: 500; font-family: Nexa Bold;">CHANGE KEY</span> <br>
+                <span style="font-size: 80%; font-family: Aller Light;">Request for a new key of an existing song</span>
             </p>
         </div>
         <div class="row" style="margin-top: 0px; width: 100%; height: 10%; padding: 0px;">
@@ -45,8 +45,8 @@
         <!-- Request for new SONG -->
         <div class="row" style="width: 100%; height: 8%; margin-top: 0px; padding: 0% 10%; color: #19bfef; text-align: left;">
             <p>
-                <span style="font-size: 120%; font-weight: 500;">REQUEST NEW SONG</span> <br>
-                <span style="font-size: 80%;">Request for a new song</span>
+                <span style="font-size: 120%; font-weight: 500; font-size: 120%; font-weight: 500; font-family: Nexa Bold;">REQUEST NEW SONG</span> <br>
+                <span style="font-size: 80%; font-family: Aller Light;">Request for a new song</span>
             </p>
         </div>
         <div class="row" style="margin-top: 0px; width: 100%; height: 10%; padding: 0px;">
@@ -59,8 +59,8 @@
         <!-- Feedback -->
         <div class="row" style="width: 100%; height: 8%; margin-top: 0px; padding: 0% 10%; color: #19bfef; text-align: left;">
             <p>
-                <span style="font-size: 120%; font-weight: 500;">FEEDBACK</span> <br>
-                <span style="font-size: 80%;">Give us your feedback about our application here</span>
+                <span style="font-size: 120%; font-weight: 500; font-size: 120%; font-weight: 500; font-family: Nexa Bold;">FEEDBACK</span> <br>
+                <span style="font-size: 80%; font-family: Aller Light;">Give us your feedback about our application here</span>
             </p>
         </div>
         <div class="row" style="margin-top: 0px; width: 100%; height: 30%; padding: 0px;">
@@ -78,29 +78,25 @@
 
         <!-- SUBMIT button -->
         <div style="height: 20%; width: 100%; text-align: center; margin: 0px; padding: 0px;">
-            <button class="button-positive" style="border: none; height: 35%; width: 28%; color: white; background: #19bfef; font-size: 110%;" ng-click="submit()">
+            <button class="button-positive" style="border: none; height: 35%; width: 28%; color: white; background: #19bfef; font-size: 100%; font-family: Nexa Bold" ng-click="submit()">
                 <b>SUBMIT</b>
             </button>
         </div>
     </div>
 
-
-
-
     <!-- footer nav bar -->
     <div class="row" style="height: 5%; padding: 0px; margin-bottom: 5px;">
-        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="myAccount">
-            My Account
+        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="aboutWPC">
+            About WPC
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="timeline">
+            Timeline
         </button>
         <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="voteSong">
-            Vote Song
+            Vote
         </button>
         <button class="col accountActiveTab">
             Feedback
         </button>
-        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="upgrades">
-            Upgrades
-        </button>
     </div>
-
 </ion-view>
