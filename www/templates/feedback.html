@@ -17,14 +17,14 @@
             </p>
         </div>
         <div class="row" style="margin-top: 0px; width: 100%; height: 10%; padding: 0px;">
-            <div class="col col-75" style="text-align: right; height: 40%; width: 75%; margin: 0px; padding: 0px 1px;">
-                <select id="song" style="border: none; font-size: 11px; height: 100%; width: 90%; background: #19bfef; color: white; text-align: center;">
+            <div class="col col-75" style="overflow: hidden; text-align: right; height: 40%; width: 75%; margin: 0px; padding: 0px 1px;">
+                <select class="custom-dropdown" id="song" style="padding: 0px; font-size: 11px; height: 100%; width: 90%; text-align: center;">
                     <option selected="selected" style="display: none;">SONG TITLE</option>
                     <option ng-repeat="(key, value) in data.clientSongs">{{value.artist}} - {{value.title}}</option>
                 </select>
             </div>
             <div class="col" style="text-align: left; height: 40%; width: 25%; margin: 0px; padding: 0px 1px;">
-                <select id="key" style="border: none; font-size: 11px; height: 100%; width: 65%; background: #19bfef; color: white; text-align: center;">
+                <select class="custom-dropdown" id="key" style="padding: 0px; font-size: 11px; height: 100%; width: 65%; text-align: center;">
                     <option selected="selected" style="display: none;">KEY</option>
                     <option>C</option>
                     <option>Db</option>
