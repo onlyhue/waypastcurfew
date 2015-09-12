@@ -57,6 +57,7 @@
 		A03063D4D439463481509381 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C084572288E94CD09CA78487 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AE1FA28E6CCE42B5B49D93AE /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = D750A8D39E784353A2652022 /* CDVInAppBrowser.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
+		375B187770904E768731EED0 /* CDVFileTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = B01DDEB8DA88472093C729A8 /* CDVFileTransfer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,8 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F0BA2CCE94254A2AA716C214 /* IonicKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IonicKeyboard.m; path = com.ionic.keyboard/IonicKeyboard.m; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = WayPastCurfew/config.xml; sourceTree = "<group>"; };
+		B01DDEB8DA88472093C729A8 /* CDVFileTransfer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVFileTransfer.m"; path = "cordova-plugin-file-transfer/CDVFileTransfer.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		810EF03189474CFBB59E9AC2 /* CDVFileTransfer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVFileTransfer.h"; path = "cordova-plugin-file-transfer/CDVFileTransfer.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +288,8 @@
 				0E7CD06786B24161902EEA33 /* CDVAssetLibraryFilesystem.h */,
 				36441383D7E245C8A468F89B /* CDVSound.m */,
 				ACF17446743C4605A6D4A290 /* CDVSound.h */,
+				B01DDEB8DA88472093C729A8 /* CDVFileTransfer.m */,
+				810EF03189474CFBB59E9AC2 /* CDVFileTransfer.h */,
 			);
 			name = Plugins;
 			path = WayPastCurfew/Plugins;
@@ -487,6 +492,7 @@
 				180CF16CBA2F478481CDFA16 /* CDVLocalFilesystem.m in Sources */,
 				968EE74D42E347CA8AE3CA0D /* CDVAssetLibraryFilesystem.m in Sources */,
 				4A55DD6C9A104E569F260CEC /* CDVSound.m in Sources */,
+				375B187770904E768731EED0 /* CDVFileTransfer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

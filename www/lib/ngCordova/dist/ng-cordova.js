@@ -1832,7 +1832,7 @@ angular.module('ngCordova.plugins.file', [])
           return q.promise;
         },
 
-        checkFile: function (path, file) {
+        checkFile: function (path, file, inputID) {
           var q = $q.defer();
 
           if ((/^\//.test(file))) {
@@ -1841,8 +1841,9 @@ angular.module('ngCordova.plugins.file', [])
 
           try {
             var directory = path + file;
-            $window.resolveLocalFileSystemURL(directory, function (fileSystem) {
+            $window.resolveLocalFileSystemURL(directory, function (fileSystem, inputID) {
               if (fileSystem.isFile === true) {
+                fileSystem.id = inputID;
                 q.resolve(fileSystem);
               } else {
                 q.reject({code: 13, message: "input is not a file"});
@@ -1850,7 +1851,7 @@ angular.module('ngCordova.plugins.file', [])
             }, function (error) {
               error.message = $cordovaFileError[error.code];
               q.reject(error);
-            });
+            }, inputID);
           } catch (err) {
             err.message = $cordovaFileError[err.code];
             q.reject(err);

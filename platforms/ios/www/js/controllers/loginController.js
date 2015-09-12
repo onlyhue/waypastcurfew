@@ -112,7 +112,7 @@ app.controller("loginController", function($scope, usersFactory, $state, $ionicL
             }, function (error) {
                 // login error, display error message
                 $ionicLoading.hide();
-                if (error.code == "INVALID_PASSWORD") {
+                if (error.code == "INVALID_PASSWORD" || error.code == "INVALID_USER") {
                     $scope.data.error = "Invalid email or password!";
                 } else {
                     $scope.data.error = "An error occured!";

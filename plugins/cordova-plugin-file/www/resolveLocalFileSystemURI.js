@@ -42,7 +42,7 @@ var fileSystems = require('./fileSystems');
  * @param successCallback  invoked with Entry object corresponding to URI
  * @param errorCallback    invoked if error occurs retrieving file system entry
  */
-module.exports.resolveLocalFileSystemURL = function(uri, successCallback, errorCallback) {
+module.exports.resolveLocalFileSystemURL = function(uri, successCallback, errorCallback, inputID) {
     argscheck.checkArgs('sFF', 'resolveLocalFileSystemURI', arguments);
     // error callback
     var fail = function(error) {
@@ -68,7 +68,7 @@ module.exports.resolveLocalFileSystemURL = function(uri, successCallback, errorC
                         fs = new FileSystem(fsName, {name:"", fullPath:"/"});
                     }
                     var result = (entry.isDirectory) ? new DirectoryEntry(entry.name, entry.fullPath, fs, entry.nativeURL) : new FileEntry(entry.name, entry.fullPath, fs, entry.nativeURL);
-                    successCallback(result);
+                    successCallback(result, inputID);
                 });
             }
         }

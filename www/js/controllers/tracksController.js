@@ -1,4 +1,4 @@
-app.controller("tracksController", function($scope, $q, $timeout, $interval, tracksFactory, $state) {
+app.controller("tracksController", function($scope, $q, $timeout, $interval, usersFactory, tracksFactory, $state) {
     $scope.data = {};
     // on page enter, load song and tracks + reset defaults
     $scope.$on('$ionicView.beforeEnter', function() {
@@ -9,22 +9,21 @@ app.controller("tracksController", function($scope, $q, $timeout, $interval, tra
         $scope.data.loaded = false;
         $scope.data.durations = [];
         $scope.data.duration = 0;
-        $scope.data.tracksList.$loaded()
-            .then(function() {
-                //tracks assignment
-                for (i = 0; i < $scope.data.tracksList.length; i++) {
+        $scope.data.tracksList.$loaded().then(function(data) {
+            //tracks assignment
+            for (i = 0; i < data.length; i++) {
                     var track = null;
                     if (isApp) {
-                        track = new Media($scope.data.tracksList[i].url, mediaSuccess, null, mediaStatus, i);
+                        track = new Media("documents://" + usersFactory.returnProfile().uid.replace(/:/g,"") + "/" + $scope.data.song.uid + "/" + tracksFactory.getKey() + "/" + data[i].track, mediaSuccess, null, mediaStatus, i);
                     } else {
-                        track = new Audio($scope.data.tracksList[i].url);
+                        track = new Audio(data[i].url);
                     }
                     $scope.data.tracks[i] = track;
-                    $scope.data.tracks[i].icon = $scope.data.tracksList[i].icon;
-                    $scope.data.tracks[i].label = $scope.data.tracksList[i].label;
+                    $scope.data.tracks[i].icon = data[i].icon;
+                    $scope.data.tracks[i].label = data[i].label;
                     load(track);
-                }
-            });
+            }
+        });
         $scope.data.position = 0;
         $scope.data.isPlayingAll = false;
         $scope.data.records = {};

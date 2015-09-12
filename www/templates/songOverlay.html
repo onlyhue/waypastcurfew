@@ -1,4 +1,4 @@
-<ion-modal-view style="background: #01273c; color: white; width: 80%; min-height: initial; top: 25%; left: 10%; right: 10%;">
+<ion-modal-view style="background: #01273c; color: white; width: 80%; min-height: initial; height: 50%; top: 25%; left: 10%; right: 10%; bottom: 25%;">
     <!-- cross -->
     <div class="row" style="height: 10%; margin-bottom: 5px;">
         <button class="col-10 col-offset-90 ion-close" style="background: none; border: none; color: white" ng-click="hide()"></button>
@@ -36,18 +36,16 @@
     </div>
 
     <!-- key and preview-->
-    <div class="row" style="height: 34%; margin-bottom: 5px;">
+    <div class="row" style="height: 30%; margin-bottom: 5px;">
         <div class="col col-40 col-offset-10">
             <span style="font-family: Aller Bold;">Tracks</span><br>
             <span style="font-size: 75%; font-family: Aller Light;">Vocals<br>
             Instrumentals<br>
-            Harmony<br>
-            Bass<br>
-            Acapella<br></span>
+            Harmony<br></span>
         </div>
         <div class="col col-50" style="padding-top: 8%; text-align: center;">
-            <button style="width: 70%; padding: 5% 0%; border: none; background: white; border-radius: 5px; font-size: 130%; font-family: Century Gothic" ng-click="preview()">Preview</button>
-            <button style="width: 70%; padding: 5% 0%; margin-top: 10%; border: none; background: white; border-radius: 5px;  font-size: 130%; font-family: Century Gothic" ng-show="data.downloaded" ng-click="delete()">Delete</button>
+            <button style="width: 70%; border: none; background: white; border-radius: 5px; font-size: 100%; font-family: Century Gothic" ng-click="preview()">Preview</button>
+            <button style="width: 70%; margin-top: 2%; border: none; background: white; border-radius: 5px;  font-size: 100%; font-family: Century Gothic" ng-show="data.downloaded" ng-click="delete()">Delete</button>
         </div>
     </div>
 </ion-modal-view>

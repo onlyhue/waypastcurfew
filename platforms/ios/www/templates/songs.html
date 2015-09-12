@@ -25,6 +25,7 @@
             </div>
             <div class="col col-25" style="margin-left: 3%;">
                 <button class="songCircle" ng-class="{'downloadButtonOffset ion-ios-download-outline': data.available, 'ion-ios-play': data.downloaded}" ng-class-odd="'oddRowSongButton'" ng-class-even="'evenRowSongButton'" ng-click="downloadOrPlay(key, song)"></button>
+                {{song.percentageDone}}
             </div>
         </div>
     </ion-scroll>

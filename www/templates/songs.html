@@ -9,7 +9,7 @@
             <div class="row" style="height: 100%;">
                 <div class="item item-input" style="padding: 0% 3%; width: 65%; margin-left: -2%; border: 1px solid #19bfef; border-radius: 5px; height: 50%; margin-top: 5%;">
                     <i class="icon ion-search placeholder-icon"></i>
-                    <input type="text" placeholder="SEARCH" ng-model="data.search" ng-change="search()" style="padding: 2% 0% 0% 2%; margin-left: 2%; text-align: left;"/>
+                    <input type="text" placeholder="SEARCH" ng-model="data.search" ng-change="search()" style="padding-right: 2%; margin-left: 2%; text-align: left;"/>
                     <i class="ion-ios-close placeholder-icon" style="margin-right: -4%; width: 25%; font-size: 120%; padding: 0px;" ng-show="data.search" data-tap-disabled="true" on-touch="clear()"></i>
                 </div>
             </div>
@@ -25,6 +25,7 @@
             </div>
             <div class="col col-25" style="margin-left: 3%;">
                 <button class="songCircle" ng-class="{'downloadButtonOffset ion-ios-download-outline': data.available, 'ion-ios-play': data.downloaded}" ng-class-odd="'oddRowSongButton'" ng-class-even="'evenRowSongButton'" ng-click="downloadOrPlay(key, song)"></button>
+                {{song.percentageDone}}
             </div>
         </div>
     </ion-scroll>

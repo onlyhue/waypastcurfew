@@ -79,6 +79,10 @@
                         {
                             "xml": "<feature name=\"Media\"><param name=\"ios-package\" value=\"CDVSound\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FileTransfer\"><param name=\"ios-package\" value=\"CDVFileTransfer\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -118,7 +122,7 @@
                     "AssetsLibrary.framework": [
                         {
                             "xml": false,
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "MobileCoreServices.framework": [
@@ -182,6 +186,9 @@
         },
         "cordova-plugin-media": {
             "PACKAGE_NAME": "com.ionicframework.waypastcurfew983146"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "57FBE3Z9CK.waypastcurfew"
         }
     },
     "dependent_plugins": {

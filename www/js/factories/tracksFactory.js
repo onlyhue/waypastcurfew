@@ -3,9 +3,11 @@ app.factory("tracksFactory", function($firebaseArray) {
     var ref;
     var tracks;
     var song;
+    var key;
 
     return {
         pullTracks: function(userID, songKey, theSong) {
+            key = songKey;
             ref = new Firebase("https//onlyhue.firebaseIO.com/tracks/" + userID + "/" + songKey);
             song = theSong;
         },
@@ -17,6 +19,10 @@ app.factory("tracksFactory", function($firebaseArray) {
 
         getSong: function() {
             return song;
+        },
+
+        getKey: function() {
+            return key;
         }
     };
 });
