@@ -1,53 +1,85 @@
-app.controller("songsController", function($scope, $state, songsFactory, tracksFactory, usersFactory, $ionicModal, $cordovaFileTransfer, $cordovaFile, $q) {
-    // initialize data object
+app.controller("songsController", function($scope, $state, songsFactory, tracksFactory, $ionicModal, $cordovaFileTransfer, $cordovaFile, $q, $ionicLoading, $timeout, $ionicAnalytics) {
+    var isApp = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
     $scope.data = {};
     $scope.data.availableSongs = {};
+    $scope.data.downloadedSongs = {};
     $scope.data.clientSongs = songsFactory.getClientSongs();
-    var clientUID = songsFactory.getClientUID();
-    $scope.$on('$ionicView.beforeEnter', function() {
-        $scope.data.clientSongs.$loaded().then(function (data) {
-            angular.forEach(data, function (value, key) {
-                $scope.data.availableSongs[key] = value;
-                value.uploader = "WayPastCurfew";
+    $ionicLoading.show({
+        template: '<ion-spinner></ion-spinner><br><br><span style="font-family: Aller Light; font-size: 0.8em;">LOADING SONGS...</span>'
+    });
+    $scope.data.clientSongs.$watch(function() {
+        $scope.data.clientSongs.$loaded().then(function(clientSongs) {
+            $scope.data.downloadedSongs = {};
+            $scope.data.availableSongs = {};
+            var numOfSongs = 0;
+            angular.forEach(clientSongs, function(value, key) {
+                numOfSongs++;
+            });
+            var promises = [];
+            angular.forEach(clientSongs, function(song, artistTitle) {
                 if (isApp) {
                     var songDownloaded = true;
-                    tracksFactory.pullTracks(value.uid, key, value);
+                    tracksFactory.pullTracks(song.uid, artistTitle, song);
                     $scope.data.tracksList = tracksFactory.getTracks();
-                    $scope.data.tracksList.$loaded().then(function (data) {
-                        var deferred = $q.defer();
-                        for (i = 0; i < data.length; i++) {
-                            $cordovaFile.checkFile(cordova.file.documentsDirectory + usersFactory.returnProfile().uid.replace(/:/g, "") + "/" + value.uid + "/" + key + "/", data[i].track, i)
-                                .then(function (success) {
-                                    success.file(function (file) {
-                                        if (file.lastModified < data[success.id].modified || file.size != data[success.id].size) {
-                                            songDownloaded = false;
-                                        }
-                                        if (success.id == data.length - 1) {
-                                            deferred.resolve();
-                                        }
+                    $scope.data.tracksList.$loaded().then(function(tracks) {
+                        if (tracks.length == 0) {
+                            numOfSongs--;
+                            songDownloaded = null;
+                        } else {
+                            var deferred = $q.defer();
+                            promises.push(deferred);
+                            for (i = 0; i < tracks.length; i++) {
+                                $cordovaFile.checkFile(cordova.file.documentsDirectory + song.uid + "/" + artistTitle + "/", tracks[i].track, i)
+                                    .then(function (success) {
+                                        success.file(function (file) {
+                                            if (file.lastModified < tracks[success.id].modified || file.size != tracks[success.id].size) {
+                                                songDownloaded = false;
+                                            }
+                                            if (success.id == tracks.length - 1) {
+                                                deferred.resolve();
+                                            }
+                                        });
+                                    }, function (error) {
+                                        songDownloaded = false;
+                                        deferred.resolve();
                                     });
-                                }, function (error) {
-                                    songDownloaded = false;
+                            }
+                            if (promises.length == numOfSongs) {
+                                $q.all(promises).then(function (data) {
+                                    if ($scope.data.available) {
+                                        $scope.data.songs = $scope.data.availableSongs;
+                                    } else {
+                                        $scope.data.songs = $scope.data.downloadedSongs;
+                                    }
+                                    $ionicLoading.hide();
                                 });
+                            }
+                            return deferred.promise;
                         }
-                        return deferred.promise;
-                    }).then(function () {
+                    }).then(function() {
                         if (songDownloaded) {
-                            $scope.data.downloadedSongs[key] = angular.copy($scope.data.songs[key]);
-                            delete $scope.data.availableSongs[key];
+                            $scope.data.downloadedSongs[artistTitle] = song;
+                        } else if (songDownloaded == false) {
+                            $scope.data.availableSongs[artistTitle] = song;
                         }
                     });
+                } else {
+                    $scope.data.availableSongs[artistTitle] = song;
                 }
-            })
+            });
+            if (!isApp) {
+                $scope.data.songs = $scope.data.availableSongs;
+                $scope.data.downloadedSongs = {};
+                $scope.available();
+                $ionicLoading.hide();
+                $scope.modal.hide();
+            }
         });
     });
-    $scope.data.downloadedSongs = {};
-    $scope.data.songs = $scope.data.availableSongs;
     $scope.data.search = "";
     $scope.data.available = true;
     $scope.data.downloaded = false;
-    var isApp = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
-    $scope.data.song;
+    $scope.data.song = null;
 
     $ionicModal.fromTemplateUrl('templates/songOverlay.html', {
         scope: $scope,
@@ -72,60 +104,80 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
         $scope.modal.hide();
     };
 
-    $scope.details = function(key) {
+    $scope.details = function(artistTitle) {
         $scope.modal.show();
-        $scope.data.selectedSong = $scope.data.songs[key];
+        $scope.data.selectedSong = $scope.data.songs[artistTitle];
     };
 
-    $scope.downloadOrPlay = function(key, song) {
+    $scope.downloadOrPlay = function(artistTitle, song) {
         if ($scope.data.available) {
             if (isApp) {
-                if (!song.downloading) {
-                    song.downloading = true;
-                    tracksFactory.pullTracks(song.uid, key, song);
-                    $scope.data.tracksList = tracksFactory.getTracks();
-                    $scope.data.tracksList.$loaded().then(function (data) {
-                        var downloadedTracks = 0;
-                        var individualProgress = [];
-                        var totalProgress = 0;
-                        var totalSize = 0;
-                        song.percentageDone = 0;
-                        for (i = 0; i < data.length; i++) {
-                            totalSize += data[i].size;
-                        }
-                        for (i = 0; i < data.length; i++) {
-                            $cordovaFileTransfer.download(decodeURI(data[i].url), (cordova.file.documentsDirectory + usersFactory.returnProfile().uid.replace(/:/g, "") + "/" + song.uid + "/" + key + "/" + data[i].track).replace(/ /g, "%20"), {id: i}, true)
-                                .then(function (success) {
-                                    song.percentageDone = null;
-                                    downloadedTracks++;
-                                    if (downloadedTracks == data.length) {
-                                        song.downloading = false;
-                                        $scope.data.downloadedSongs[key] = angular.copy($scope.data.songs[key]);
-                                        delete $scope.data.availableSongs[key];
-                                        delete $scope.data.songs[key];
-                                    }
-                                }, function (error) {
-                                    console.log(error);
+                $ionicLoading.show({
+                    template: '<ion-spinner></ion-spinner><br><br><span style="font-family: Aller Light; font-size: 0.8em;">DOWNLOADING...</span>'
+                });
+                tracksFactory.pullTracks(song.uid, artistTitle, song);
+                $scope.data.tracksList = tracksFactory.getTracks();
+                $scope.data.tracksList.$loaded().then(function(tracks) {
+                    var downloadedTracks = 0;
+                    var individualProgress = [];
+                    var totalProgress = 0;
+                    var totalSize = 0;
+                    song.percentageDone = 0;
+                    for (i = 0; i < tracks.length; i++) {
+                        totalSize += tracks[i].size;
+                    }
+                    for (i = 0; i < tracks.length; i++) {
+                        $cordovaFileTransfer.download(decodeURI(tracks[i].url), (cordova.file.documentsDirectory + song.uid + "/" + artistTitle + "/" + tracks[i].track).replace(/ /g, "%20"), {id: i}, true)
+                            .then(function(success) {
+                                song.percentageDone = null;
+                                downloadedTracks++;
+                                if (downloadedTracks == tracks.length) {
+                                    $scope.data.downloadedSongs[artistTitle] = angular.copy($scope.data.songs[artistTitle]);
+                                    delete $scope.data.availableSongs[artistTitle];
+                                    delete $scope.data.songs[artistTitle];
                                     $ionicLoading.hide();
-                                }, function (progress) {
-                                    totalProgress = 0;
-                                    individualProgress[progress.id] = progress.loaded;
-                                    for (i = 0; i < individualProgress.length; i++) {
-                                        totalProgress += individualProgress[i];
-                                    }
-                                    song.percentageDone = Math.floor(totalProgress / totalSize * 100) + "%"
-                                });
-                        }
-                    });
-                }
+                                    $ionicAnalytics.track('Download', {
+                                        song: {
+                                            title: song.title,
+                                            artist: song.artist
+                                        }
+                                    });
+                                }
+                            }, function(error) {
+                                console.log(error);
+                                $ionicLoading.hide();
+                            }, function(progress) {
+                                totalProgress = 0;
+                                individualProgress[progress.id] = progress.loaded;
+                                for (i = 0; i < individualProgress.length; i++) {
+                                    totalProgress += individualProgress[i];
+                                }
+                                song.percentageDone = Math.floor(totalProgress / totalSize * 100) + "%";
+                            });
+                    }
+                });
             } else {
-                $scope.data.downloadedSongs[key] = angular.copy($scope.data.songs[key]);
-                delete $scope.data.availableSongs[key];
-                delete $scope.data.songs[key];
+                $scope.data.downloadedSongs[artistTitle] = angular.copy($scope.data.songs[artistTitle]);
+                delete $scope.data.availableSongs[artistTitle];
+                delete $scope.data.songs[artistTitle];
+                $ionicAnalytics.track('Download', {
+                    song: {
+                        title: song.title,
+                        artist: song.artist
+                    }
+                });
             }
         } else {
-            tracksFactory.pullTracks(song.uid, key, song);
-            $state.go("tracks");
+            tracksFactory.pullTracks(song.uid, artistTitle, song);
+                $ionicAnalytics.track('Playback', {
+                    song: {
+                        title: song.title,
+                        artist: song.artist
+                    }
+                });
+            $timeout(function() {
+                $state.go("tracks");
+            },5);
         }
     };
 
@@ -135,9 +187,9 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
         }
         $scope.data.songsTemp = angular.copy($scope.data.songs);
         $scope.data.songs = {};
-        angular.forEach($scope.data.songsTemp, function(value, key) {
-            if (key.indexOf($scope.data.search.toLowerCase()) != -1 || value.genre.toLowerCase().indexOf($scope.data.search.toLowerCase()) != -1) {
-                $scope.data.songs[key] = angular.copy($scope.data.songsTemp[key]);
+        angular.forEach($scope.data.songsTemp, function(song, artistTitle) {
+            if (artistTitle.indexOf($scope.data.search.toLowerCase()) != -1 || song.label.toLowerCase().indexOf($scope.data.search.toLowerCase()) != -1) {
+                $scope.data.songs[artistTitle] = angular.copy($scope.data.songsTemp[artistTitle]);
             }
         });
     };
@@ -164,22 +216,34 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
     };
 
     $scope.delete = function() {
-        var key = $scope.data.selectedSong.artist.toLowerCase() + " - " + $scope.data.selectedSong.title.toLowerCase();
+        var artistTitle = $scope.data.selectedSong.artist.toLowerCase() + " - " + $scope.data.selectedSong.title.toLowerCase();
         if (isApp) {
-            $cordovaFile.removeRecursively(cordova.file.documentsDirectory + usersFactory.returnProfile().uid.replace(/:/g, "") + "/" + $scope.data.selectedSong.uid + "/" + key + "/", "")
-                .then(function (success) {
-                    $scope.data.availableSongs[key] = angular.copy($scope.data.selectedSong);
-                    delete $scope.data.songs[key];
-                    delete $scope.data.downloadedSongs[key];
+            $cordovaFile.removeRecursively(cordova.file.documentsDirectory + $scope.data.selectedSong.uid + "/" + artistTitle + "/", "")
+                .then(function(success) {
+                    $scope.data.availableSongs[artistTitle] = angular.copy($scope.data.selectedSong);
+                    delete $scope.data.songs[artistTitle];
+                    delete $scope.data.downloadedSongs[artistTitle];
+                    $ionicAnalytics.track('delete', {
+                        song: {
+                            title: $scope.data.selectedSong.title,
+                            artist: $scope.data.selectedSong.artist
+                        }
+                    });
                     $scope.modal.hide();
-                }, function (error) {
+                }, function(error) {
                     console.log(error);
                     $scope.modal.hide();
                 });
         } else {
-            $scope.data.availableSongs[key] = angular.copy($scope.data.selectedSong);
-            delete $scope.data.songs[key];
-            delete $scope.data.downloadedSongs[key];
+            $scope.data.availableSongs[artistTitle] = angular.copy($scope.data.selectedSong);
+            delete $scope.data.songs[artistTitle];
+            delete $scope.data.downloadedSongs[artistTitle];
+            $ionicAnalytics.track('delete', {
+                song: {
+                    title: $scope.data.selectedSong.title,
+                    artist: $scope.data.selectedSong.artist
+                }
+            });
             $scope.modal.hide();
         }
     };
@@ -191,7 +255,36 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
             } else {
                 $scope.data.song = new Audio($scope.data.selectedSong.preview);
             }
+            $ionicAnalytics.track('preview', {
+                song: {
+                    title: $scope.data.selectedSong.title,
+                    artist: $scope.data.selectedSong.artist
+                }
+            });
             $scope.data.song.play();
         }
+    };
+
+    $scope.openItunes = function() {
+        $ionicAnalytics.track('itunes', {
+            song: {
+                title: $scope.data.selectedSong.title,
+                artist: $scope.data.selectedSong.artist
+            },
+            link: $scope.data.selectedSong.itunes
+        });
+        window.open($scope.data.selectedSong.itunes, '_system', 'location=yes');
+
+    };
+
+    $scope.openSpotify = function() {
+        $ionicAnalytics.track('spotify', {
+            song: {
+                title: $scope.data.selectedSong.title,
+                artist: $scope.data.selectedSong.artist
+            },
+            link: $scope.data.selectedSong.spotify
+        });
+        window.open($scope.data.selectedSong.spotify, '_system', 'location=yes');
     };
 });

@@ -1,44 +1,42 @@
-app.controller("tracksController", function($scope, $q, $timeout, $interval, usersFactory, tracksFactory, $state) {
+app.controller("tracksController", function($scope, $q, $interval, tracksFactory, $state, $ionicLoading, $timeout) {
     $scope.data = {};
     // on page enter, load song and tracks + reset defaults
     $scope.$on('$ionicView.beforeEnter', function() {
+        $ionicLoading.show({
+            template: '<ion-spinner></ion-spinner><br>Loading Song...'
+        });
         $scope.data.song = tracksFactory.getSong();
-        document.getElementById("lyrics").innerHTML = $scope.data.song.lyrics;
         $scope.data.tracksList = tracksFactory.getTracks();
         $scope.data.tracks = {};
         $scope.data.loaded = false;
         $scope.data.durations = [];
         $scope.data.duration = 0;
-        $scope.data.tracksList.$loaded().then(function(data) {
+        $scope.data.tracksList.$loaded().then(function(tracks) {
             //tracks assignment
-            for (i = 0; i < data.length; i++) {
-                    var track = null;
-                    if (isApp) {
-                        track = new Media("documents://" + usersFactory.returnProfile().uid.replace(/:/g,"") + "/" + $scope.data.song.uid + "/" + tracksFactory.getKey() + "/" + data[i].track, mediaSuccess, null, mediaStatus, i);
-                    } else {
-                        track = new Audio(data[i].url);
-                    }
-                    $scope.data.tracks[i] = track;
-                    $scope.data.tracks[i].icon = data[i].icon;
-                    $scope.data.tracks[i].label = data[i].label;
-                    load(track);
+            for (i = 0; i < tracks.length; i++) {
+                var track = null;
+                if (isApp) {
+                    track = new Media("documents://" + $scope.data.song.uid + "/" + tracksFactory.getArtistTitle() + "/" + tracks[i].track, mediaSuccess, null, mediaStatus, i);
+                } else {
+                    track = new Audio(tracks[i].url);
+                }
+                $scope.data.tracks[i] = track;
+                $scope.data.tracks[i].icon = tracks[i].icon;
+                $scope.data.tracks[i].label = tracks[i].label;
+                $scope.data.tracks[i].title = tracks[i].title;
+                load(track);
             }
+            $ionicLoading.hide();
         });
         $scope.data.position = 0;
         $scope.data.isPlayingAll = false;
-        $scope.data.records = {};
-        for (i = 1; i < 6; i++) {
-            $scope.data.records[i] = {};
-            $scope.data.records[i].selected = false;
-        }
     });
 
     var isApp = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
 
     var mediaSuccess = function(id) {
         if (!$scope.data.loaded) {
-            $scope.$apply(function () {
-                $scope.data.tracks[id].isLoaded = true;
+            $scope.$apply(function() {
                 $scope.data.durations.push($scope.data.tracks[id].getDuration());
                 if ($scope.data.durations.length == $scope.data.tracksList.length) {
                     $scope.data.loaded = true;
@@ -73,10 +71,9 @@ app.controller("tracksController", function($scope, $q, $timeout, $interval, use
                 $scope.data.position = 0;
                 $scope.data.isPlayingAll = false;
             });
-            track.addEventListener("loadeddata", function () {
+            track.addEventListener("loadeddata", function() {
                 if (!$scope.data.loaded) {
-                    $scope.$apply(function () {
-                        track.isLoaded = true;
+                    $scope.$apply(function() {
                         $scope.data.durations.push(track.duration);
                         if ($scope.data.durations.length == $scope.data.tracksList.length) {
                             $scope.data.loaded = true;
@@ -89,6 +86,7 @@ app.controller("tracksController", function($scope, $q, $timeout, $interval, use
     };
 
     $scope.playPause = function(track) {
+
         if (track.isPlaying) {
             track.pause();
             track.isPlaying = false;
@@ -108,15 +106,13 @@ app.controller("tracksController", function($scope, $q, $timeout, $interval, use
         track.isPlaying = false;
     };
 
-    $scope.isLoaded = function(id) {
-        return $scope.data.tracks[id].isLoaded;
-    };
-
     $scope.muteUnmute = function(id) {
         track = $scope.data.tracks[id];
         if (track.isMuted) {
             track.isMuted = false;
-            track.opacity = 1.0;
+            track.color = "#19BFEF";
+            track.iconColor = "#FFFFFF";
+            track.background = "#19BFEF";
             if (isApp) {
                 track.setVolume(1.0);
             } else {
@@ -124,7 +120,9 @@ app.controller("tracksController", function($scope, $q, $timeout, $interval, use
             }
         } else {
             track.isMuted = true;
-            track.opacity = 0.25;
+            track.color = "#F3F3F3";
+            track.iconColor = "#F3F3F3";
+            track.background = "#FFFFFF";
             if (isApp) {
                 track.setVolume(0.0);
             } else {
@@ -183,18 +181,20 @@ app.controller("tracksController", function($scope, $q, $timeout, $interval, use
         $scope.data.isPlayingAll = false;
     };
 
-    $scope.recordSelect = function(id) {
-        $scope.data.records[id].selected = !$scope.data.records[id].selected;
-    };
-
     $scope.songsPage = function() {
+
         $scope.stopAll();
         if (isApp) {
             for (var id in $scope.data.tracks) {
                 $scope.data.tracks[id].release();
+                //$scope.data.tracks[id] = {};
             }
-        }
-        $scope.data = {};
-        $state.go("songs");
+        }$ionicLoading.show({
+            template: '<ion-spinner></ion-spinner><br>Loading Song...'
+        });
+        $timeout(function() {
+            $state.go("songs");
+        }, 200);
+        $ionicLoading.hide();
     };
 });

@@ -1,7 +1,24 @@
-var app = angular.module("starter", ["ionic", "firebase", "ngCordova"])
+var io = Ionic.io();
+var user = Ionic.User.current();
+var app = angular.module("starter", ["ionic",'ionic.service.core','ionic.service.analytics', "firebase", "ngCordova"])
 
-    .run(function($ionicPlatform, $cordovaStatusbar) {
+    .run(function($ionicPlatform, $cordovaStatusbar, $ionicAnalytics) {
         $ionicPlatform.ready(function() {
+
+            /*$ionicAnalytics.setGlobalProperties({
+                timestamp: Date.now()
+            });
+
+            $ionicAnalytics.register();*/
+
+            $ionicAnalytics.register({
+
+             // Don't send any events to the analytics backend.
+             // (useful during development)
+             dryRun: true
+
+             });
+
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
             if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -14,14 +31,8 @@ var app = angular.module("starter", ["ionic", "firebase", "ngCordova"])
         });
     })
 
-    .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $compileProvider) {
         $stateProvider
-
-            .state('login', {
-                url: '/login',
-                templateUrl: 'templates/login.html',
-                controller: 'loginController'
-            })
 
             .state('main', {
                 url: '/main',
@@ -29,22 +40,10 @@ var app = angular.module("starter", ["ionic", "firebase", "ngCordova"])
                 controller: 'mainController'
             })
 
-            .state('create', {
-                url: '/create',
-                templateUrl: 'templates/create.html',
-                controller: 'createController'
-            })
-
             .state('tracks', {
                 url: '/tracks',
                 templateUrl: 'templates/tracks.html',
                 controller: 'tracksController'
-            })
-
-            .state('forgot', {
-                url: '/forgot',
-                templateUrl: 'templates/forgot.html',
-                controller: 'forgotController'
             })
 
             .state('songs', {
@@ -59,18 +58,6 @@ var app = angular.module("starter", ["ionic", "firebase", "ngCordova"])
                 controller: 'aboutWPCController'
             })
 
-            .state('myGroups', {
-                url: '/myGroups',
-                templateUrl: 'templates/myGroups.html',
-                controller: 'myGroupsController'
-            })
-
-            .state('myAccount', {
-                url: '/myAccount',
-                templateUrl: 'templates/myAccount.html',
-                controller: 'myAccountController'
-            })
-
             .state('voteSong', {
                 url: '/voteSong',
                 templateUrl: 'templates/voteSong.html',
@@ -81,21 +68,13 @@ var app = angular.module("starter", ["ionic", "firebase", "ngCordova"])
                 url: '/feedback',
                 templateUrl: 'templates/feedback.html',
                 controller: 'feedbackController'
-            })
-
-            .state('upgrades', {
-                url: '/upgrades',
-                templateUrl: 'templates/upgrades.html',
-                controller: 'upgradesController'
-            })
-
-            .state('timeline', {
-                url: '/timeline',
-                templateUrl: 'templates/timeline.html',
-                controller: 'timelineController'
             });
 
-        $urlRouterProvider.otherwise('/login');
+        $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|chrome-extension):|data:image\//);
+
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|chrome-extension):/);
+
+        $urlRouterProvider.otherwise('/main');
 
         $ionicConfigProvider.views.forwardCache(true);
         $ionicConfigProvider.views.swipeBackEnabled(false);

@@ -256,6 +256,7 @@
     NSString* callbackId = command.callbackId;
 
 #pragma unused(callbackId)
+
     NSString* mediaId = [command argumentAtIndex:0];
     NSString* resourcePath = [command argumentAtIndex:1];
     NSDictionary* options = [command argumentAtIndex:2 withDefault:nil];
@@ -263,7 +264,9 @@
     BOOL bError = NO;
     NSString* jsString = nil;
 
+
     CDVAudioFile* audioFile = [self audioFileForResource:resourcePath withId:mediaId doValidation:YES forRecording:NO];
+
     if ((audioFile != nil) && (audioFile.resourceURL != nil)) {
         if (audioFile.player == nil) {
             bError = [self prepareToPlay:audioFile withId:mediaId];

@@ -8,7 +8,7 @@
     </div>
 
     <!-- Feedback - body -->
-    <div class="list" style="position: relative; z-index: 2; height: 85%; padding: 0px; margin: 0px; background: white;">
+    <div class="list" style="position: relative; z-index: 2; height: 82%; padding: 0px; margin: 0px; background: white;">
         <!-- Request for new KEY -->
         <div class="row" style="width: 100%; height: 8%; padding: 0% 10%; color: #19bfef; text-align: left;">
             <p>
@@ -17,15 +17,15 @@
             </p>
         </div>
         <div class="row" style="margin-top: 0px; width: 100%; height: 10%; padding: 0px;">
-            <div class="col col-75" style="text-align: right; height: 40%; width: 75%; margin: 0px; padding: 0px 1px;">
-                <select id="song" style="border: none; font-size: 11px; height: 100%; width: 90%; background: #19bfef; color: white; text-align: center;">
-                    <option selected="selected" style="display: none;">SONG TITLE</option>
+            <div class="col col-75" style="overflow: hidden; text-align: right; height: 40%; width: 75%; margin: 0px; padding: 0px 1px;">
+                <select class="custom-dropdown" id="song" style="padding: 0px; font-size: 11px; height: 100%; width: 90%; text-align: center;">
+                    <option selected="selected" style="display: none;">&nbsp;&nbsp;SONG TITLE</option>
                     <option ng-repeat="(key, value) in data.clientSongs">{{value.artist}} - {{value.title}}</option>
                 </select>
             </div>
             <div class="col" style="text-align: left; height: 40%; width: 25%; margin: 0px; padding: 0px 1px;">
-                <select id="key" style="border: none; font-size: 11px; height: 100%; width: 65%; background: #19bfef; color: white; text-align: center;">
-                    <option selected="selected" style="display: none;">KEY</option>
+                <select class="custom-dropdown" id="key" style="padding: 0px; font-size: 11px; height: 100%; width: 65%; text-align: center;">
+                    <option selected="selected" style="display: none;">&nbsp;&nbsp;KEY</option>
                     <option>C</option>
                     <option>Db</option>
                     <option>D</option>
@@ -85,18 +85,13 @@
     </div>
 
     <!-- footer nav bar -->
-    <div class="row" style="height: 5%; padding: 0px; margin-bottom: 5px;">
-        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="aboutWPC">
-            About WPC
+    <div class="row" style="height: 8%; padding: 0px; margin-bottom: 5px;">
+
+        <button class="col accountActiveTab" style="font-size: 80%; font-family: Aller Light;">
+            <i class="ion-chatbubble-working" style="font-size: 150%;"></i><br>Feedback
         </button>
-        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="timeline">
-            Timeline
-        </button>
-        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="voteSong">
-            Vote
-        </button>
-        <button class="col accountActiveTab">
-            Feedback
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ui-sref="voteSong">
+            <i class="ion-checkmark-circled" style="font-size: 150%;"></i><br>Vote
         </button>
     </div>
 </ion-view>

@@ -75,7 +75,7 @@
 // Maps a url for a resource path for playing
 // "Naked" resource paths are assumed to be from the www folder as its base
 - (NSURL*)urlForPlaying:(NSString*)resourcePath
-{
+{[self.commandDelegate runInBackground:^{
     NSURL* resourceURL = nil;
     NSString* filePath = nil;
 
@@ -128,6 +128,7 @@
     }
 
     return resourceURL;
+    }];
 }
 
 // Creates or gets the cached audio file resource object
@@ -213,7 +214,8 @@
 }
 
 - (void)create:(CDVInvokedUrlCommand*)command
-{
+{    [self.commandDelegate runInBackground:^{
+
     NSString* mediaId = [command argumentAtIndex:0];
     NSString* resourcePath = [command argumentAtIndex:1];
 
@@ -226,7 +228,7 @@
     } else {
         CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-    }
+    }}];
 }
 
 - (void)setVolume:(CDVInvokedUrlCommand*)command
@@ -512,7 +514,7 @@
             // get the audioSession and set the category to allow recording when device is locked or ring/silent switch engaged
             if ([self hasAudioSession]) {
                 if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
-                    [self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
+                    [self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
                 }
 
                 if (![self.avSession setActive:YES error:&error]) {

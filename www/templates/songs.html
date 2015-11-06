@@ -18,14 +18,14 @@
 
     <!-- body -->
     <ion-scroll class="list" style="height: 80%; margin: 0px; padding: 10px;">
-        <div class="row song" style="margin-bottom: 5px; padding: 5px 0px;" ng-repeat="(key, song) in data.songs">
+        <div class="row song" style="margin-bottom: 5px; padding: 5px 0px; border: none" ng-repeat="(key, song) in data.songs">
             <div class="col col-75" style="padding-left: 10%" ng-click="details(key)">
                 <span style="font-size: 130%; font-family: Calibri Light;">{{song.title | uppercase}}</span><br>
-                <span style="font-size: 75%; font-family: Calibri Light">{{song.artist}} | {{song.genre}}</span>
+                <span style="font-size: 75%; font-family: Calibri Light">{{song.artist}} | {{song.label}}</span>
             </div>
-            <div class="col col-25" style="margin-left: 3%;">
+            <div class="col col-25" style="margin-left: 0%;">
                 <button class="songCircle" ng-class="{'downloadButtonOffset ion-ios-download-outline': data.available, 'ion-ios-play': data.downloaded}" ng-class-odd="'oddRowSongButton'" ng-class-even="'evenRowSongButton'" ng-click="downloadOrPlay(key, song)"></button>
-                {{song.percentageDone}}
+                <span style="font-family: Nexa Light; font-size: 80%">{{song.percentageDone}}</span>
             </div>
         </div>
     </ion-scroll>

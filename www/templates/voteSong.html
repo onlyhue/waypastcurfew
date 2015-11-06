@@ -6,37 +6,38 @@
             <div class="div2"></div>
         </div>
     </div>
-
+    
     <!-- Vote Song - body -->
-    <div class="row" style="position: relative; z-index: 2; height: 85%; padding: 0px; margin-bottom: 5px;">
-        <ion-content scroll="true" style="width: 100%; position: relative;">
-            <div class="item" style="padding: 1% 10%; border: none;" ng-repeat="(key, value) in data.songs">
-                <div class="row voteItem">
-                    <div class="col col-80" style="color: #19bfef; margin-top: 2%; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                        <span class="voteTitle" style="font-size: 180%; font-family: Calibri Light;">{{value.title}}</span> <br/>
-                        <span class="voteTitle" style="font-size: 100%; font-family: Calibri Light;">{{value.artist}} | {{value.genre}}</span>
-                    </div>
-                    <div class="col" style="text-align: center;">
-                        <button class="voteCircle" ng-class="{'voteCircleFill': data.songs[key].selected}" ng-click="voteSong(key)"></button>
-                    </div>
+    <div class="list" style="position: relative; z-index: 2; height: 12%; padding: 0px; margin: 0;">
+        <div class="row" style="margin: 0; padding: 0; height: 100%; width: 100%; display: inline-block;">
+            <p style="font-family: 'Aller Light'; font-size: 200%; padding: 0 0 2% 0; color: #19bfef; text-align: center; line-height: 110%; border-bottom: 2px dashed;">
+            <span style="font-family: 'Nexa Bold';">VOTE SONGS</span><br/>
+            <span style="font-weight: bold; font-size: 0.5em; font-style: italic;">Vote for the song YOU want to learn next! </span>
+            </p>
+        </div>
+    </div>
+    <ion-scroll style="height: 70%; width: 100%; position: relative;">
+        <div class="item" style="padding: 1% 10%; border: none;" ng-repeat="(key, value) in data.votes">
+            <div class="row voteItem">
+                <div class="col col-80" style="color: #19bfef; margin-top: 2%; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                    <span class="voteTitle" style="font-size: 200%; font-family: Calibri Light;">{{value.songTitle}}</span> <br/>
+                    <span class="voteTitle" style="font-size: 100%; font-family: Calibri Light;">{{value.songArtiste}}</span>
+                </div>
+                <div class="col" style="text-align: center;">
+                    <button class="voteCircle" ng-click="voteSong(key)"></button>
                 </div>
             </div>
-        </ion-content>
-    </div>
-
+        </div>
+    </ion-scroll>
+    
     <!-- footer nav bar -->
-    <div class="row" style="height: 5%; padding: 0px; margin-bottom: 5px;">
-        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="aboutWPC">
-            About WPC
+    <div class="row" style="height: 8%; padding: 0px; margin-bottom: 5px;">
+
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ui-sref="feedback">
+            <i class="ion-chatbubble-working" style="font-size: 150%;"></i><br>Feedback
         </button>
-        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="timeline">
-            Timeline
-        </button>
-        <button class="col accountActiveTab">
-            Vote
-        </button>
-        <button class="col accountInactiveTab" style="color: #bfbfbf" ui-sref="feedback">
-            Feedback
+        <button class="col accountActiveTab" style="font-size: 80%; font-family: Aller Light;">
+            <i class="ion-checkmark-circled" style="font-size: 150%;"></i><br>Vote
         </button>
     </div>
 </ion-view>

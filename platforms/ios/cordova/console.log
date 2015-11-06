@@ -1,0 +1,52 @@
+2015-09-21 15:29:38.526 WayPastCurfew[22928:110938] Apache Cordova native platform version 3.8.0 is starting.
+2015-09-21 15:29:38.528 WayPastCurfew[22928:110938] Multi-tasking -> Device: YES, App: YES
+2015-09-21 15:29:38.535 WayPastCurfew[22928:110938] Unlimited access to network resources
+2015-09-21 15:29:38.717 WayPastCurfew[22928:110938] [CDVTimer][keyboard] 0.058055ms
+2015-09-21 15:29:38.795 WayPastCurfew[22928:110938] [CDVTimer][splashscreen] 78.483999ms
+2015-09-21 15:29:38.796 WayPastCurfew[22928:110938] Init FacebookConnect Session
+2015-09-21 15:29:38.806 WayPastCurfew[22928:110938] [CDVTimer][facebookconnectplugin] 10.432005ms
+2015-09-21 15:29:38.809 WayPastCurfew[22928:110938] [CDVTimer][statusbar] 3.288031ms
+2015-09-21 15:29:38.815 WayPastCurfew[22928:110938] [CDVTimer][file] 5.210996ms
+2015-09-21 15:29:38.815 WayPastCurfew[22928:110938] [CDVTimer][TotalPluginStartup] 98.268986ms
+2015-09-21 15:29:38.940 WayPastCurfew[22928:110938] Resetting plugins due to page load.
+2015-09-21 15:29:39.210 WayPastCurfew[22928:110938] Finished load of: file:///Users/qiwen/Library/Developer/CoreSimulator/Devices/6CEECFEB-F08D-499C-89AD-F06DF18D3EF5/data/Containers/Bundle/Application/2A48DBC0-2702-4767-8B5E-1F9C574C9080/WayPastCurfew.app/www/index.html#/login
+2015-09-21 16:32:46.835 WayPastCurfew[22928:148878] Communications error: <OS_xpc_error: <error: 0x32d05f4> { count = 1, contents =
+	"XPCErrorDescription" => <string: 0x32d083c> { length = 22, contents = "Connection interrupted" }
+}>
+2015-09-21 16:32:46.839 WayPastCurfew[22928:148932] Terminating since there is no system app.
+2015-09-24 22:17:37.463 WayPastCurfew[45108:867707] Apache Cordova native platform version 3.8.0 is starting.
+2015-09-24 22:17:37.465 WayPastCurfew[45108:867707] Multi-tasking -> Device: YES, App: YES
+2015-09-24 22:17:37.472 WayPastCurfew[45108:867707] Unlimited access to network resources
+2015-09-24 22:17:37.631 WayPastCurfew[45108:867707] [CDVTimer][keyboard] 0.046968ms
+2015-09-24 22:17:37.708 WayPastCurfew[45108:867707] [CDVTimer][splashscreen] 77.131987ms
+2015-09-24 22:17:37.708 WayPastCurfew[45108:867707] Init FacebookConnect Session
+2015-09-24 22:17:37.716 WayPastCurfew[45108:867707] [CDVTimer][facebookconnectplugin] 8.140028ms
+2015-09-24 22:17:37.720 WayPastCurfew[45108:867707] [CDVTimer][statusbar] 3.187001ms
+2015-09-24 22:17:37.725 WayPastCurfew[45108:867707] [CDVTimer][file] 5.362034ms
+2015-09-24 22:17:37.725 WayPastCurfew[45108:867707] [CDVTimer][TotalPluginStartup] 94.843030ms
+2015-09-24 22:17:37.843 WayPastCurfew[45108:867707] Resetting plugins due to page load.
+2015-09-24 22:17:38.201 WayPastCurfew[45108:867707] Finished load of: file:///Users/qiwen/Library/Developer/CoreSimulator/Devices/6CEECFEB-F08D-499C-89AD-F06DF18D3EF5/data/Containers/Bundle/Application/F2246CED-AC18-46BD-A177-F3CE1EF150B2/WayPastCurfew.app/www/index.html#/login
+2015-09-30 21:07:36.906 WayPastCurfew[39828:350972] Apache Cordova native platform version 3.8.0 is starting.
+2015-09-30 21:07:36.909 WayPastCurfew[39828:350972] Multi-tasking -> Device: YES, App: YES
+2015-09-30 21:07:36.917 WayPastCurfew[39828:350972] Unlimited access to network resources
+2015-09-30 21:07:37.086 WayPastCurfew[39828:350972] [CDVTimer][keyboard] 0.079989ms
+2015-09-30 21:07:37.172 WayPastCurfew[39828:350972] [CDVTimer][splashscreen] 86.057961ms
+2015-09-30 21:07:37.172 WayPastCurfew[39828:350972] Init FacebookConnect Session
+2015-09-30 21:07:37.182 WayPastCurfew[39828:350972] [CDVTimer][facebookconnectplugin] 9.540021ms
+2015-09-30 21:07:37.185 WayPastCurfew[39828:350972] [CDVTimer][statusbar] 3.818035ms
+2015-09-30 21:07:37.190 WayPastCurfew[39828:350972] [CDVTimer][file] 4.904985ms
+2015-09-30 21:07:37.191 WayPastCurfew[39828:350972] [CDVTimer][TotalPluginStartup] 105.796993ms
+2015-09-30 21:07:37.278 WayPastCurfew[39828:350972] Resetting plugins due to page load.
+2015-09-30 21:07:38.032 WayPastCurfew[39828:350972] Finished load of: file:///Users/qiwen/Library/Developer/CoreSimulator/Devices/6CEECFEB-F08D-499C-89AD-F06DF18D3EF5/data/Containers/Bundle/Application/C0A30C0F-85FC-4097-B94A-C3FE4EFAF12B/WayPastCurfew.app/www/index.html#/login
+2015-09-30 21:07:50.112 WayPastCurfew[40168:351860] Apache Cordova native platform version 3.8.0 is starting.
+2015-09-30 21:07:50.113 WayPastCurfew[40168:351860] Multi-tasking -> Device: YES, App: YES
+2015-09-30 21:07:50.114 WayPastCurfew[40168:351860] Unlimited access to network resources
+2015-09-30 21:07:50.168 WayPastCurfew[40168:351860] [CDVTimer][keyboard] 0.045002ms
+2015-09-30 21:07:50.185 WayPastCurfew[40168:351860] [CDVTimer][splashscreen] 16.807973ms
+2015-09-30 21:07:50.185 WayPastCurfew[40168:351860] Init FacebookConnect Session
+2015-09-30 21:07:50.190 WayPastCurfew[40168:351860] [CDVTimer][facebookconnectplugin] 5.550027ms
+2015-09-30 21:07:50.193 WayPastCurfew[40168:351860] [CDVTimer][statusbar] 2.490997ms
+2015-09-30 21:07:50.195 WayPastCurfew[40168:351860] [CDVTimer][file] 1.906991ms
+2015-09-30 21:07:50.195 WayPastCurfew[40168:351860] [CDVTimer][TotalPluginStartup] 27.359962ms
+2015-09-30 21:07:50.276 WayPastCurfew[40168:351860] Resetting plugins due to page load.
+2015-09-30 21:07:50.458 WayPastCurfew[40168:351860] Finished load of: file:///Users/qiwen/Library/Developer/CoreSimulator/Devices/6CEECFEB-F08D-499C-89AD-F06DF18D3EF5/data/Containers/Bundle/Application/98C16F5F-F352-434F-9202-A429A707FECC/WayPastCurfew.app/www/index.html#/login

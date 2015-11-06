@@ -1,28 +1,27 @@
 app.factory("tracksFactory", function($firebaseArray) {
-    // set global firebase reference, firebase array, song object and tracks object
     var ref;
     var tracks;
+    var artistTitle;
     var song;
-    var key;
 
     return {
-        pullTracks: function(userID, songKey, theSong) {
-            key = songKey;
-            ref = new Firebase("https//onlyhue.firebaseIO.com/tracks/" + userID + "/" + songKey);
+        pullTracks: function(userID, theArtistTitle, theSong) {
+            ref = new Firebase("https//onlyhue.firebaseIO.com/tracks/" + userID + "/" + theArtistTitle);
+            tracks = $firebaseArray(ref);
+            artistTitle = theArtistTitle;
             song = theSong;
         },
 
         getTracks: function() {
-            tracks = $firebaseArray(ref);
             return tracks;
+        },
+
+        getArtistTitle: function() {
+            return artistTitle;
         },
 
         getSong: function() {
             return song;
-        },
-
-        getKey: function() {
-            return key;
         }
     };
 });

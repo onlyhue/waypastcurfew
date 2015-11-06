@@ -1,0 +1,49 @@
+<ion-view view-title="announcements" nav-transition="none">
+    <!-- header bar -->
+    <div class="row" style="border: none; height: 10%; padding: 0px; margin: 0px; background: #031D2D;">
+        <div class="container" style="border: none">
+            <div class="div1" style="background: white;" ng-click="myGroups()"></div>
+            <div class="div2" style="background: #031D2D;"></div>
+        </div>
+        <div style="position: relative; z-index: 2; height: 100%; width: 83%;">
+            <div class="row" style="height: 100%; width: 100%; padding: 0%; text-align: center; background: #031D2D;">
+                <div class="col" style="width: 100%; padding: 5% 17% 0% 0%; background: #031D2D; text-align: center;">
+                    <p style="font-family: 'Aller'; font-size: 200%; color: white; padding: 0; text-transform: uppercase;">
+                        Group Settings
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list" style="position: relative; z-index: 2; height: 82%; width: 100%; background: #031D2D; color: white; margin: 0;">
+        <!-- dead spacing -->
+        <div class="row" style="height: 8%; width: 100%;">
+
+        </div>
+        <!-- Disclaimer/Warning -->
+        <div class="row" style="width: 80%; margin: 0 10%;  text-align: center;">
+            <p style="font-size: 200%; font-family: 'Aller Bold'; line-height: 150%;">Are you sure you want to leave the group?</p>
+        </div>
+        <div class="row" style="width: 80%; margin: 0 10%; text-align: center;">
+            <p>If you leave, all information relating to the group would be deleted.</p>
+        </div>
+
+        <!-- Yes or No button -->
+        <div class="row" style="width: 80%; margin: 5% 10%; padding: 2% 0; text-align: center;">
+            <button style="height: 2em; width: 4.5em; border: none; background: white; color: #031D2D; border-radius: 5px; font-family: Aller Light; font-weight: bold; font-size: 130%; padding: 2% 6%; margin: 0 auto;">Yes</button>
+            <button style="height: 2em; width: 4.5em; border: none; background: white; color: #031D2D; border-radius: 5px; font-family: Aller Light; font-weight: bold; font-size: 130%; padding: 2% 6%; margin: 0 auto;">No</button>
+        </div>
+    </div>
+
+    <!-- footer tabs -->
+    <div class="row" style="height: 8%; padding: 0px; margin-bottom: 5px; background: #031D2D;">
+        <button class="col-50 settingsInactiveTab" style="font-size: 80%; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;" ui-sref="groupSettings">
+            <i class="ion-ios-information-outline" style="font-size: 150%;"></i><br>Group Info
+        </button>
+        <button class="col-50 settingsActiveTab" style="font-size: 80%; color: #bfbfbf">
+            <i class="ion-android-exit" style="font-size: 150%;"></i><br>Leave Group
+        </button>
+    </div>
+
+</ion-view>

@@ -1,4 +1,4 @@
-app.controller("feedbackController", function($scope, $state, $ionicViewSwitcher, songsFactory, usersFactory, feedbackFactory) {
+app.controller("feedbackController", function($scope, $state, $ionicViewSwitcher, songsFactory, feedbackFactory) {
     $scope.data = {};
     $scope.data.clientSongs = songsFactory.getClientSongs();
 
@@ -25,7 +25,6 @@ app.controller("feedbackController", function($scope, $state, $ionicViewSwitcher
                 return;
             }
             var feedback = {};
-            feedback["user"] = usersFactory.returnProfile().uid;
             feedback["song"] = selectedNodeSong.value;
             feedback["key"] = selectedNodeKey.value;
             if ($scope.data.newSong == null) {

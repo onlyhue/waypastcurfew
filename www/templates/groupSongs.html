@@ -1,0 +1,89 @@
+<ion-view view-title="groupSongs" nav-transition="none">
+    <!-- header bar -->
+    <div class="row" style="border: none; height: 10%; padding: 0px; margin: 0px; background: #031D2D;">
+        <div class="container" style="border: none">
+            <div class="div1" style="background: #f3f3f3;" ng-click="myGroups()"></div>
+            <div class="div2" style="background: #031D2D;"></div>
+        </div>
+        <div style="position: relative; z-index: 2; height: 100%; width: 83%;">
+            <div class="row" style="height: 100%; width: 100%; padding: 0%; text-align: center; background: #031D2D;">
+                <div class="col-67" style="padding: 5% 0% 0% 0%; background: #031D2D;">
+                    <p style="font-family: 'Aller'; font-size: 200%; color: #f3f3f3; padding: 0; text-transform: uppercase;">
+                        {{data.group.name}}
+                    </p>
+                </div>
+                <div class="col-33" style="padding: 0% 0% 0% 0%; background: #031D2D; text-align: center;">
+                    <button class="ion-ios-gear" style="width: 100%; margin: 0; border: none; color: #f3f3f3; font-size: 300%; background: #031D2D; padding: 0; text-decoration: underline;"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list" style="position: relative; z-index: 2; height: 82%; padding: 0px; margin: 0px; background: #F3F3F3; text-align: center;">
+        <div class="row" style="height: 6%; margin: 0; padding: 0;">
+            <!-- I call this the "Dead padding" -->
+        </div>
+        <div class="row" style="height: 9%; margin: 0; padding: 0% 10%;">
+            <div class="col-75" style="height: 100%; border-bottom: 2px dotted #031D2D; margin: 0; padding: 0; text-align: left;">
+                <p style="height: 100%; font-family: 'Aller Display'; font-size: 150%;">SONGS</p>
+            </div>
+            <div class="col" style="height: 100%; border-bottom: 2px dotted #031D2D; margin: 0; padding: 0; text-align: right;">
+                <p style="height: 100%; font-family: 'Aller Display'; font-size: 200%;">+</p>
+            </div>
+        </div>
+        <div class="row" style="height: 85%; margin: 0; padding: 0%;">
+            <ion-content scroll="true" class="col" style="height: 100%; width: 100%; margin: 0%; padding: 5% 0% 0% 0%; position: relative;">
+                <!-- add ng-repeat here -->
+                <div class="list" style="width: 100%; margin: 0; padding: 0;">
+                    <!-- available tracks: background - #19bfef, icon change -->
+                    <div class="row" style="background: #19bfef; margin: 0; padding: 3% 10%;">
+                        <div class="col-75" style="text-align: left; color: white; padding: 1% 0% ">
+                            <div class="row" style="margin: 0; padding: 0; font-size: 160%; text-transform: uppercase;">
+                                See You Again
+                            </div>
+                            <div class="row" style="margin: 0; padding: 0; font-size: 85%; text-transform: capitalize;">
+                                Wiz Khalifa ft. Charlie Puth | Cover
+                            </div>
+                        </div>
+                        <div class="col">
+                            <button class="songCircle ion-ios-download-outline" style="color: #19bfef; background: white; font-weight: bold; font-size: 200%; margin: 0; padding: 0;"></button>
+                        </div>
+                    </div>
+                    <!-- downloaded tracks: background - #f3f3f3, icon change -->
+                    <div class="row" style="margin: 0; padding: 3% 10%;">
+                        <div class="col-75" style="text-align: left; color: black; padding: 1% 0% ">
+                            <div class="row" style="margin: 0; padding: 0; font-size: 160%; text-transform: uppercase;">
+                                Roar
+                            </div>
+                            <div class="row" style="margin: 0; padding: 0; font-size: 85%; text-transform: capitalize;">
+                                Katy Perry | Cover
+                            </div>
+                        </div>
+                        <div class="col">
+                            <button class="songCircle ion-ios-play" style="margin: 0%; padding: 0; border: 3px solid; color: black; font-weight: bold; font-size: 200%; line-height: 0%; margin: 0; padding: 0;"></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of ng-repeat -->
+            </ion-content>
+        </div>
+
+    </div>
+
+    <!-- footer tabs -->
+    <div class="row" style="height: 8%; padding: 0px; margin-bottom: 5px; background: #19bfef;">
+        <button class="col-25 accountInactiveTab" style="color: #bfbfbf; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;" ui-sref="announcements">
+            Announcements
+        </button>
+        <button class="col-25 accountActiveTab" style="color: white;">
+            Songs
+        </button>
+        <button class="col-25 accountInactiveTab" style="color: #bfbfbf;" ui-sref="groupMembers">
+            Members
+        </button>
+        <button class="col-25 accountInactiveTab" style="color: #bfbfbf;" ui-sref="groupTasks">
+            Tasks
+        </button>
+    </div>
+
+</ion-view>
