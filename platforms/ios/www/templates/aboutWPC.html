@@ -1,4 +1,4 @@
-<ion-view view-title="aboutWPC" nav-transition="none">
+<ion-view>
     <div class="row" style="height: 10%; padding: 0px; background: #19bfef;">
         <div class="container" style="border: none">
             <div class="div1" style="background: white;" ng-click="main()"></div>
@@ -6,7 +6,7 @@
         </div>
     </div>
     
-    <div class="list" style="position: relative; z-index: 2; height: 90%; padding: 0px; margin-bottom: 0px; background: #19bfef;">
+    <div class="list" style="position: relative; z-index: 2; height: 82%; padding: 0px; margin-bottom: 0px; background: #19bfef;">
         <div class="row" style="height: 25%; width: 100%;">
             <!-- dead padding -->
         </div>
@@ -42,6 +42,22 @@
         <div class="row" style="height: 25%; width: 100%;">
             <!-- dead padding -->
         </div>
+    </div>
+    <div class="row" style="height: 8%; padding: 0px; margin-bottom: 5px;">
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="events()">
+            <i class="ion-ios-location" style="font-size: 150%;"></i><br>Events
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="voteSong()">
+            <i class="ion-checkmark-circled" style="font-size: 150%;"></i><br>Votes
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="feedback()">
+            <i class="ion-chatbubble-working" style="font-size: 150%;"></i><br>Feedback
+        </button>
+        <button class="col accountActiveTab" style="color: white;font-size: 80%; font-family: Aller Light;">
+            <i class="ion-link" style="font-size: 150%;"></i><br>Links
+        </button>
+
+
     </div>
 
 </ion-view>

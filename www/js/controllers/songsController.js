@@ -1,12 +1,19 @@
-app.controller("songsController", function($scope, $state, songsFactory, tracksFactory, $ionicModal, $cordovaFileTransfer, $cordovaFile, $q, $ionicLoading, $timeout, $ionicAnalytics) {
+app.controller("songsController", function($scope, $state, songsFactory, tracksFactory, $ionicModal, $cordovaFileTransfer, $cordovaFile, $q, $ionicLoading, $ionicAnalytics, $ionicViewSwitcher) {
     var isApp = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
     $scope.data = {};
     $scope.data.availableSongs = {};
     $scope.data.downloadedSongs = {};
     $scope.data.clientSongs = songsFactory.getClientSongs();
+
+    // solves issue of endless loading
+    $scope.data.clientSongs.$loaded().then(function(clientSongs) {
+        clientSongs.$save();
+    });
+
     $ionicLoading.show({
         template: '<ion-spinner></ion-spinner><br><br><span style="font-family: Aller Light; font-size: 0.8em;">LOADING SONGS...</span>'
     });
+
     $scope.data.clientSongs.$watch(function() {
         $scope.data.clientSongs.$loaded().then(function(clientSongs) {
             $scope.data.downloadedSongs = {};
@@ -30,8 +37,8 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
                             promises.push(deferred);
                             for (i = 0; i < tracks.length; i++) {
                                 $cordovaFile.checkFile(cordova.file.documentsDirectory + song.uid + "/" + artistTitle + "/", tracks[i].track, i)
-                                    .then(function (success) {
-                                        success.file(function (file) {
+                                    .then(function(success) {
+                                        success.file(function(file) {
                                             if (file.lastModified < tracks[success.id].modified || file.size != tracks[success.id].size) {
                                                 songDownloaded = false;
                                             }
@@ -39,13 +46,13 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
                                                 deferred.resolve();
                                             }
                                         });
-                                    }, function (error) {
+                                    }, function(error) {
                                         songDownloaded = false;
                                         deferred.resolve();
                                     });
                             }
                             if (promises.length == numOfSongs) {
-                                $q.all(promises).then(function (data) {
+                                $q.all(promises).then(function(data) {
                                     if ($scope.data.available) {
                                         $scope.data.songs = $scope.data.availableSongs;
                                     } else {
@@ -135,6 +142,12 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
                                     $scope.data.downloadedSongs[artistTitle] = angular.copy($scope.data.songs[artistTitle]);
                                     delete $scope.data.availableSongs[artistTitle];
                                     delete $scope.data.songs[artistTitle];
+                                    $cordovaFile.createDir(cordova.file.documentsDirectory + song.uid + "/" + artistTitle + "/", "recordings", false)
+                                        .then(function(success) {
+                                            // do nothing
+                                        }, function(error) {
+                                            console.log(error);
+                                        });
                                     $ionicLoading.hide();
                                     $ionicAnalytics.track('Download', {
                                         song: {
@@ -169,15 +182,39 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
             }
         } else {
             tracksFactory.pullTracks(song.uid, artistTitle, song);
-                $ionicAnalytics.track('Playback', {
-                    song: {
-                        title: song.title,
-                        artist: song.artist
-                    }
-                });
-            $timeout(function() {
-                $state.go("tracks");
-            },5);
+            $ionicAnalytics.track('Playback', {
+                song: {
+                    title: song.title,
+                    artist: song.artist
+                }
+            });
+            removeBlankRecording(cordova.file.documentsDirectory + song.uid + "/" + artistTitle + "/recordings/");
+            function removeBlankRecording(path) {
+                window.resolveLocalFileSystemURL(path,
+                    function(fileSystem) {
+                        var reader = fileSystem.createReader();
+                        reader.readEntries(
+                            function(entries) {
+                                if (entries.length %2 == 0) {
+                                    $ionicViewSwitcher.nextDirection('forward');
+                                    $state.go("tracks");
+                                } else {
+                                    $cordovaFile.removeFile(cordova.file.documentsDirectory + song.uid + "/" + artistTitle + "/recordings/", entries[entries.length - 1].name)
+                                        .then(function (success) {
+                                            $ionicViewSwitcher.nextDirection('forward');
+                                            $state.go("tracks");
+                                        }, function (error) {
+                                            console.log(error);
+                                        });
+                                }
+                            },
+                            function(error) {
+                                console.log(error);
+                            });
+                    }, function(error) {
+                        console.log(error);
+                    });
+            }
         }
     };
 
@@ -286,5 +323,10 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
             link: $scope.data.selectedSong.spotify
         });
         window.open($scope.data.selectedSong.spotify, '_system', 'location=yes');
+    };
+
+    $scope.main = function() {
+        $ionicViewSwitcher.nextDirection('back');
+        $state.go("main");
     };
 });

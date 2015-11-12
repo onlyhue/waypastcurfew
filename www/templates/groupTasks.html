@@ -2,7 +2,7 @@
     <!-- header bar -->
     <div class="row" style="border: none; height: 10%; padding: 0px; margin: 0px; background: #031D2D;">
         <div class="container" style="border: none">
-            <div class="div1" style="background: white;" ng-click="myGroups()"></div>
+            <div class="div1" style="background: white;" ng-click="groups()"></div>
             <div class="div2" style="background: #031D2D;"></div>
         </div>
         <div style="position: relative; z-index: 2; height: 100%; width: 83%;">
@@ -13,7 +13,7 @@
                     </p>
                 </div>
                 <div class="col-33" style="padding: 0% 0% 0% 0%; background: #031D2D; text-align: center;">
-                    <button class="ion-ios-gear" style="width: 100%; margin: 0; border: none; color: white; font-size: 300%; background: #031D2D; padding: 0; text-decoration: underline;"></button>
+                    <button class="ion-ios-gear" style="width: 100%; margin: 0; border: none; color: white; font-size: 300%; background: #031D2D; padding: 0; text-decoration: underline;" ng-click="groupSettings()"></button>
                 </div>
             </div>
         </div>
@@ -27,16 +27,17 @@
             <div class="col-75" style="height: 100%; border-bottom: 2px dotted #031D2D; margin: 0; padding: 0; text-align: left;">
                 <p style="height: 100%; font-family: 'Aller Display'; font-size: 150%;">TASKS</p>
             </div>
-            <div class="col" style="height: 100%; border-bottom: 2px dotted #031D2D; margin: 0; padding: 0; text-align: right;">
+            <div class="col" style="height: 100%; border-bottom: 2px dotted #031D2D; margin: 0; padding: 0; text-align: right;" ng-click="createTask()" ng-show="isCreator()">
+                <!-- hide if not admin -->
                 <p style="height: 100%; font-family: 'Aller Display'; font-size: 200%;">+</p>
             </div>
         </div>
-        <div class="row" style="height: 85%; margin: 0; padding: 0% 10%;">
-            <ion-content scroll="true" class="col" style="height: 100%; width: 100%; margin: 0%; padding: 5% 0% 0% 0%; position: relative; text-align: center;">
-                <!-- add ng-repeat here -->
-                <div class="row" style="width: 100%; padding: 0%; margin: 3% 0%; border: 2px solid;">
+        <div class="row" style="height: 73%; margin: 0; padding: 0% 10%;">
+            <ion-scroll class="col" style="height: 100%; width: 100%; margin: 0%; padding: 5% 0% 0% 0%; position: relative; text-align: center;">
+                <!-- member's view: add ng-repeat here -->
+                <div class="row" style="width: 100%; padding: 0%; margin: 3% 0%;" ng-click="show()">
                     <!-- if done, set text-decoration to line-through -->
-                    <div class="col-75" style="margin: 0; padding: 0%; text-align: left; border: 2px solid;">
+                    <div class="col-75" style="margin: 0; padding: 0%; text-align: left;">
                         <div class="row" style="margin: 0; padding: 0%;">
                             <p style="margin: 0; padding: 0; width: 100%; font-family: 'Aller'; font-weight: bold;">Download New Track</p>
                         </div>
@@ -50,10 +51,10 @@
                     </div>
                 </div>
                 <!-- end of ng-repeat -->
-                <!-- add ng-repeat here -->
-                <div class="row" style="width: 100%; padding: 0%; margin: 3% 0%; border: 2px solid;">
+                <!-- admin's view: add ng-repeat here -->
+                <div class="row" style="width: 100%; padding: 0%; margin: 3% 0%;">
                     <!-- if done, set text-decoration to line-through -->
-                    <div class="col-75" style="margin: 0; padding: 0%; text-align: left; border: 2px solid;">
+                    <div class="col-75" style="margin: 0; padding: 0%; text-align: left;">
                         <div class="row" style="margin: 0; padding: 0%;">
                             <p style="margin: 0; padding: 0; width: 100%; font-family: 'Aller'; font-weight: bold;">Download New Track</p>
                         </div>
@@ -63,28 +64,48 @@
                     </div>
                     <!-- if done, tick color is green -->
                     <div class="col-25" style="height: 100%; margin: 0; padding: 0%; text-align: center;">
-                        <button class="ion-checkmark" style="border: none; height: 100%; width: 100%; background: #f3f3f3; color: #bfbfbf; font-size: 120%;"></button>
+                        <!-- display no. of members that have completed the task out of no. of members that were assigned the task -->
+                        <span style="border: none; height: 100%; width: 100%; font-size: 120%; font-family: 'Aller';">
+                            5/6
+                        </span>
                     </div>
                 </div>
                 <!-- end of ng-repeat -->
-            </ion-content>
+            </ion-scroll>
         </div>
-
+        <!-- filter tab -->
+        <div class="list" style="height: 12%; margin: 0; padding: 0 0 2% 0; background: #f3f3f3;">
+            <div class="row" style="height: 40%; padding: 0px; margin: 0; text-align: center;">
+                <div class="col" style="padding: 0px; color: #01273C; font-family: Aller Light;">SHOWING</div>
+            </div>
+            <div class="row" style="height: 60%; padding: 0px; margin: 0;">
+                <button class="col-33" style="font-size: 90%; height: 70%; margin: 0 2% 0 15%; border: none; font-family: Aller Light;">
+                    INCOMPLETE
+                </button>
+                <button class="col-33" style="font-size: 90%; height: 70%; margin: 0 15% 0 2%; border: none; font-family: Aller Light;">
+                    COMPLETED
+                </button>
+            </div>
+        </div>
     </div>
 
+
     <!-- footer tabs -->
-    <div class="row" style="height: 8%; padding: 0px; margin-bottom: 5px; background: #19bfef;">
-        <button class="col-25 accountInactiveTab" style="color: #bfbfbf; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;" ui-sref="announcements">
-            Announcements
+    <div class="row" style="height: 8%; padding: 0px; margin-bottom: 5px;">
+        <button class="col groupsInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="groupAnnouncements()">
+            <i class="ion-chatbubble" style="font-size: 150%;"></i><br>Announcements
         </button>
-        <button class="col-25 accountInactiveTab" style="color: #bfbfbf" ui-sref="groupSongs">
-            Songs
+
+        <button class="col groupsInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="groupSongs()">
+            <i class="ion-ios-musical-note" style="font-size: 150%;"></i><br>Songs
         </button>
-        <button class="col-25 accountInactiveTab" style="color: #bfbfbf" ui-sref="groupMembers">
-            Members
+
+        <button class="col groupsInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="groupMembers()">
+            <i class="ion-person-stalker" style="font-size: 150%;"></i><br>Members
         </button>
-        <button class="col-25 accountActiveTab" style="color: white;">
-            Tasks
+
+        <button class="col groupsActiveTab" style="color: white; font-size: 80%; font-family: Aller Light;">
+            <i class="ion-ios-list" style="font-size: 150%;"></i><br>Tasks
         </button>
     </div>
 

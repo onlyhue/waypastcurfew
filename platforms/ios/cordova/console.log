@@ -50,3 +50,371 @@
 2015-09-30 21:07:50.195 WayPastCurfew[40168:351860] [CDVTimer][TotalPluginStartup] 27.359962ms
 2015-09-30 21:07:50.276 WayPastCurfew[40168:351860] Resetting plugins due to page load.
 2015-09-30 21:07:50.458 WayPastCurfew[40168:351860] Finished load of: file:///Users/qiwen/Library/Developer/CoreSimulator/Devices/6CEECFEB-F08D-499C-89AD-F06DF18D3EF5/data/Containers/Bundle/Application/98C16F5F-F352-434F-9202-A429A707FECC/WayPastCurfew.app/www/index.html#/login
+2015-11-04 14:58:35.047 WayPastCurfew[1891:17930] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/B4B7D4D2-E8E7-4CA2-9E8C-4AEF4DD643A8/Library/Cookies/57FBE3Z9CK.waypastcurfew.binarycookies
+2015-11-04 14:58:35.233 WayPastCurfew[1891:17930] Apache Cordova native platform version 3.8.0 is starting.
+2015-11-04 14:58:35.234 WayPastCurfew[1891:17930] Multi-tasking -> Device: YES, App: YES
+2015-11-04 14:58:35.243 WayPastCurfew[1891:17930] Unlimited access to network resources
+2015-11-04 14:58:35.427 WayPastCurfew[1891:17930] [CDVTimer][keyboard] 0.090003ms
+2015-11-04 14:58:35.634 WayPastCurfew[1891:17930] [CDVTimer][splashscreen] 207.006991ms
+2015-11-04 14:58:35.634 WayPastCurfew[1891:17930] Init FacebookConnect Session
+2015-11-04 14:58:35.640 WayPastCurfew[1891:17930] [CDVTimer][facebookconnectplugin] 5.323052ms
+2015-11-04 14:58:35.647 WayPastCurfew[1891:17930] [CDVTimer][statusbar] 7.076979ms
+2015-11-04 14:58:35.653 WayPastCurfew[1891:17930] [CDVTimer][file] 5.800009ms
+2015-11-04 14:58:35.653 WayPastCurfew[1891:17930] [CDVTimer][TotalPluginStartup] 227.125049ms
+2015-11-04 14:58:35.733 WayPastCurfew[1891:17930] Resetting plugins due to page load.
+2015-11-04 14:58:36.204 WayPastCurfew[1891:17930] Finished load of: file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/536B985E-8548-4D3F-B4BD-10ADC0F73C45/WayPastCurfew.app/www/index.html#/main
+2015-11-04 14:58:36.249 WayPastCurfew[1891:17930] Ionic Core: init
+2015-11-04 14:58:36.249 WayPastCurfew[1891:17930] Ionic Core: searching for cordova.js
+2015-11-04 14:58:36.249 WayPastCurfew[1891:17930] Ionic Core: cordova.js has already been loaded
+2015-11-04 14:58:36.249 WayPastCurfew[1891:17930] Ionic Core: plugins are ready
+2015-11-04 14:58:46.292 WayPastCurfew[1891:17974] File Transfer Finished with response code 200
+2015-11-04 14:58:46.381 WayPastCurfew[1891:18047] File Transfer Finished with response code 200
+2015-11-04 14:58:46.583 WayPastCurfew[1891:18047] File Transfer Finished with response code 200
+2015-11-04 14:58:49.690 WayPastCurfew[1891:17930] Will use resource 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/B4B7D4D2-E8E7-4CA2-9E8C-4AEF4DD643A8/Documents/f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3
+2015-11-04 14:58:50.297 WayPastCurfew[1891:17930] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 14:58:50.305 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '615.496826' ms. Plugin should use a background thread.
+2015-11-04 14:58:50.306 WayPastCurfew[1891:17930] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 14:58:50.320 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '14.328857' ms. Plugin should use a background thread.
+2015-11-04 14:58:50.321 WayPastCurfew[1891:17930] Will use resource 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/B4B7D4D2-E8E7-4CA2-9E8C-4AEF4DD643A8/Documents/f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3
+2015-11-04 14:58:50.338 WayPastCurfew[1891:17930] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 14:58:50.339 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '18.832031' ms. Plugin should use a background thread.
+2015-11-04 14:58:50.340 WayPastCurfew[1891:17930] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 14:58:50.355 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '15.008789' ms. Plugin should use a background thread.
+2015-11-04 14:58:50.355 WayPastCurfew[1891:17930] Will use resource 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/B4B7D4D2-E8E7-4CA2-9E8C-4AEF4DD643A8/Documents/f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3
+2015-11-04 14:58:50.375 WayPastCurfew[1891:17930] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 14:58:50.386 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '30.612061' ms. Plugin should use a background thread.
+2015-11-04 14:58:50.386 WayPastCurfew[1891:17930] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 14:58:50.401 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '14.103027' ms. Plugin should use a background thread.
+2015-11-04 14:59:01.272 WayPastCurfew[1891:17930] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 14:59:01.287 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '15.363281' ms. Plugin should use a background thread.
+2015-11-04 14:59:01.288 WayPastCurfew[1891:17930] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 14:59:01.299 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '11.219238' ms. Plugin should use a background thread.
+2015-11-04 14:59:01.299 WayPastCurfew[1891:17930] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 14:59:01.311 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '11.668945' ms. Plugin should use a background thread.
+2015-11-04 14:59:01.311 WayPastCurfew[1891:17930] Will use resource 'documents://test.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/B4B7D4D2-E8E7-4CA2-9E8C-4AEF4DD643A8/Documents/test.mp3
+2015-11-04 14:59:01.312 WayPastCurfew[1891:17930] Unknown resource 'documents://test.mp3'
+2015-11-04 14:59:10.517 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '13.283936' ms. Plugin should use a background thread.
+2015-11-04 14:59:10.540 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '19.694092' ms. Plugin should use a background thread.
+2015-11-04 14:59:10.563 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '23.154053' ms. Plugin should use a background thread.
+2015-11-04 14:59:10.586 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '19.208740' ms. Plugin should use a background thread.
+2015-11-04 14:59:10.610 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '22.806885' ms. Plugin should use a background thread.
+2015-11-04 14:59:10.633 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '22.825195' ms. Plugin should use a background thread.
+2015-11-04 14:59:10.656 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '19.586914' ms. Plugin should use a background thread.
+2015-11-04 14:59:10.679 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '23.185791' ms. Plugin should use a background thread.
+2015-11-04 14:59:10.703 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '22.877930' ms. Plugin should use a background thread.
+2015-11-04 14:59:10.726 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '22.066895' ms. Plugin should use a background thread.
+2015-11-04 14:59:10.749 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '21.266113' ms. Plugin should use a background thread.
+2015-11-04 14:59:10.772 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '22.954102' ms. Plugin should use a background thread.
+2015-11-04 14:59:11.652 WayPastCurfew[1891:17930] ha
+2015-11-04 14:59:12.438 WayPastCurfew[1891:17930] ha
+2015-11-04 14:59:12.640 WayPastCurfew[1891:17930] ha
+2015-11-04 14:59:12.944 WayPastCurfew[1891:17930] ha
+2015-11-04 14:59:13.140 WayPastCurfew[1891:17930] ha
+2015-11-04 14:59:13.297 WayPastCurfew[1891:17930] ha
+2015-11-04 14:59:13.447 WayPastCurfew[1891:17930] ha
+2015-11-04 14:59:14.009 WayPastCurfew[1891:17930] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 14:59:14.012 WayPastCurfew[1891:17930] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 14:59:14.023 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '10.821777' ms. Plugin should use a background thread.
+2015-11-04 14:59:14.023 WayPastCurfew[1891:17930] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 14:59:14.035 WayPastCurfew[1891:17930] THREAD WARNING: ['Media'] took '11.529053' ms. Plugin should use a background thread.
+2015-11-04 14:59:14.271 WayPastCurfew[1891:17930] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 14:59:14.272 WayPastCurfew[1891:17930] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 14:59:14.272 WayPastCurfew[1891:17930] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:02:05.385 WayPastCurfew[2602:19862] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/0FB57A0A-6E0E-454B-A351-9E63097107E4/Library/Cookies/57FBE3Z9CK.waypastcurfew.binarycookies
+2015-11-04 15:02:05.423 WayPastCurfew[2602:19862] Apache Cordova native platform version 3.8.0 is starting.
+2015-11-04 15:02:05.424 WayPastCurfew[2602:19862] Multi-tasking -> Device: YES, App: YES
+2015-11-04 15:02:05.426 WayPastCurfew[2602:19862] Unlimited access to network resources
+2015-11-04 15:02:05.448 WayPastCurfew[2602:19862] [CDVTimer][keyboard] 0.069022ms
+2015-11-04 15:02:05.490 WayPastCurfew[2602:19862] [CDVTimer][splashscreen] 41.306973ms
+2015-11-04 15:02:05.490 WayPastCurfew[2602:19862] Init FacebookConnect Session
+2015-11-04 15:02:05.492 WayPastCurfew[2602:19862] [CDVTimer][facebookconnectplugin] 2.309978ms
+2015-11-04 15:02:05.499 WayPastCurfew[2602:19862] [CDVTimer][statusbar] 6.247997ms
+2015-11-04 15:02:05.500 WayPastCurfew[2602:19862] [CDVTimer][file] 1.246035ms
+2015-11-04 15:02:05.500 WayPastCurfew[2602:19862] [CDVTimer][TotalPluginStartup] 52.178979ms
+2015-11-04 15:02:05.532 WayPastCurfew[2602:19862] Resetting plugins due to page load.
+2015-11-04 15:02:05.762 WayPastCurfew[2602:19862] Finished load of: file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/D670A06E-7580-4317-830F-3E6A99F98ED0/WayPastCurfew.app/www/index.html#/main
+2015-11-04 15:02:05.817 WayPastCurfew[2602:19862] Ionic Core: init
+2015-11-04 15:02:05.817 WayPastCurfew[2602:19862] Ionic Core: searching for cordova.js
+2015-11-04 15:02:05.817 WayPastCurfew[2602:19862] Ionic Core: cordova.js has already been loaded
+2015-11-04 15:02:05.817 WayPastCurfew[2602:19862] Ionic Core: plugins are ready
+2015-11-04 15:02:23.360 WayPastCurfew[2602:19862] Will use resource 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/0FB57A0A-6E0E-454B-A351-9E63097107E4/Documents/f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3
+2015-11-04 15:02:23.410 WayPastCurfew[2602:19862] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:02:23.416 WayPastCurfew[2602:19862] THREAD WARNING: ['Media'] took '55.961670' ms. Plugin should use a background thread.
+2015-11-04 15:02:23.417 WayPastCurfew[2602:19862] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:02:23.430 WayPastCurfew[2602:19862] THREAD WARNING: ['Media'] took '13.466064' ms. Plugin should use a background thread.
+2015-11-04 15:02:23.431 WayPastCurfew[2602:19862] Will use resource 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/0FB57A0A-6E0E-454B-A351-9E63097107E4/Documents/f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3
+2015-11-04 15:02:23.450 WayPastCurfew[2602:19862] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:02:23.451 WayPastCurfew[2602:19862] THREAD WARNING: ['Media'] took '19.946777' ms. Plugin should use a background thread.
+2015-11-04 15:02:23.451 WayPastCurfew[2602:19862] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:02:23.464 WayPastCurfew[2602:19862] THREAD WARNING: ['Media'] took '13.356201' ms. Plugin should use a background thread.
+2015-11-04 15:02:23.465 WayPastCurfew[2602:19862] Will use resource 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/0FB57A0A-6E0E-454B-A351-9E63097107E4/Documents/f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3
+2015-11-04 15:02:23.483 WayPastCurfew[2602:19862] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:02:23.486 WayPastCurfew[2602:19862] THREAD WARNING: ['Media'] took '20.796875' ms. Plugin should use a background thread.
+2015-11-04 15:02:23.486 WayPastCurfew[2602:19862] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:02:23.514 WayPastCurfew[2602:19862] THREAD WARNING: ['Media'] took '28.595947' ms. Plugin should use a background thread.
+2015-11-04 15:03:17.817 WayPastCurfew[2960:20869] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/46F83A5E-E375-4F31-8D0E-2DC3A9F755AB/Library/Cookies/57FBE3Z9CK.waypastcurfew.binarycookies
+2015-11-04 15:03:17.856 WayPastCurfew[2960:20869] Apache Cordova native platform version 3.8.0 is starting.
+2015-11-04 15:03:17.856 WayPastCurfew[2960:20869] Multi-tasking -> Device: YES, App: YES
+2015-11-04 15:03:17.859 WayPastCurfew[2960:20869] Unlimited access to network resources
+2015-11-04 15:03:17.880 WayPastCurfew[2960:20869] [CDVTimer][keyboard] 0.082016ms
+2015-11-04 15:03:17.918 WayPastCurfew[2960:20869] [CDVTimer][splashscreen] 37.510991ms
+2015-11-04 15:03:17.919 WayPastCurfew[2960:20869] Init FacebookConnect Session
+2015-11-04 15:03:17.921 WayPastCurfew[2960:20869] [CDVTimer][facebookconnectplugin] 2.472997ms
+2015-11-04 15:03:17.927 WayPastCurfew[2960:20869] [CDVTimer][statusbar] 6.164014ms
+2015-11-04 15:03:17.929 WayPastCurfew[2960:20869] [CDVTimer][file] 1.304984ms
+2015-11-04 15:03:17.929 WayPastCurfew[2960:20869] [CDVTimer][TotalPluginStartup] 48.557997ms
+2015-11-04 15:03:17.961 WayPastCurfew[2960:20869] Resetting plugins due to page load.
+2015-11-04 15:03:18.183 WayPastCurfew[2960:20869] Finished load of: file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/index.html#/main
+2015-11-04 15:03:18.268 WayPastCurfew[2960:20869] Ionic Core: init
+2015-11-04 15:03:18.268 WayPastCurfew[2960:20869] Ionic Core: searching for cordova.js
+2015-11-04 15:03:18.268 WayPastCurfew[2960:20869] Ionic Core: cordova.js has already been loaded
+2015-11-04 15:03:18.268 WayPastCurfew[2960:20869] Ionic Core: plugins are ready
+2015-11-04 15:03:22.687 WayPastCurfew[2960:20869] Will use resource 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/46F83A5E-E375-4F31-8D0E-2DC3A9F755AB/Documents/f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3
+2015-11-04 15:03:22.741 WayPastCurfew[2960:20869] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:03:22.742 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '55.187012' ms. Plugin should use a background thread.
+2015-11-04 15:03:22.742 WayPastCurfew[2960:20869] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:03:22.755 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '12.269043' ms. Plugin should use a background thread.
+2015-11-04 15:03:22.755 WayPastCurfew[2960:20869] Will use resource 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/46F83A5E-E375-4F31-8D0E-2DC3A9F755AB/Documents/f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3
+2015-11-04 15:03:22.773 WayPastCurfew[2960:20869] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:03:22.777 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '21.854004' ms. Plugin should use a background thread.
+2015-11-04 15:03:22.777 WayPastCurfew[2960:20869] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:03:22.791 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '13.846924' ms. Plugin should use a background thread.
+2015-11-04 15:03:22.791 WayPastCurfew[2960:20869] Will use resource 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/46F83A5E-E375-4F31-8D0E-2DC3A9F755AB/Documents/f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3
+2015-11-04 15:03:22.807 WayPastCurfew[2960:20869] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:03:22.812 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '20.403076' ms. Plugin should use a background thread.
+2015-11-04 15:03:22.812 WayPastCurfew[2960:20869] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:03:22.828 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '15.623047' ms. Plugin should use a background thread.
+2015-11-04 15:03:26.867 WayPastCurfew[2960:20869] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:03:26.875 WayPastCurfew[2960:20869] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:03:26.887 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '11.933105' ms. Plugin should use a background thread.
+2015-11-04 15:03:26.887 WayPastCurfew[2960:20869] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:03:26.898 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '11.121826' ms. Plugin should use a background thread.
+2015-11-04 15:03:26.899 WayPastCurfew[2960:20869] Will use resource 'documents://test.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/46F83A5E-E375-4F31-8D0E-2DC3A9F755AB/Documents/test.mp3
+2015-11-04 15:03:26.899 WayPastCurfew[2960:20869] Unknown resource 'documents://test.mp3'
+2015-11-04 15:03:33.745 WayPastCurfew[2960:20869] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:03:33.748 WayPastCurfew[2960:20869] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:03:33.760 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '11.869873' ms. Plugin should use a background thread.
+2015-11-04 15:03:33.760 WayPastCurfew[2960:20869] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:03:33.772 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '11.281982' ms. Plugin should use a background thread.
+2015-11-04 15:03:34.796 WayPastCurfew[2960:20869] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:03:34.804 WayPastCurfew[2960:20869] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:03:34.816 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '11.450928' ms. Plugin should use a background thread.
+2015-11-04 15:03:34.816 WayPastCurfew[2960:20869] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:03:34.827 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '11.196045' ms. Plugin should use a background thread.
+2015-11-04 15:03:34.828 WayPastCurfew[2960:20869] Will use resource 'documents://test.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/46F83A5E-E375-4F31-8D0E-2DC3A9F755AB/Documents/test.mp3
+2015-11-04 15:03:34.828 WayPastCurfew[2960:20869] Unknown resource 'documents://test.mp3'
+2015-11-04 15:03:39.463 WayPastCurfew[2960:20869] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:03:39.472 WayPastCurfew[2960:20869] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:03:39.483 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '10.791992' ms. Plugin should use a background thread.
+2015-11-04 15:03:39.483 WayPastCurfew[2960:20869] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:03:39.495 WayPastCurfew[2960:20869] THREAD WARNING: ['Media'] took '11.869141' ms. Plugin should use a background thread.
+2015-11-04 15:03:50.455 WayPastCurfew[2960:20869] ERROR: Error: Can't find variable: tracks
+record@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/js/controllers/tracksController.js:204:34
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:03:58.778 WayPastCurfew[2960:20869] ERROR: Error: Can't find variable: tracks
+playRecording@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/js/controllers/tracksController.js:209:51
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:04:02.129 WayPastCurfew[2960:20869] ERROR: Error: Can't find variable: tracks
+playRecording@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/js/controllers/tracksController.js:209:51
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:04:03.385 WayPastCurfew[2960:20869] ERROR: Error: Can't find variable: tracks
+playRecording@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/js/controllers/tracksController.js:209:51
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:04:04.033 WayPastCurfew[2960:20869] ERROR: Error: Can't find variable: tracks
+playRecording@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/js/controllers/tracksController.js:209:51
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:04:05.097 WayPastCurfew[2960:20869] ERROR: Error: Can't find variable: tracks
+playRecording@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/js/controllers/tracksController.js:209:51
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:04:06.641 WayPastCurfew[2960:20869] ERROR: Error: Can't find variable: tracks
+playRecording@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/js/controllers/tracksController.js:209:51
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/75864A3D-5CB2-4237-87B5-F56F2C6697CD/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:07:23.992 WayPastCurfew[3329:23280] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/27C05545-5217-4A3A-85DA-0F91EDBE5CA1/Library/Cookies/57FBE3Z9CK.waypastcurfew.binarycookies
+2015-11-04 15:07:24.031 WayPastCurfew[3329:23280] Apache Cordova native platform version 3.8.0 is starting.
+2015-11-04 15:07:24.031 WayPastCurfew[3329:23280] Multi-tasking -> Device: YES, App: YES
+2015-11-04 15:07:24.033 WayPastCurfew[3329:23280] Unlimited access to network resources
+2015-11-04 15:07:24.055 WayPastCurfew[3329:23280] [CDVTimer][keyboard] 0.069976ms
+2015-11-04 15:07:24.096 WayPastCurfew[3329:23280] [CDVTimer][splashscreen] 40.587008ms
+2015-11-04 15:07:24.096 WayPastCurfew[3329:23280] Init FacebookConnect Session
+2015-11-04 15:07:24.098 WayPastCurfew[3329:23280] [CDVTimer][facebookconnectplugin] 2.139986ms
+2015-11-04 15:07:24.105 WayPastCurfew[3329:23280] [CDVTimer][statusbar] 6.270051ms
+2015-11-04 15:07:24.106 WayPastCurfew[3329:23280] [CDVTimer][file] 1.293004ms
+2015-11-04 15:07:24.106 WayPastCurfew[3329:23280] [CDVTimer][TotalPluginStartup] 51.153004ms
+2015-11-04 15:07:24.138 WayPastCurfew[3329:23280] Resetting plugins due to page load.
+2015-11-04 15:07:24.357 WayPastCurfew[3329:23280] Finished load of: file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/index.html#/main
+2015-11-04 15:07:24.436 WayPastCurfew[3329:23280] Ionic Core: init
+2015-11-04 15:07:24.436 WayPastCurfew[3329:23280] Ionic Core: searching for cordova.js
+2015-11-04 15:07:24.436 WayPastCurfew[3329:23280] Ionic Core: cordova.js has already been loaded
+2015-11-04 15:07:24.436 WayPastCurfew[3329:23280] Ionic Core: plugins are ready
+2015-11-04 15:07:30.136 WayPastCurfew[3329:23280] Will use resource 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/27C05545-5217-4A3A-85DA-0F91EDBE5CA1/Documents/f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3
+2015-11-04 15:07:30.191 WayPastCurfew[3329:23280] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:07:30.193 WayPastCurfew[3329:23280] THREAD WARNING: ['Media'] took '56.979004' ms. Plugin should use a background thread.
+2015-11-04 15:07:30.193 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:07:30.206 WayPastCurfew[3329:23280] THREAD WARNING: ['Media'] took '12.483887' ms. Plugin should use a background thread.
+2015-11-04 15:07:30.206 WayPastCurfew[3329:23280] Will use resource 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/27C05545-5217-4A3A-85DA-0F91EDBE5CA1/Documents/f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3
+2015-11-04 15:07:30.224 WayPastCurfew[3329:23280] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:07:30.228 WayPastCurfew[3329:23280] THREAD WARNING: ['Media'] took '21.402832' ms. Plugin should use a background thread.
+2015-11-04 15:07:30.228 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:07:30.240 WayPastCurfew[3329:23280] THREAD WARNING: ['Media'] took '12.007080' ms. Plugin should use a background thread.
+2015-11-04 15:07:30.240 WayPastCurfew[3329:23280] Will use resource 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/27C05545-5217-4A3A-85DA-0F91EDBE5CA1/Documents/f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3
+2015-11-04 15:07:30.256 WayPastCurfew[3329:23280] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:07:30.262 WayPastCurfew[3329:23280] THREAD WARNING: ['Media'] took '22.335938' ms. Plugin should use a background thread.
+2015-11-04 15:07:30.263 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:07:30.280 WayPastCurfew[3329:23280] THREAD WARNING: ['Media'] took '17.531982' ms. Plugin should use a background thread.
+2015-11-04 15:07:32.302 WayPastCurfew[3329:23280] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:07:32.317 WayPastCurfew[3329:23280] THREAD WARNING: ['Media'] took '15.581299' ms. Plugin should use a background thread.
+2015-11-04 15:07:32.318 WayPastCurfew[3329:23280] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:07:32.329 WayPastCurfew[3329:23280] THREAD WARNING: ['Media'] took '11.363037' ms. Plugin should use a background thread.
+2015-11-04 15:07:32.329 WayPastCurfew[3329:23280] Playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:07:32.341 WayPastCurfew[3329:23280] THREAD WARNING: ['Media'] took '11.450195' ms. Plugin should use a background thread.
+2015-11-04 15:07:32.341 WayPastCurfew[3329:23280] Will use resource 'documents://test.mp3' from the documents folder with path = /Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Data/Application/27C05545-5217-4A3A-85DA-0F91EDBE5CA1/Documents/test.mp3
+2015-11-04 15:07:32.342 WayPastCurfew[3329:23280] Unknown resource 'documents://test.mp3'
+2015-11-04 15:07:35.745 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:07:35.754 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:07:35.766 WayPastCurfew[3329:23280] THREAD WARNING: ['Media'] took '11.059082' ms. Plugin should use a background thread.
+2015-11-04 15:07:35.766 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:07:35.777 WayPastCurfew[3329:23280] THREAD WARNING: ['Media'] took '11.276123' ms. Plugin should use a background thread.
+2015-11-04 15:07:39.044 WayPastCurfew[3329:23280] ERROR: Error: Can't find variable: tracks
+startRecording@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/js/controllers/tracksController.js:204:34
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:07:41.926 WayPastCurfew[3329:23280] ERROR: Error: Can't find variable: tracks
+stopRecording@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/js/controllers/tracksController.js:209:34
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:07:43.022 WayPastCurfew[3329:23280] ERROR: Error: Can't find variable: tracks
+playRecording@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/js/controllers/tracksController.js:214:51
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:07:47.782 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:07:47.782 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:07:47.783 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:07:48.534 WayPastCurfew[3329:23280] ERROR: Error: Can't find variable: tracks
+startRecording@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/js/controllers/tracksController.js:204:34
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:07:50.462 WayPastCurfew[3329:23280] ERROR: Error: Can't find variable: tracks
+stopRecording@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/js/controllers/tracksController.js:209:34
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:07:52.197 WayPastCurfew[3329:23280] ERROR: Error: Can't find variable: tracks
+playRecording@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/js/controllers/tracksController.js:214:51
+fn
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57514:21
+$eval@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24673:28
+$apply@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:24772:28
+file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:57513:19
+eventHandler@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:12098:25
+dispatchEvent@[native code]
+triggerMouseEvent@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2865:20
+tapClick@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2854:20
+tapTouchEnd@file:///Users/Rewz/Library/Developer/CoreSimulator/Devices/7CB5A2BF-3E3F-4312-B3F3-7126AAA56C8C/data/Containers/Bundle/Application/0C283FBE-EB09-4B0D-9971-4549ADB3E647/WayPastCurfew.app/www/lib/ionic/js/ionic.bundle.js:2977:13
+2015-11-04 15:07:53.205 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:07:53.205 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:07:53.206 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'
+2015-11-04 15:07:53.341 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Guitar.mp3'
+2015-11-04 15:07:53.342 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Harmony.mp3'
+2015-11-04 15:07:53.342 WayPastCurfew[3329:23280] Stopped playing audio sample 'documents://f2d4dbf6-21a1-4676-a81e-aacdcd6d7a34/kari jobe - we are/We_Are_Melody.mp3'

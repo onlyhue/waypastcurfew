@@ -4,51 +4,31 @@
         <button class="col-10 col-offset-90 ion-close" style="background: none; border: none; color: white" ng-click="hide()"></button>
     </div>
 
-    <!-- title -->
+    <!-- title & artist-->
     <div class="row" style="height: 20%; margin-bottom: 5px;">
-        <div class="col col-80 col-offset-10" style="padding-bottom: 10%; border-bottom: 1px solid white; height: 100%; text-align: center; font-size: 7.5vw; padding-top: 8%; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: Century Gothic;">
+        <div class="col col-80 col-offset-10" style="padding-bottom: 1%; height: 100%; text-align: center; font-size: 2em; padding-top: 8%; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'Aller Bold';">
             {{data.selectedSong.title}}
         </div>
     </div>
-
-    <!-- artist and uploader -->
-    <div class="row" style="height: 18%; margin-top: 10px; margin-bottom: 5px;">
-        <div class="col col-40 col-offset-10" style="max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-            <span style="font-family: Aller Bold;">Artist</span><br>
-            <span style="font-size: 75%; font-family: Aller Light;">{{data.selectedSong.artist}}</span>
-        </div>
-        <div class="col col-40 col-offset-10" style="max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-            <span style="font-family: Aller Bold;">Uploader</span><br>
-            <span style="font-size: 75%; font-family: Aller Light;">{{data.selectedSong.uploader}}</span>
+    <div class="row" style="height: 20%; margin-bottom: 5px;">
+        <div class="col col-80 col-offset-10" style="padding-bottom: 10%; margin-top: -2%;  height: 100%; text-align: center; font-size: 1em; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: Century Gothic;">
+            {{data.selectedSong.artist}}<br><p style="font-size: 0.8em; font-family: 'Nexa Light'; font-style: italic">Song Key: {{data.selectedSong.key}}</p>
         </div>
     </div>
 
-    <!-- key and preview-->
-    <div class="row" style="height: 30%; margin-bottom: 5px;">
-        <div class="col col-50" style="padding-top: 5%; text-align: center;">
-            <button style="width: 70%; padding: 5% 0%; border: none; background: white; border-radius: 5px; font-size: 100%; font-family: Century Gothic" ng-show="data.downloaded" ng-click="delete()">Delete</button>
+    <div class="row" style="height: 30%; padding-top: 0; background-color: white; margin-bottom: 5px;">
+        <div class="col col-25" style="padding-top: 5%; text-align: center; color: #01273c; font-family: 'Calibri Light'; font-size: 0.8em"; ng-click="openSpotify()">
+            <i class="icon-spotify" style="font-size: 2em; color: #01273c"></i><br>Spotify
         </div>
-        <div class="col col-50" style="padding-top: 5%; text-align: center;">
-            <!--
-                <button style="width: 70%; padding: 5% 0%; border: none; background: white; border-radius: 5px; font-size: 100%; font-family: Century Gothic" ng-click="preview()" ion-track-tap="overlayToPreview" ion-track-data="SONG, TIMESTAMP">Preview</button>
-            -->
-            <button style="width: 70%; padding: 5% 0%; border: none; background: white; border-radius: 5px; font-size: 100%; font-family: Century Gothic" ng-click="preview()">Preview</button>
+        <div class="col col-25" style="padding-top: 5%; text-align: center; color: #01273c; font-family: 'Calibri Light'; font-size: 0.8em"; ng-click="openItunes()">
+            <i class="icon-iTunes" style="font-size: 2em; color: #01273c"></i><br>iTunes
+        </div>
+        <div class="col col-25" style="padding-top: 5%; text-align: center; color: #01273c; font-family: 'Calibri Light'; font-size: 0.8em"; ng-click="preview()">
+            <i class="icon-preview" style="font-size: 2em; color: #01273c"></i><br>Preview
+        </div>
+        <div class="col col-25" style="padding-top: 5%; text-align: center; color: #01273c; font-family: 'Calibri Light'; font-size: 0.8em"; ng-show="data.downloaded"; ng-click="delete()">
+            <i class="icon-delete" style="font-size: 2em;color: #01273c"></i><br>Delete
         </div>
     </div>
 
-    <!-- iTunes and Spotify-->
-    <div class="row" style="height: 30%; margin-bottom: 5px;">
-        <div class="col col-50" style="padding-top: 5%; text-align: center;">
-            <!--
-                <button href="#" style="width: 70%; padding: 5% 0%; border: none; background: white; border-radius: 5px; font-size: 100%; font-family: Century Gothic" ion-track-tap="overlayToSpotify" ion-track-data="SONG, DATA OF TIMESTAMP" ng-click="openSpotify()">Spotify</button>
-            -->
-            <button href="#" style="width: 70%; padding: 5% 0%; border: none; background: white; border-radius: 5px; font-size: 100%; font-family: Century Gothic" ng-click="openSpotify()">Spotify</button>
-        </div>
-        <div class="col col-50" style="padding-top: 5%; text-align: center;">
-            <!--
-                <button href="#" style="width: 70%; padding: 5% 0%; border: none; background: white; border-radius: 5px;  font-size: 100%; font-family: Century Gothic" ion-track-tap="overlayToiTunes" ion-track-data="SONG, DATA OF TIMESTAMP" ng-click="openItunes()">iTunes</button>
-            -->
-            <button href="#" style="width: 70%; padding: 5% 0%; border: none; background: white; border-radius: 5px;  font-size: 100%; font-family: Century Gothic" ng-click="openItunes()">iTunes</button>
-        </div>
-    </div>
 </ion-modal-view>

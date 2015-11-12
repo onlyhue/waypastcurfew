@@ -1,0 +1,54 @@
+<ion-view>
+    <div class="row" style="height: 10%; padding: 0px; background: #19bfef;">
+        <div class="container" style="border: none">
+            <div class="div1" style="background: white;" ng-click="main()"></div>
+            <div class="div2" style="background: #19bfef;"></div>
+        </div>
+    </div>
+
+    <div class="list" style="position: relative; z-index: 2; height: 82%; padding: 0px; margin-bottom: 0px; background: transparent;">
+        <!-- timeline -->
+        <ion-scroll class="row" direction="x" style="background: white; margin: 0; padding: 2% 0 0 0;">
+            <div class="col" style="text-align:center; margin: 0; padding: 0;">
+                <ul class="row" style="margin: 0; padding: 0 30px;">
+                    <li class="col" style="padding-left: 0; padding-right: 0;" ng-repeat="event in data.events">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <div class="col eventsCircle">{{event.start.dateTime.substr(5,5)}}</div><hr/>
+                        </div>
+                    </li>
+                    <li class="col" style="padding-left: 0; padding-right: 0;"><div class="eventsCircle"><i class="icon-holiday eventsIcon"></i></div></li>
+                </ul>
+            </div>
+        </ion-scroll>
+
+        <div class="row" style="height: 36%; width: 100%; margin: 0; padding: 8% 8% 0 8%;">
+            <p style="color: #01273C; font-family: 'Nexa Bold'; font-size: 160%; text-align: center; line-height: 120%;">
+                Way Past Curfew - Sentosa Gig! Find us at Beach Station @ 6:15pm, 7:15pm, 8pm and 9pm :)
+            </p>
+        </div>
+
+        <!-- map -->
+        <div id="map" data-tap-disabled="true"></div>
+
+    </div>
+
+    <div class="row" style="height: 8%; padding: 0px; margin-bottom: 5px;">
+
+        <button class="col accountActiveTab" style="color: white; font-size: 80%; font-family: Aller Light;">
+            <i class="ion-ios-location" style="font-size: 150%;"></i><br>Events
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="voteSong()">
+            <i class="ion-checkmark-circled" style="font-size: 150%;"></i><br>Votes
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="feedback()">
+            <i class="ion-chatbubble-working" style="font-size: 150%;"></i><br>Feedback
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="aboutWPC()">
+            <i class="ion-link" style="font-size: 150%;"></i><br>Links
+        </button>
+    </div>
+
+</ion-view>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDss457I2mr_QEdyvO41F6-DJVDbQ4OIcg&sensor=true"></script>
+

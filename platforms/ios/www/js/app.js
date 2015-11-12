@@ -1,23 +1,38 @@
 var io = Ionic.io();
 var user = Ionic.User.current();
-var app = angular.module("starter", ["ionic",'ionic.service.core','ionic.service.analytics', "firebase", "ngCordova"])
+var app = angular.module("starter", ["ionic",'ionic.service.core','ionic.service.analytics', "firebase", "ngCordova", "ngIOS9UIWebViewPatch"])
 
-    .run(function($ionicPlatform, $cordovaStatusbar, $ionicAnalytics) {
+    .run(function($ionicPlatform, $cordovaStatusbar, $ionicAnalytics, $cordovaGeolocation, mapFactory) {
         $ionicPlatform.ready(function() {
 
+            var a = {};
+
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                var onSuccess = function(position) {
+                    a["latitude"] = position.coords.latitude;
+                    a["longitude"] = position.coords.longitude;
+                    mapFactory.addCoordinates(a);
+                };
+                navigator.geolocation.getCurrentPosition(onSuccess);
+            }
+
+
             /*$ionicAnalytics.setGlobalProperties({
-                timestamp: Date.now()
+                timestamp: Date.now(),
+                latitude: a.latitude,
+                longitude: a.longitude
             });
 
-            $ionicAnalytics.register();*/
+            //$ionicAnalytics.register();*/
 
-            $ionicAnalytics.register({
+           /* $ionicAnalytics.register({
 
              // Don't send any events to the analytics backend.
              // (useful during development)
              dryRun: true
 
-             });
+             });*/
 
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -68,6 +83,66 @@ var app = angular.module("starter", ["ionic",'ionic.service.core','ionic.service
                 url: '/feedback',
                 templateUrl: 'templates/feedback.html',
                 controller: 'feedbackController'
+            })
+
+            .state('login', {
+                url: '/login',
+                templateUrl: 'templates/login.html',
+                controller: 'loginController'
+            })
+
+            .state('events', {
+                url: '/events',
+                templateUrl: 'templates/events.html',
+                controller: 'eventController'
+            })
+
+            .state('myAccount', {
+                url: '/myAccount',
+                templateUrl: 'templates/myAccount.html',
+                controller: 'myAccountController'
+            })
+
+            .state('groups', {
+                url: '/groups',
+                templateUrl: 'templates/groups.html',
+                controller: 'groupsController'
+            })
+
+            .state('createGroup', {
+                url: '/createGroup',
+                templateUrl: 'templates/createGroup.html',
+                controller: 'createGroupController'
+            })
+
+            .state('groupAnnouncements', {
+                url: '/groupAnnouncements',
+                templateUrl: 'templates/groupAnnouncements.html',
+                controller: 'groupAnnouncementsController'
+            })
+
+            .state('groupInfo', {
+                url: '/groupInfo',
+                templateUrl: 'templates/groupInfo.html',
+                controller: 'groupInfoController'
+            })
+
+            .state('leaveGroup', {
+                url: '/leaveGroup',
+                templateUrl: 'templates/leaveGroup.html',
+                controller: 'leaveGroupController'
+            })
+
+            .state('groupMembers', {
+                url: '/groupMembers',
+                templateUrl: 'templates/groupMembers.html',
+                controller: 'groupMembersController'
+            })
+
+            .state('createAnnouncement', {
+                url: '/createAnnouncement',
+                templateUrl: 'templates/createAnnouncement.html',
+                controller: 'createAnnouncementController'
             });
 
         $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|chrome-extension):|data:image\//);

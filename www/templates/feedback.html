@@ -1,4 +1,4 @@
-<ion-view view-title="feedback" nav-transition="none">
+<ion-view>
     <!-- Feedback - top bar -->
     <div class="row" style="height: 10%; padding: 0px; margin-bottom: 0px;">
         <div class="container">
@@ -87,11 +87,17 @@
     <!-- footer nav bar -->
     <div class="row" style="height: 8%; padding: 0px; margin-bottom: 5px;">
 
-        <button class="col accountActiveTab" style="font-size: 80%; font-family: Aller Light;">
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="events()">
+            <i class="ion-ios-location" style="font-size: 150%;"></i><br>Events
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="voteSong()">
+            <i class="ion-checkmark-circled" style="font-size: 150%;"></i><br>Votes
+        </button>
+        <button class="col accountActiveTab" style="color: white; font-size: 80%; font-family: Aller Light;">
             <i class="ion-chatbubble-working" style="font-size: 150%;"></i><br>Feedback
         </button>
-        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ui-sref="voteSong">
-            <i class="ion-checkmark-circled" style="font-size: 150%;"></i><br>Vote
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="aboutWPC()">
+            <i class="ion-link" style="font-size: 150%;"></i><br>Links
         </button>
     </div>
 </ion-view>

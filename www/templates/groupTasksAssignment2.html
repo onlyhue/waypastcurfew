@@ -1,0 +1,49 @@
+<ion-view>
+    <!-- header bar -->
+    <div class="row" style="border: none; height: 10%; padding: 0px; margin: 0px;">
+        <div class="container" style="border: none">
+            <div class="div1" style="background: white;" ng-click="groupTasks()"></div>
+            <div class="div2" style="background: #01273C;"></div>
+        </div>
+        <div style="position: relative; z-index: 2; height: 100%; width: 83%;">
+            <div class="row" style="height: 100%; width: 100%; padding: 0  0 0; text-align: center; background: #01273C;">
+                <div class="col" style="padding: 5% 17% 0% 0%; background: #01273C;">
+                    <p style="font-family: 'Aller'; font-size: 200%; color: white; padding: 0; text-transform: uppercase;">Create Tasks</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list" style="color: white; position: relative; z-index: 2; height: 90%; width: 100%; margin: 0; padding: 0; background: #01273C;">
+        <p class="row" style="margin: 0 10%; padding: 3% 0; font-family: 'Aller Bold'; font-size: 150%; text-align: left;">Assign To</p>
+
+        <ion-scroll style="position: relative; height: 75%; width: 100%; padding: 0 10%; background: #01273C;">
+            <ion-list class="row" can-swipe="true" style="margin: 0; padding: 0; background: #F3F3F3;">
+                <ion-item style="background: #F3F3F3; height: 5.5em; min-width: 18.5em; margin: 1% 0 0 0;">
+                    <div class="row" style="width: 100%; padding: 0; margin: 0; background: #F3F3F3;">
+                        <i class="ion-ios-person" style="font-size: 3em; color: #031D2D; margin: 0; padding: 0; height: 55px; width: 55px; border-radius: 50%;"></i>
+                        <div class="col-50" style="color: #031D2D; margin: 0 0 0 4%; text-align: left; overflow: hidden; text-overflow: ellipsis;">
+                            <span style="font-size: 150%; font-family: 'Nexa Bold'; line-height: 110%;">Qi Wen Wong</span><br/>
+                            <span style="font-size: 100%; font-family: 'Aller Light'; line-height: 110%;">status</span>
+                        </div>
+                        <div class="col">
+                            <i class="ion-plus-circled" style="color: #01273C; font-size: 200%;"></i>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </ion-scroll>
+
+        <!-- nav to assignment page -->
+        <div class="row" style="width: 80%; margin: 5% 10%; padding: 2% 5%; text-align: left;">
+            <div class="col" style="color: white; font-size: 110%;" ng-click="createTask3()">
+                <i class="ion-chevron-left"></i>
+                <i class="ion-chevron-left"></i>
+                <i class="ion-chevron-left"></i>
+            </div>
+            <div class="col" style="color: white; font-size: 110%; text-align: right;" ng-click="groupTasks()">
+                <p style="text-decoration: underline; font-family: 'Aller Light';">Done</p>
+            </div>
+        </div>
+    </div>
+</ion-view>

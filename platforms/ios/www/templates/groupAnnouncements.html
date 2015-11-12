@@ -1,0 +1,81 @@
+<ion-view>
+    <!-- header bar -->
+    <div class="row" style="border: none; height: 10%; padding: 0px; margin: 0px; background: #031D2D;">
+        <div class="container" style="border: none">
+            <div class="div1" style="background: white;" ng-click="groups()"></div>
+            <div class="div2" style="background: #031D2D;"></div>
+        </div>
+        <div style="position: relative; z-index: 2; height: 100%; width: 83%;">
+            <div class="row" style="height: 100%; width: 100%; padding: 0%; text-align: center; background: #031D2D;">
+                <div class="col-67" style="padding: 5% 0% 0% 0%; background: #031D2D;">
+                    <p style="font-family: 'Aller'; font-size: 200%; color: white; padding: 5%; text-transform: uppercase;">
+                        {{data.group.name}}
+                    </p>
+                </div>
+                <div class="col-33" style="padding: 0% 0% 0% 0%; background: #031D2D; text-align: center;">
+                    <button class="ion-ios-gear" style="width: 100%; margin: 0; border: none; color: white; font-size: 300%; background: #031D2D; padding: 0; text-decoration: underline;" ng-click="groupSettings()"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list" style="position: relative; z-index: 2; height: 82%; padding: 0px; margin: 0px; background: #F3F3F3; text-align: center;">
+        <div class="row" style="height: 6%; margin: 0; padding: 0;">
+            <!-- I call this the "Dead padding" -->
+        </div>
+        <div class="row" style="height: 9%; margin: 0; padding: 0% 10%;">
+            <div class="col-75" style="height: 100%; border-bottom: 2px dotted #031D2D; margin: 0; padding: 0; text-align: left;">
+                <p style="height: 100%; font-family: 'Aller Display'; font-size: 150%;">ANNOUNCEMENTS</p>
+            </div>
+            <div class="col" style="height: 100%; border-bottom: 2px dotted #031D2D; margin: 0; padding: 0; text-align: right;">
+                <p style="height: 100%; font-family: 'Aller Display'; font-size: 200%;" ng-show="data.isCreator" ng-click="createAnnouncement()">+</p>
+            </div>
+        </div>
+        <div class="row" style="height: 85%; margin: 0; padding: 0% 10%;">
+            <ion-content scroll="true" class="col" style="height: 100%; width: 100%; margin: 0%; padding: 5% 0% 0% 0%; position: relative;">
+                <div class="row" style="width: 100%; padding: 5% 0%; margin: 0;" ng-repeat="announcement in data.groupAnnouncements">
+                    <div class="col-20" style="margin: 0; padding: 0;" ng-click="viewAnnouncement(announcement)">
+                        <i class="ion-ios-person" style="font-size: 3em; color: #031D2D;margin: 0; padding: 0; height: 55px; width: 55px; border-radius: 50%;"></i>
+                    </div>
+                    <div class="col-66" style="width: 100%; margin: 0; padding: 0%;" ng-click="viewAnnouncement(announcement)">
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <p style="font-size: 150%; font-family: 'Nexa Bold'; line-height: 80%;">{{announcement.title}}</p>
+                        </div>
+                        <div class="row" style="margin: 0; padding: 0;">
+                            <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 85%; font-family: 'Nexa Light';">{{announcement.announcement}}</p>
+                        </div>
+                        <div class="row" style="margin: 0; padding: 1% 0%;">
+                            <p style="font-size: 80%; font-family: 'Nexa Light'; line-height: 30%; color: #bfbfbf">{{announcement.date}}</p>
+                        </div>
+                    </div>
+                    <div class="col" style="width: 100%; margin: 0; padding: 0%;" ng-click="confirmRemoveAnnouncement(announcement)">
+                        <i class="ion-minus-circled" style="color: #ef473a; font-size: 200%;" ng-show="data.isCreator"></i>
+                    </div>
+                </div>
+            </ion-content>
+        </div>
+
+    </div>
+
+    <!-- footer tabs -->
+    <div class="row" style="height: 8%; padding: 0px; margin-bottom: 5px;">
+
+        <button class="col groupsActiveTab" style="font-size: 80%; font-family: Aller Light;">
+            <i class="ion-chatbubble" style="font-size: 150%;"></i><br>Announcements
+        </button>
+
+        <button class="col groupsInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;">
+            <i class="ion-ios-musical-note" style="font-size: 150%;"></i><br>Songs
+        </button>
+
+        <button class="col groupsInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="groupMembers()">
+            <i class="ion-person-stalker" style="font-size: 150%;"></i><br>Members
+        </button>
+
+        <button class="col groupsInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;">
+            <i class="ion-ios-list" style="font-size: 150%;"></i><br>Tasks
+        </button>
+
+
+    </div>
+</ion-view>

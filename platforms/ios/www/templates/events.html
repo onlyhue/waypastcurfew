@@ -1,0 +1,34 @@
+<ion-view>
+    <div class="row" style="height: 10%; padding: 0px; background: #19bfef;">
+        <div class="container" style="border: none">
+            <div class="div1" style="background: white;" ng-click="main()"></div>
+            <div class="div2" style="background: #19bfef;"></div>
+        </div>
+    </div>
+
+    <div class="list" style="position: relative; z-index: 2; height: 82%; padding: 0px; margin-bottom: 0px; background: transparent;">
+        <ion-content ng-controller="eventController">
+            <div id="map" data-tap-disabled="true"></div>
+        </ion-content>
+    </div>
+
+    <div class="row" style="height: 8%; padding: 0px; margin-bottom: 5px;">
+
+        <button class="col accountActiveTab" style="color: white; font-size: 80%; font-family: Aller Light;">
+            <i class="ion-ios-location" style="font-size: 150%;"></i><br>Events
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="voteSong()">
+            <i class="ion-checkmark-circled" style="font-size: 150%;"></i><br>Votes
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="feedback()">
+            <i class="ion-chatbubble-working" style="font-size: 150%;"></i><br>Feedback
+        </button>
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="aboutWPC()">
+            <i class="ion-link" style="font-size: 150%;"></i><br>Links
+        </button>
+    </div>
+
+</ion-view>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDss457I2mr_QEdyvO41F6-DJVDbQ4OIcg&sensor=true"></script>
+

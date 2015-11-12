@@ -1,0 +1,61 @@
+<ion-view>
+    <div class="row" style="height: 10%; padding: 0px; margin-bottom: 0px;">
+        <div class="container">
+            <div class="div1" ng-click="main()"></div>
+            <div class="div2"></div>
+        </div>
+    </div>
+
+    <ion-content scroll="true" div class="col" style="margin-left: 10%; width: 90%; padding: 0% 0% 0% 0%; max-height: 100%; background-color: #ECF3FE;">
+
+        <div class="row" style="height: 20%; padding-top: 10px; margin-bottom: 5px; border-bottom-style: solid; border-bottom-color: #ffffff; background-color: #043172">
+            <div class="col col-20" style="max-height: 100%; background-color: #043172;">
+                <p style="font-size:15px; padding-left: 3%;text-align: left; color: #ffffff"><b>Summary<br></b></p>
+            </div>
+            <div class="col col-20" style="max-height: 100%; background-color: #043172;">
+                <p style="font-size:15px; padding-left: 3%;text-align: left; color: #ffffff"><b>Location<br></b></p>
+            </div>
+            <div class="col col-20" style="max-height: 100%; background-color: #043172;">
+                <p style="font-size:15px; padding-left: 3%;text-align: left; color: #ffffff"><b>Start to End<br></b></p>
+            </div>
+            <div class="col col-20" style="max-height: 100%; background-color: #043172;">
+                <p style="font-size:15px; padding-left: 3%;text-align: left; color: #ffffff"><b>Status<br></b></p>
+            </div>
+            <div class="col col-20" style="max-height: 100%; background-color: #043172;">
+                <p style="font-size:15px; padding-left: 3%;text-align: left; color: #ffffff"><b>Created<br></b></p>
+            </div>
+
+        </div>
+        <div class="row" style="height: 20%; padding-top: 10px; margin-bottom: 0; border-bottom-style: solid; border-bottom-color: #ffffff; background-color: white" ng-repeat="event in data.events">
+            <div class="col col-20" style="max-height: 100%; background-color: white;">
+                <p style="font-size:10px; padding-left: 3%;text-align: left; color: black">{{event.summary}}</p>
+            </div>
+            <div class="col col-20" style="max-height: 100%; background-color: white;">
+                <p style="font-size:10px; padding-left: 3%;text-align: left; color: black">{{event.location}}</p>
+            </div>
+            <div class="col col-20" style="max-height: 100%; background-color: white;">
+                <p style="font-size:10px; padding-left: 3%;text-align: left; color: black">{{event.start.dateTime}} to {{event.end.dateTime}}</p>
+            </div>
+            <div class="col col-20" style="max-height: 100%; background-color: white;">
+                <p style="font-size:10px; padding-left: 3%;text-align: left; color: black">{{event.status}}</p>
+            </div>
+            <div class="col col-20" style="max-height: 100%; background-color: white;">
+                <p style="font-size:10px; padding-left: 3%;text-align: left; color: black">{{event.created}}</p>
+            </div>
+
+        </div>
+    </ion-content>
+
+    <!-- footer nav bar -->
+    <div class="row" style="height: 8%; padding: 0px; margin-bottom: 5px;">
+
+        <button class="col accountInactiveTab" style="color: #bfbfbf; font-size: 80%; font-family: Aller Light;" ng-click="addPhoto()">
+            <i class="ion-image" style="font-size: 150%;"></i><br>Add Photo
+        </button>
+        <button class="col accountActiveTab" style="color: white; font-size: 80%; font-family: Aller Light;">
+            <i class="ion-images" style="font-size: 150%;"></i><br>View Photo Gallery
+        </button>
+
+
+    </div>
+</ion-view>

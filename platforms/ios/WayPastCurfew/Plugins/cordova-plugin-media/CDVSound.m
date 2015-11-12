@@ -190,6 +190,7 @@
         NSError* error = nil;
 
         self.avSession = [AVAudioSession sharedInstance];
+        [self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
         if (error) {
             // is not fatal if can't get AVAudioSession , just log the error
             NSLog(@"error creating audio session: %@", [[error userInfo] description]);
@@ -283,7 +284,7 @@
                 }
 
                 NSString* sessionCategory = bPlayAudioWhenScreenIsLocked ? AVAudioSessionCategoryPlayback : AVAudioSessionCategorySoloAmbient;
-                [self.avSession setCategory:sessionCategory error:&err];
+                // [self.avSession setCategory:sessionCategory error:&err];
                 if (![self.avSession setActive:YES error:&err]) {
                     // other audio with higher priority that does not allow mixing could cause this to fail
                     NSLog(@"Unable to play audio: %@", [err localizedFailureReason]);
@@ -374,7 +375,7 @@
         NSLog(@"Failed to initialize AVAudioPlayer: %@\n", [playerError localizedDescription]);
         audioFile.player = nil;
         if (self.avSession) {
-            [self.avSession setActive:NO error:nil];
+            // [self.avSession setActive:NO error:nil];
         }
         bError = YES;
     } else {
@@ -515,7 +516,7 @@
             // get the audioSession and set the category to allow recording when device is locked or ring/silent switch engaged
             if ([self hasAudioSession]) {
                 if (![self.avSession.category isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
-                    [self.avSession setCategory:AVAudioSessionCategoryRecord error:nil];
+                    [self.avSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
                 }
 
                 if (![self.avSession setActive:YES error:&error]) {
@@ -625,7 +626,7 @@
         jsString = [NSString stringWithFormat:@"%@(\"%@\",%d,%@);", @"cordova.require('cordova-plugin-media.Media').onStatus", mediaId, MEDIA_ERROR, [self createMediaErrorWithCode:MEDIA_ERR_DECODE message:nil]];
     }
     if (self.avSession) {
-        [self.avSession setActive:NO error:nil];
+        // [self.avSession setActive:NO error:nil];
     }
     [self.commandDelegate evalJs:jsString];
 }
@@ -648,7 +649,7 @@
         jsString = [NSString stringWithFormat:@"%@(\"%@\",%d,%@);", @"cordova.require('cordova-plugin-media.Media').onStatus", mediaId, MEDIA_ERROR, [self createMediaErrorWithCode:MEDIA_ERR_DECODE message:nil]];
     }
     if (self.avSession) {
-        [self.avSession setActive:NO error:nil];
+        // [self.avSession setActive:NO error:nil];
     }
     [self.commandDelegate evalJs:jsString];
 }

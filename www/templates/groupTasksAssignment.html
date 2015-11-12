@@ -1,0 +1,43 @@
+<ion-view>
+    <!-- header bar -->
+    <div class="row" style="border: none; height: 10%; padding: 0px; margin: 0px;">
+        <div class="container" style="border: none">
+            <div class="div1" style="background: white;" ng-click="groupTasks()"></div>
+            <div class="div2" style="background: #01273C;"></div>
+        </div>
+        <div style="position: relative; z-index: 2; height: 100%; width: 83%;">
+            <div class="row" style="height: 100%; width: 100%; padding: 0  0 0; text-align: center; background: #01273C;">
+                <div class="col" style="padding: 5% 17% 0% 0%; background: #01273C;">
+                    <p style="font-family: 'Aller'; font-size: 200%; color: white; padding: 0; text-transform: uppercase;">Create Tasks</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list" style="color: white; position: relative; z-index: 2; height: 90%; width: 100%; margin: 0; padding: 0; background: #01273C;">
+        <!-- title input -->
+        <div class="row" style="width: 80%; margin: 0 10%; padding: 2% 0;">
+            <div class="col">
+                <p class="row" style="margin: 0; padding: 0 0 2% 0; font-family: 'Aller Bold'; font-size: 150%; text-align: left;">Task Title</p>
+                <input maxlength="20" placeholder="Enter task title" style="border-radius: 5px; width: 100%; font-size: 120%; margin: 0; padding: 3% 0; font-family: 'Nexa Light'; text-align: center;" ng-model="data.newTask.title"/>
+            </div>
+        </div>
+
+        <!-- details input -->
+        <div class="row" style="width: 80%; margin: 0 10%; padding: 2% 0;">
+            <div class="col">
+                <p class="row" style="margin: 0; padding: 0 0 2% 0; font-family: 'Aller Bold'; font-size: 150%; text-align: left;">Task Details</p>
+                <textarea maxlength="140" placeholder="Enter task details" style="resize: none; height: 5em; border-radius: 5px; font-size: 120%; width: 100%; margin: 0; padding: 3% 3%; font-family: 'Nexa Light'; text-align: left;" ng-model="data.newTask.details"></textarea>
+            </div>
+        </div>
+
+        <!-- nav to assignment page -->
+        <div class="row" style="width: 80%; margin: 5% 10%; padding: 2% 5%; text-align: right;">
+            <div class="col" style="color: white; font-size: 110%;" ng-click="createTask2()">
+                <i class="ion-chevron-right"></i>
+                <i class="ion-chevron-right"></i>
+                <i class="ion-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+</ion-view>

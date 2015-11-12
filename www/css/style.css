@@ -6,6 +6,48 @@
 }
 
 @font-face {
+    font-family: 'fontawesome';
+    src:url('../fonts/fontawesome-webfont.eot');
+    src:url('../fonts/fontawesome-webfont.eot') format('embedded-opentype'),
+    url('../fonts/fontawesome-webfont.woff') format('woff'),
+    url('../fonts/fontawesome-webfont.ttf') format('truetype'),
+    url('../fonts/fontawesome-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-spotify:before {
+    font-family: 'fontawesome';
+    content: "\f1bc";
+}
+
+.icon-holiday:before {
+    font-family: 'fontawesome';
+    content: "\f072";
+    color: #19bfef;
+}
+
+.icon-groups:before {
+    font-family: 'fontawesome';
+    content: "\f0c0";
+}
+
+.icon-iTunes:before {
+     font-family: 'fontawesome';
+     content: "\f001";
+ }
+
+.icon-preview:before {
+    font-family: 'fontawesome';
+    content: "\f025";
+}
+
+.icon-delete:before {
+    font-family: 'fontawesome';
+    content: "\f014";
+}
+
+@font-face {
     font-family: 'Ebrima';
     src: url('Ebrima.ttf');
 }
@@ -66,14 +108,14 @@
 }
 
 .loginCircle {
-    width: 40px;
-    height: 40px;
-    border-radius: 25px;
+    width: 75px;
+    height: 75px;
+    border-radius: 75px;
     border: 2px solid;
     border-color: #19bfef;
-    font-size: 13px;
-    color: #19bfef;
-    background: none;
+    font-size: 50px;
+    color: white;
+    background: #19bfef;
 }
 
 .circleFill {
@@ -219,6 +261,20 @@ input[type="text"]:read-only, input[type="password"]:read-only {
     font-size: 120%;
 }
 
+.groupsActiveTab {
+    background : #031D2D;
+    color: white;
+    border: none;
+    font-size: 120%;
+}
+
+.groupsInactiveTab {
+    background: #f3f3f3;
+    color: #bfbfbf;
+    border: none;
+    font-size: 120%;
+}
+
 .div1 {
     width:100%;
     height:100%;
@@ -288,6 +344,18 @@ input[type="text"]:read-only, input[type="password"]:read-only {
     border-color: white;
 }
 
+.oddGroupSongButton {
+    background: #031D2D;
+    color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+.evenGroupSongButton {
+    background: #f3f3f3
+    color: #031D2D;
+    border-color: #031D2D;
+}
+
 .songsFilterSelected {
     color: white;
     background-color: #19BFEF;
@@ -295,6 +363,16 @@ input[type="text"]:read-only, input[type="password"]:read-only {
 
 .songsFilterUnselected {
     color: #19BFEF;
+    background-color: white;
+}
+
+.groupsFilterSelected {
+    color: white;
+    background-color: #01273C;
+}
+
+.groupsFilterUnselected {
+    color: #01273C;
     background-color: white;
 }
 
@@ -438,7 +516,36 @@ select.custom-dropdown-2 {
     font-size: 120%;
 }
 
-ion-item.item-content {
-    background: #F3F3F3 !important;
+.item-content, .item {
+    background: transparent !important;
     border: none;
+}
+
+.scroll {
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 50%;
+}
+
+.eventsCircle {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 3px solid #19bfef;
+    margin: 0;
+}
+
+.eventsIcon {
+    line-height: 150%;
+    font-size: 2.5em;
+}
+
+hr {
+    width: 28.5px;
+    height: 3px;
+    background: #19bfef;
+    margin: 30px 0;
 }

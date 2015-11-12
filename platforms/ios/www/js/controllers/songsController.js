@@ -1,12 +1,19 @@
-app.controller("songsController", function($scope, $state, songsFactory, tracksFactory, $ionicModal, $cordovaFileTransfer, $cordovaFile, $q, $ionicLoading, $timeout, $ionicAnalytics) {
+app.controller("songsController", function($scope, $state, songsFactory, tracksFactory, $ionicModal, $cordovaFileTransfer, $cordovaFile, $q, $ionicLoading, $ionicAnalytics, $ionicViewSwitcher) {
     var isApp = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
     $scope.data = {};
     $scope.data.availableSongs = {};
     $scope.data.downloadedSongs = {};
     $scope.data.clientSongs = songsFactory.getClientSongs();
+
+    // solves issue of endless loading
+    $scope.data.clientSongs.$loaded().then(function(clientSongs) {
+        clientSongs.$save();
+    });
+
     $ionicLoading.show({
         template: '<ion-spinner></ion-spinner><br><br><span style="font-family: Aller Light; font-size: 0.8em;">LOADING SONGS...</span>'
     });
+
     $scope.data.clientSongs.$watch(function() {
         $scope.data.clientSongs.$loaded().then(function(clientSongs) {
             $scope.data.downloadedSongs = {};
@@ -169,15 +176,14 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
             }
         } else {
             tracksFactory.pullTracks(song.uid, artistTitle, song);
-                $ionicAnalytics.track('Playback', {
-                    song: {
-                        title: song.title,
-                        artist: song.artist
-                    }
-                });
-            $timeout(function() {
-                $state.go("tracks");
-            },5);
+            $ionicAnalytics.track('Playback', {
+                song: {
+                    title: song.title,
+                    artist: song.artist
+                }
+            });
+            $ionicViewSwitcher.nextDirection('forward');
+            $state.go("tracks");
         }
     };
 
@@ -286,5 +292,10 @@ app.controller("songsController", function($scope, $state, songsFactory, tracksF
             link: $scope.data.selectedSong.spotify
         });
         window.open($scope.data.selectedSong.spotify, '_system', 'location=yes');
+    };
+
+    $scope.main = function() {
+        $ionicViewSwitcher.nextDirection('back');
+        $state.go("main");
     };
 });

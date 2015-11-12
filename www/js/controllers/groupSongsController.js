@@ -1,12 +1,37 @@
-app.controller("groupSongsController", function($scope, $state, $ionicViewSwitcher, usersFactory, groupsFactory) {
-    $scope.myGroups = function() {
+app.controller("groupSongsController", function($scope, $state, $ionicViewSwitcher, groupsFactory) {
+    $scope.groups = function() {
         $ionicViewSwitcher.nextDirection('back');
-        $state.go("myGroups");
+        $state.go("groups");
     };
 
-    $scope.$on('$ionicView.beforeEnter', function() {
-        $scope.data = {};
-        $scope.data.user = usersFactory.returnProfile();
-        $scope.data.group = groupsFactory.getGroup();
-    });
+    $scope.groupSettings = function() {
+        groupsFactory.setCurrentTab("groupTasks");
+        $ionicViewSwitcher.nextDirection('forward');
+        $state.go("groupInfo");
+    };
+
+    $scope.assignSongs = function() {
+        $ionicViewSwitcher.nextDirection('forward');
+        $state.go("groupSongsAssignment");
+    };
+
+    $scope.groupMembers = function() {
+        $ionicViewSwitcher.nextDirection('none');
+        $state.go("groupMembers");
+    };
+
+    $scope.groupAnnouncements = function() {
+        $ionicViewSwitcher.nextDirection('none');
+        $state.go("groupAnnouncements");
+    };
+
+    $scope.groupSongs = function() {
+        $ionicViewSwitcher.nextDirection('back');
+        $state.go("groupSongs");
+    };
+
+    $scope.groupTasks = function() {
+        $ionicViewSwitcher.nextDirection('none');
+        $state.go("groupTasks");
+    };
 });

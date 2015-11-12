@@ -1,4 +1,4 @@
-app.controller("feedbackController", function($scope, $state, $ionicViewSwitcher, songsFactory, feedbackFactory) {
+app.controller("feedbackController", function($scope, $state, songsFactory, feedbackFactory, $ionicViewSwitcher) {
     $scope.data = {};
     $scope.data.clientSongs = songsFactory.getClientSongs();
 
@@ -44,5 +44,24 @@ app.controller("feedbackController", function($scope, $state, $ionicViewSwitcher
             $scope.data.feedback = "";
             $scope.data.message = "Your feedback has been submitted!";
         }
+    };
+
+    $scope.voteSong = function() {
+        $ionicViewSwitcher.nextDirection('none');
+        $state.go("voteSong");
+    };
+
+    $scope.feedback = function() {
+        $ionicViewSwitcher.nextDirection('none');
+        $state.go("feedback");
+    };
+    $scope.aboutWPC = function() {
+        $ionicViewSwitcher.nextDirection('none');
+        $state.go("aboutWPC");
+    };
+
+    $scope.events = function() {
+        $ionicViewSwitcher.nextDirection('none');
+        $state.go("events");
     };
 });

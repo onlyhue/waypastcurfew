@@ -1,0 +1,55 @@
+<ion-view>
+    <!-- header bar -->
+    <div class="row" style="border: none; height: 10%; padding: 0px; margin: 0px; background: #043172;">
+        <div class="container" style="border: none">
+            <div class="div1" style="background: white;" ng-click="main()"></div>
+            <div class="div2" style="background: #01273C;"></div>
+        </div>
+        <div style="position: relative; z-index: 2; height: 100%; width: 83%;">
+            <div class="row" style="height: 100%; width: 100%; padding: 0; text-align: center; background: #01273C;">
+                <div class="col-67" style="padding: 5% 0% 0% 0%; background: #01273C;">
+                    <p style="font-family: 'Aller Display'; font-size: 200%; color: white; padding: 0; text-transform: uppercase;">
+                        <span class="ion-ios-people" style="font-size: 120%;"></span> Groups
+                    </p>
+                </div>
+                <div class="col-33" style="padding: 5% 5%; background: #01273C;">
+                    <!-- place "+" or "edit" button here -->
+                    <button class="ion-plus-round" style="line-height: 0%; padding: 15% 0%; height: 100%; width: 100%; color: white; background: #01273C; font-size: 150%; border: none;" ng-click="createGroup()"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="z-index: 2; margin: 0; font-size: 150%; height: 10%; width: 100%; background: #01273C; border-bottom: 2px solid white;">
+        <div class="item item-input" style="top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); padding: 0% 3%; width: 65%; border: 1px solid white; border-radius: 5px; height: 50%;">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="SEARCH" ng-model="data.search" ng-change="search()" style="padding-right: 2%; margin-left: 2%; text-align: left;"/>
+            <i class="ion-ios-close placeholder-icon" style="margin-right: -4%; width: 25%; font-size: 120%; padding: 0px;" ng-show="data.search" data-tap-disabled="true" on-touch="clear()"></i>
+        </div>
+    </div>
+
+    <div class="row" style="height: 70%; width: 100%; padding: 0px; margin: 0px; background: white; text-align: center;">
+        <ion-content scroll="true" class="col" style="position: relative; margin: 0; height: 100%; width: 100%; padding: 0%;">
+            <div class="list" style="height: 100%; width: 100%; margin: 0; padding: 0;" >
+                <div class="row" style="margin: 0; padding: 0; width: 100%; text-align: center; background: {{rowBackground(key)}}; color: {{rowColor(key)}}; text-transform: uppercase;" ng-repeat="(key, value) in data.groups | orderObjectBy:'name'" ng-click="groupDetails(value.$id)">
+                    <p style="margin: 0; padding: 6% 0%; font-family: 'Aller Light'; width: 100%; text-align: center; font-size: 150%;">{{value.name}}</p>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+
+    <!-- filter tab -->
+    <div class="list" style="height: 10%; padding: 3px 0px;">
+        <div class="row" style="height: 40%; padding: 0px; margin: 0; text-align: center;">
+            <div class="col" style="padding: 0px; color: #01273C; font-family: Aller Light;">SHOWING</div>
+        </div>
+        <div class="row" style="height: 60%; padding: 0px; margin: 0;">
+            <button class="col-33" ng-class="{'groupsFilterSelected': !data.showAllGroups, 'groupsFilterUnselected': data.showAllGroups}" style="font-size: 90%; height: 70%; margin: 0 2% 0 15%; border: none; font-family: Aller Light;" ng-click="showMyGroups()">
+                MY GROUPS
+            </button>
+            <button class="col-33" ng-class="{'groupsFilterSelected': data.showAllGroups, 'groupsFilterUnselected': !data.showAllGroups}" style="font-size: 90%; height: 70%; margin: 0 15% 0 2%; border: none; font-family: Aller Light;" ng-click="showAllGroups()">
+                ALL GROUPS
+            </button>
+        </div>
+    </div>
+</ion-view>

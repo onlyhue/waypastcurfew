@@ -1,17 +1,32 @@
-/*var io = Ionic.io();
-var user = Ionic.User.current();*/
-var app = angular.module("starter", ["ionic",/*'ionic.service.core','ionic.service.analytics',*/ "firebase", "ngCordova"])
+var io = Ionic.io();
+var user = Ionic.User.current();
+var app = angular.module("starter", ["ionic",'ionic.service.core','ionic.service.analytics', "firebase", "ngCordova", "ngIOS9UIWebViewPatch"])
 
-    .run(function($ionicPlatform, $cordovaStatusbar/*, $ionicAnalytics*/) {
+    .run(function($ionicPlatform, $cordovaStatusbar, $ionicAnalytics, $cordovaGeolocation, mapFactory) {
         $ionicPlatform.ready(function() {
 
+            var a = {};
+
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                var onSuccess = function(position) {
+                    a["latitude"] = position.coords.latitude;
+                    a["longitude"] = position.coords.longitude;
+                    mapFactory.addCoordinates(a);
+                };
+                navigator.geolocation.getCurrentPosition(onSuccess);
+            }
+
+
             /*$ionicAnalytics.setGlobalProperties({
-                timestamp: Date.now()
+                timestamp: Date.now(),
+                latitude: a.latitude,
+                longitude: a.longitude
             });
 
-            $ionicAnalytics.register();*/
+            //$ionicAnalytics.register();*/
 
-            /*$ionicAnalytics.register({
+           /* $ionicAnalytics.register({
 
              // Don't send any events to the analytics backend.
              // (useful during development)
@@ -70,46 +85,52 @@ var app = angular.module("starter", ["ionic",/*'ionic.service.core','ionic.servi
                 controller: 'feedbackController'
             })
 
-            .state('myGroups', {
-                url: '/myGroups',
-                templateUrl: 'templates/myGroups.html',
-                controller: 'myGroupsController'
+            .state('login', {
+                url: '/login',
+                templateUrl: 'templates/login.html',
+                controller: 'loginController'
             })
 
-            .state('groupSettings', {
-                url: '/groupSettings',
-                templateUrl: 'templates/groupSettings.html',
-                controller: 'myGroupsController'
+            .state('events', {
+                url: '/events',
+                templateUrl: 'templates/events.html',
+                controller: 'eventController'
             })
 
-            .state('leaveGroup', {
-                url: '/leaveGroup',
-                templateUrl: 'templates/leaveGroup.html',
-                controller: 'myGroupsController'
+            .state('myAccount', {
+                url: '/myAccount',
+                templateUrl: 'templates/myAccount.html',
+                controller: 'myAccountController'
+            })
+
+            .state('groups', {
+                url: '/groups',
+                templateUrl: 'templates/groups.html',
+                controller: 'groupsController'
             })
 
             .state('createGroup', {
                 url: '/createGroup',
                 templateUrl: 'templates/createGroup.html',
-                controller: 'myGroupsController'
+                controller: 'createGroupController'
             })
 
-            .state('announcements', {
-                url: '/announcements',
-                templateUrl: 'templates/announcements.html',
-                controller: 'announcementsController'
+            .state('groupAnnouncements', {
+                url: '/groupAnnouncements',
+                templateUrl: 'templates/groupAnnouncements.html',
+                controller: 'groupAnnouncementsController'
             })
 
-            .state('addAnnouncements', {
-                url: '/addAnnouncements',
-                templateUrl: 'templates/addAnnouncements.html',
-                controller: 'announcementsController'
+            .state('groupInfo', {
+                url: '/groupInfo',
+                templateUrl: 'templates/groupInfo.html',
+                controller: 'groupInfoController'
             })
 
-            .state('groupSongs', {
-                url: '/groupSongs',
-                templateUrl: 'templates/groupSongs.html',
-                controller: 'groupSongsController'
+            .state('leaveGroup', {
+                url: '/leaveGroup',
+                templateUrl: 'templates/leaveGroup.html',
+                controller: 'leaveGroupController'
             })
 
             .state('groupMembers', {
@@ -118,9 +139,39 @@ var app = angular.module("starter", ["ionic",/*'ionic.service.core','ionic.servi
                 controller: 'groupMembersController'
             })
 
+            .state('createAnnouncement', {
+                url: '/createAnnouncement',
+                templateUrl: 'templates/createAnnouncement.html',
+                controller: 'createAnnouncementController'
+            })
+
+            .state('groupSongs', {
+                url: '/groupSongs',
+                templateUrl: 'templates/groupSongs.html',
+                controller: 'groupSongsController'
+            })
+
+            .state('groupSongsAssignment', {
+                url: '/groupSongsAssignment',
+                templateUrl: 'templates/groupSongsAssignment.html',
+                controller: 'groupSongsController'
+            })
+
             .state('groupTasks', {
                 url: '/groupTasks',
                 templateUrl: 'templates/groupTasks.html',
+                controller: 'groupTasksController'
+            })
+
+            .state('groupTasksAssignment', {
+                url: '/groupTasksAssignment',
+                templateUrl: 'templates/groupTasksAssignment.html',
+                controller: 'groupTasksController'
+            })
+
+            .state('groupTasksAssignment2', {
+                url: '/groupTasksAssignment2',
+                templateUrl: 'templates/groupTasksAssignment2.html',
                 controller: 'groupTasksController'
             });
 
@@ -128,7 +179,7 @@ var app = angular.module("starter", ["ionic",/*'ionic.service.core','ionic.servi
 
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|chrome-extension):/);
 
-        $urlRouterProvider.otherwise('/groupMembers');
+        $urlRouterProvider.otherwise('/main');
 
         $ionicConfigProvider.views.forwardCache(true);
         $ionicConfigProvider.views.swipeBackEnabled(false);

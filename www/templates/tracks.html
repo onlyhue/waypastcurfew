@@ -1,4 +1,4 @@
-<ion-view view-title="tracks" cache-view="false">
+<ion-view cache-view="false">
     <ion-content class="centerHorizontal" scroll="false">
         <div class="row" style="height: 10%; padding: 0px; margin-bottom: 0px; border: none;">
             <div class="container">
@@ -15,15 +15,16 @@
                 <p style="height:100%; width: 100%; text-align: center; font-size: 100%;">{{data.song.artist}} | {{data.song.label}}</p>
             </div>
             <div class="row" style="height: 35%; width: 100%; color: #19bfef; padding: 2%; margin: 0px; text-align: center; font-size: 150%;">
-                <div class="col-25 col-offset-25" style="text-align: center;" ng-class="{'ion-play': !data.isPlayingAll, 'ion-pause': data.isPlayingAll}" ng-click="playPauseAll()"></div>
-                <div class="col-25 ion-stop" style="text-align: center;" ng-click="stopAll()"></div>
+                <div class="col-20 col-offset-20" style="text-align: center;" ng-class="{'ion-play': !data.isPlayingAll, 'ion-pause': data.isPlayingAll}" ng-click="playPauseAll()"></div>
+                <div class="col-20" ng-class="data.recordIcon" style="text-align: center;" ng-click="recordButton()"></div>
+                <div class="col-20 ion-stop" style="text-align: center;" ng-click="stopAll()"></div>
             </div>
             <div class="row" style="height: 40%; width: 100%; color: #19bfef; margin: 0px; padding: 0px; border-bottom: 0.5px solid #19bfef;">
                 <div class="col-20" style="text-align: right; height: 100%; padding: 2%; font-size: 90%;">
                     {{data.position | date:'m:ss'}}
                 </div>
                 <div class="col" style="height: 100%; width: 100%; color: #19bfef; margin: 0px; padding: 1%;">
-                    <input type="range" min="0" max="{{data.duration}}" ng-model="data.position" ng-change="positionChange()">
+                    <input type="range" min="0" max="{{data.duration}}" ng-model="data.position" on-drag-start="seeking()" on-release="positionChange()">
                 </div>
                 <div class="col-20" style="text-align: left; height: 100%; padding: 2%; font-size: 90%;">
                     {{data.duration | date:'m:ss'}}
@@ -33,15 +34,19 @@
 
         <div class="row" style="color: #19bfef; margin: 0; padding-bottom: 0; width: 100%; height: 75%; position: relative;">
             <ion-content scroll="true" class="list" style="height: 100%; width: 100%; padding: 0; margin: 0; text-align: center;">
-                <div class="row" style="margin: 0; padding: 0; height: 30%; width: 100%; text-align: center;" ng-style="{color: track.color}" ng-click="muteUnmute(id)" ng-repeat="(id, track) in data.tracks">
-                    <div class="col-33" style="height: 100%; padding: 9.35% 10%; background: #19BFEF; border-bottom: 1px solid white" ng-style="{color: track.iconColor, background: track.background}">
+                <div class="row" style="margin: 0; padding: 0; height: 30%; width: 100%; text-align: center;" ng-style="{color: track.color}" ng-repeat="(id, track) in data.tracks">
+                    <div class="col-25" style="height: 100%; padding: 9.35% 10%; background: #19BFEF; border-bottom: 1px solid white" ng-style="{color: track.iconColor, background: track.background}" ng-click="muteUnmute(id)" >
                         <button ng-class="track.icon" style="margin: auto; padding: 0; font-size: 300%; border: none; background: #19BFEF; color: #FFFFFF;" ng-style="{color: track.iconColor, background: track.background}"></button>
                     </div>
-                    <div class="col-67" style="height: 100%; text-align: right; padding: 10% 5% 7% 3%; border-bottom: dotted 1px #19BFEF;" ng-style="{'border-bottom': track.borderBtm}">
+                    <div class="col-50" style="height: 100%; text-align: right; padding: 10% 5% 7% 3%; border-bottom: dotted 1px #19BFEF;" ng-style="{'border-bottom': track.borderBtm}" ng-click="muteUnmute(id)" >
                         <span style="font-weight: bold; font-size: 200%; text-overflow: ellipsis; white-space: nowrap; text-transform: uppercase;">{{track.title}}</span><br/>
                         <span style="font-size: 90%; text-overflow: ellipsis; white-space: nowrap;">{{track.label}}</span>
                     </div>
+                    <div class="col-25" style="height: 100%; padding: 9.35% 10%; background: #19BFEF; border-bottom: 1px solid white" ng-style="{color: track.iconColor, background: track.background}" ng-click="deleteRecording(id)" ng-show="track.isRecording">
+                        <button ng-class="track.icon" style="margin: auto; padding: 0; font-size: 300%; border: none; background: #19BFEF; color: #FFFFFF;" ng-style="{color: track.iconColor, background: track.background}"></button>
+                    </div>
                 </div>
+            </ion-content>
         </div>
     </ion-content>
 </ion-view>

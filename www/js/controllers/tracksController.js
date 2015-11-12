@@ -1,20 +1,24 @@
-app.controller("tracksController", function($scope, $q, $interval, tracksFactory, $state, $ionicLoading, $timeout) {
-    $scope.data = {};
-    // on page enter, load song and tracks + reset defaults
-    $scope.$on('$ionicView.beforeEnter', function() {
+app.controller("tracksController", function($scope, $q, $interval, tracksFactory, $state, $ionicLoading, $ionicViewSwitcher, $cordovaFile) {
+    $scope.$on('$ionicView.enter', function() {
         $ionicLoading.show({
             template: '<ion-spinner></ion-spinner><br>Loading Song...'
         });
+        $scope.data = {};
         $scope.data.song = tracksFactory.getSong();
         $scope.data.tracksList = tracksFactory.getTracks();
-        $scope.data.tracks = {};
+        $scope.data.tracks = [];
         $scope.data.loaded = false;
-        $scope.data.durations = [];
+        $scope.data.loadedTracks = 0;
+        $scope.data.masterTrack = {};
         $scope.data.duration = 0;
+        $scope.data.position = 0;
+        $scope.data.isPlayingAll = false;
+        $scope.data.recordIcon = "ion-android-microphone";
+        $scope.data.latestRecordingNumber = 1;
         $scope.data.tracksList.$loaded().then(function(tracks) {
-            //tracks assignment
+            $scope.data.originalTracksLength = tracks.length;
             for (i = 0; i < tracks.length; i++) {
-                var track = null;
+                var track;
                 if (isApp) {
                     track = new Media("documents://" + $scope.data.song.uid + "/" + tracksFactory.getArtistTitle() + "/" + tracks[i].track, mediaSuccess, null, mediaStatus, i);
                 } else {
@@ -26,33 +30,97 @@ app.controller("tracksController", function($scope, $q, $interval, tracksFactory
                 $scope.data.tracks[i].title = tracks[i].title;
                 load(track);
             }
-            $ionicLoading.hide();
         });
-        $scope.data.position = 0;
-        $scope.data.isPlayingAll = false;
     });
 
     var isApp = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
 
     var mediaSuccess = function(id) {
         if (!$scope.data.loaded) {
-            $scope.$apply(function() {
-                $scope.data.durations.push($scope.data.tracks[id].getDuration());
-                if ($scope.data.durations.length == $scope.data.tracksList.length) {
-                    $scope.data.loaded = true;
-                    $scope.data.duration = Math.max.apply(Math, $scope.data.durations) * 1000;
+            $scope.data.loadedTracks++;
+            $scope.data.tracks[id].startTime = 0;
+            $scope.data.tracks[id].endTime = $scope.data.tracks[id].getDuration() * 1000;
+            if ($scope.data.tracks[id].getDuration() * 1000 > $scope.data.duration) {
+                $scope.data.duration = $scope.data.tracks[id].getDuration() * 1000;
+                $scope.data.masterTrack = $scope.data.tracks[id];
+            }
+            if ($scope.data.loadedTracks == $scope.data.originalTracksLength) {
+                listDir(cordova.file.documentsDirectory + $scope.data.song.uid + "/" + tracksFactory.getArtistTitle() + "/recordings/");
+                function listDir(path) {
+                    window.resolveLocalFileSystemURL(path,
+                        function(fileSystem) {
+                            var reader = fileSystem.createReader();
+                            reader.readEntries(
+                                function(entries) {
+                                    $scope.data.assigner = $scope.data.originalTracksLength;
+                                    for (i = 0; i < entries.length; i++) {
+                                        if (entries[i].isFile && entries[i].name.substring(entries[i].name.indexOf(".")) == ".wav") {
+                                            $scope.data.recordingNumber = parseInt(entries[i].name.substring(0, entries[i].name.indexOf(".")));
+                                            $scope.data.tracks[$scope.data.loadedTracks] = new Media("documents://" + $scope.data.song.uid + "/" + tracksFactory.getArtistTitle() + "/recordings/" + $scope.data.recordingNumber + ".wav", function(){}, null, mediaStatusRecording, $scope.data.tracks.length);
+                                            $scope.data.tracks[$scope.data.loadedTracks].play();
+                                            $scope.data.tracks[$scope.data.loadedTracks].stop();
+                                            $scope.data.tracks[$scope.data.loadedTracks].icon = "ion-music-note";
+                                            $scope.data.tracks[$scope.data.loadedTracks].label = $scope.data.recordingNumber.toString();
+                                            $scope.data.tracks[$scope.data.loadedTracks].title = "recording";
+                                            $scope.data.tracks[$scope.data.loadedTracks].isPlaying = true;
+                                            $scope.data.tracks[$scope.data.loadedTracks].withinNewSeek = false;
+                                            $scope.data.tracks[$scope.data.loadedTracks].isRecording = true;
+                                            $scope.data.tracks[$scope.data.loadedTracks].recordingNumber = angular.copy($scope.data.recordingNumber);
+                                            $scope.data.loadedTracks++;
+                                            if ($scope.data.recordingNumber >= $scope.data.latestRecordingNumber) {
+                                                $scope.data.latestRecordingNumber = $scope.data.recordingNumber + 1;
+                                            }
+                                            $cordovaFile.readAsText(cordova.file.documentsDirectory + $scope.data.song.uid + "/" + tracksFactory.getArtistTitle() + "/recordings/", $scope.data.recordingNumber + ".txt")
+                                                .then(function(success) {
+                                                    $scope.data.tracks[$scope.data.assigner].startTime = success.substring(0, success.indexOf("."));
+                                                    $scope.data.tracks[$scope.data.assigner].endTime = success.substring(success.indexOf(".") + 1);
+                                                    $scope.data.assigner++;
+                                                }, function(error) {
+                                                    console.log(error);
+                                                });
+                                        }
+                                    }
+                                    $cordovaFile.createFile(cordova.file.documentsDirectory + $scope.data.song.uid + "/" + tracksFactory.getArtistTitle() + "/recordings/", $scope.data.latestRecordingNumber + ".wav", false)
+                                        .then(function(success) {
+                                            $scope.data.newRecording = new Media("documents://" + $scope.data.song.uid + "/" + tracksFactory.getArtistTitle() + "/recordings/" + $scope.data.latestRecordingNumber + ".wav", function(){}, null, mediaStatusRecording, $scope.data.tracks.length);
+                                            $scope.data.newRecording.play();
+                                            $scope.data.newRecording.stop();
+                                            $ionicLoading.hide();
+                                            $scope.data.loaded = true;
+                                        }, function(error) {
+                                            $scope.data.newRecording = new Media("documents://" + $scope.data.song.uid + "/" + tracksFactory.getArtistTitle() + "/recordings/" + $scope.data.latestRecordingNumber + ".wav", function(){}, null, mediaStatusRecording, $scope.data.tracks.length);
+                                            $scope.data.newRecording.play();
+                                            $scope.data.newRecording.stop();
+                                            $ionicLoading.hide();
+                                            $scope.data.loaded = true;
+                                        });
+                                }, function(error) {
+                                    console.log(error);
+                                });
+                        }, function(error) {
+                            console.log(error);
+                        });
                 }
-            });
+            }
         }
     };
 
     var mediaStatus = function(id, status) {
-        if (status == 4) {
-            $scope.$apply(function() {
-                $scope.data.tracks[id].isPlaying = false;
+        if ($scope.data.tracks[id] == $scope.data.masterTrack) {
+            if (status == 4) {
                 $scope.data.position = 0;
                 $scope.data.isPlayingAll = false;
-            });
+                if ($scope.data.nowRecording) {
+                    $scope.stopRecording();
+                    $scope.data.tracks[$scope.data.loadedTracks - 1].endTime = $scope.data.duration;
+                }
+            }
+        }
+    };
+
+    var mediaStatusRecording = function(id, status) {
+        if (status == 4) {
+            $scope.data.tracks[id].isPlaying = false;
         }
     };
 
@@ -60,66 +128,45 @@ app.controller("tracksController", function($scope, $q, $interval, tracksFactory
         track.isMuted = false;
         if (isApp) {
             track.setVolume(0.0);
-            $scope.playPause(track);
+            track.play();
             $scope.stop(track);
             track.setVolume(1.0);
         } else {
-            $scope.playPause(track);
+            track.play();
             $scope.stop(track);
-            track.addEventListener("ended", function() {
-                $scope.stop(track);
-                $scope.data.position = 0;
-                $scope.data.isPlayingAll = false;
-            });
             track.addEventListener("loadeddata", function() {
                 if (!$scope.data.loaded) {
-                    $scope.$apply(function() {
-                        $scope.data.durations.push(track.duration);
-                        if ($scope.data.durations.length == $scope.data.tracksList.length) {
-                            $scope.data.loaded = true;
-                            $scope.data.duration = Math.max.apply(Math, $scope.data.durations) * 1000;
-                        }
-                    });
+                    $scope.data.loadedTracks++;
+                    if (track.duration * 1000 > $scope.data.duration) {
+                        $scope.data.duration = track.duration * 1000;
+                        $scope.data.masterTrack = track;
+                    }
+                    if ($scope.data.loadedTracks == $scope.data.originalTracksLength) {
+                        $scope.data.masterTrack.addEventListener("ended", function() {
+                            $scope.stopAll();
+                        });
+                        $ionicLoading.hide();
+                        $scope.data.loaded = true;
+                    }
                 }
             })
-        }
-    };
-
-    $scope.playPause = function(track) {
-
-        if (track.isPlaying) {
-            track.pause();
-            track.isPlaying = false;
-        } else {
-            track.play();
-            track.isPlaying = true;
         }
     };
 
     $scope.stop = function(track) {
         if (isApp) {
             track.stop();
+            track.seekTo(0);
         } else {
             track.pause();
             track.currentTime = 0;
         }
-        track.isPlaying = false;
     };
 
     $scope.muteUnmute = function(id) {
         track = $scope.data.tracks[id];
+        track.isMuted = !track.isMuted;
         if (track.isMuted) {
-            track.isMuted = false;
-            track.color = "#19BFEF";
-            track.iconColor = "#FFFFFF";
-            track.background = "#19BFEF";
-            if (isApp) {
-                track.setVolume(1.0);
-            } else {
-                track.muted = false;
-            }
-        } else {
-            track.isMuted = true;
             track.color = "#F3F3F3";
             track.iconColor = "#F3F3F3";
             track.background = "#FFFFFF";
@@ -128,73 +175,184 @@ app.controller("tracksController", function($scope, $q, $interval, tracksFactory
             } else {
                 track.muted = true;
             }
-        }
-    };
-
-    $scope.positionChange = function() {
-        for (var id in $scope.data.tracks) {
+        } else {
+            track.color = "#19BFEF";
+            track.iconColor = "#FFFFFF";
+            track.background = "#19BFEF";
             if (isApp) {
-                $scope.data.tracks[id].seekTo($scope.data.position);
+                track.setVolume(1.0);
             } else {
-                $scope.data.tracks[id].currentTime = $scope.data.position / 1000;
+                track.muted = false;
             }
         }
     };
 
-    $scope.playPauseAll = function() {
-        for (var id in $scope.data.tracks) {
-            $scope.playPause($scope.data.tracks[id]);
+    $scope.seeking = function() {
+        $interval.cancel($scope.data.seeker);
+        if ($scope.data.nowRecording) {
+            $scope.stopRecording();
         }
+    };
 
+    $scope.positionChange = function() {
+        for (i = 0; i < $scope.data.originalTracksLength; i++) {
+            if (isApp) {
+                $scope.data.tracks[i].seekTo($scope.data.position);
+            } else {
+                $scope.data.tracks[i].currentTime = $scope.data.position / 1000;
+            }
+        }
+        for (i = $scope.data.originalTracksLength; i < $scope.data.tracks.length; i++) {
+            $scope.data.tracks[i].withinNewSeek = true;
+        }
+        $interval.cancel($scope.data.seeker);
+        $scope.data.seeker = $interval(function() {
+            if (isApp) {
+                $scope.data.masterTrack.getCurrentPosition(function(position) {
+                    if (position == -1) {
+                        $interval.cancel($scope.data.seeker);
+                    } else {
+                        $scope.data.position = position * 1000;
+                        for (i = $scope.data.originalTracksLength; i < $scope.data.tracks.length; i++) {
+                            if (!$scope.data.tracks[i].isPlaying && $scope.data.position >= $scope.data.tracks[i].startTime && $scope.data.position < $scope.data.tracks[i].endTime) {
+                                $scope.data.tracks[i].seekTo($scope.data.position - $scope.data.tracks[i].startTime);
+                                $scope.data.tracks[i].isPlaying = true;
+                                $scope.data.tracks[i].play();
+                            } else if ($scope.data.tracks[i].isPlaying && ($scope.data.position < $scope.data.tracks[i].startTime || $scope.data.position >= $scope.data.tracks[i].endTime)) {
+                                $scope.data.tracks[i].stop();
+                            } else if ($scope.data.tracks[i].withinNewSeek && $scope.data.tracks[i].isPlaying && $scope.data.position >= $scope.data.tracks[i].startTime && $scope.data.position < $scope.data.tracks[i].endTime) {
+                                $scope.data.tracks[i].withinNewSeek = false;
+                                $scope.data.tracks[i].seekTo($scope.data.position - $scope.data.tracks[i].startTime);
+                            }
+                        }
+                    }
+                });
+            } else {
+                $scope.data.position = $scope.data.masterTrack.currentTime * 1000;
+            }
+        }, 50);
+    };
+
+    $scope.playPauseAll = function() {
+        if ($scope.data.nowRecording) {
+            $scope.stopRecording();
+        }
         $scope.data.isPlayingAll = !$scope.data.isPlayingAll;
-
         if ($scope.data.isPlayingAll) {
+            for (i = 0; i < $scope.data.originalTracksLength; i++) {
+                $scope.data.tracks[i].play();
+            }
             $scope.data.seeker = $interval(function() {
                 if (isApp) {
-                    $scope.data.tracks[0].getCurrentPosition(function(position) {
+                    $scope.data.masterTrack.getCurrentPosition(function(position) {
                         if (position == -1) {
                             $interval.cancel($scope.data.seeker);
                         } else {
                             $scope.data.position = position * 1000;
+                            for (i = $scope.data.originalTracksLength; i < $scope.data.tracks.length; i++) {
+                                if (!$scope.data.tracks[i].isPlaying && $scope.data.position >= $scope.data.tracks[i].startTime && $scope.data.position < $scope.data.tracks[i].endTime) {
+                                    $scope.data.tracks[i].seekTo($scope.data.position - $scope.data.tracks[i].startTime);
+                                    $scope.data.tracks[i].isPlaying = true;
+                                    $scope.data.tracks[i].play();
+                                }
+                            }
                         }
                     });
                 } else {
-                    $scope.data.position = $scope.data.tracks[0].currentTime * 1000;
+                    $scope.data.position = $scope.data.masterTrack.currentTime * 1000;
                 }
             }, 50);
         } else {
+            for (i = 0; i < $scope.data.tracks.length; i++) {
+                $scope.data.tracks[i].pause();
+            }
+            for (i = $scope.data.originalTracksLength; i < $scope.data.tracks.length; i++) {
+                $scope.data.tracks[i].isPlaying = false;
+            }
             $interval.cancel($scope.data.seeker);
         }
     };
 
     $scope.stopAll = function() {
         $interval.cancel($scope.data.seeker);
-        for (var id in $scope.data.tracks) {
-            if (isApp) {
-                $scope.data.tracks[id].stop();
-            } else {
-                $scope.data.tracks[id].pause();
-                $scope.data.tracks[id].currentTime = 0;
-            }
-            $scope.data.tracks[id].isPlaying = false;
+        if ($scope.data.nowRecording) {
+            $scope.stopRecording();
         }
+        for (i = 0; i < $scope.data.tracks.length; i++) {
+            $scope.stop($scope.data.tracks[i]);
+        }
+        $scope.data.position = 0;
         $scope.data.isPlayingAll = false;
+        for (i = $scope.data.originalTracksLength; i < $scope.data.tracks.length; i++) {
+            $scope.data.tracks[i].isPlaying = false;
+        }
     };
 
     $scope.songsPage = function() {
-
         $scope.stopAll();
         if (isApp) {
-            for (var id in $scope.data.tracks) {
-                $scope.data.tracks[id].release();
-                //$scope.data.tracks[id] = {};
+            for (i = 0; i < $scope.data.tracks.length; i++) {
+                $scope.data.tracks[i].release();
             }
-        }$ionicLoading.show({
-            template: '<ion-spinner></ion-spinner><br>Loading Song...'
-        });
-        $timeout(function() {
-            $state.go("songs");
-        }, 200);
-        $ionicLoading.hide();
+            $scope.data.newRecording.release();
+        }
+        $scope.data = {};
+        $ionicViewSwitcher.nextDirection('back');
+        $state.go("songs");
     };
+
+    $scope.startRecording = function() {
+        $scope.data.tracks[$scope.data.loadedTracks] = $scope.data.newRecording;
+        $scope.data.tracks[$scope.data.loadedTracks].icon = "ion-music-note";
+        $scope.data.tracks[$scope.data.loadedTracks].label = $scope.data.latestRecordingNumber.toString();
+        $scope.data.tracks[$scope.data.loadedTracks].title = "recording";
+        $scope.data.tracks[$scope.data.loadedTracks].isPlaying = true;
+        $scope.data.tracks[$scope.data.loadedTracks].withinNewSeek = true;
+        $scope.data.tracks[$scope.data.loadedTracks].startRecord();
+        $scope.data.tracks[$scope.data.loadedTracks].startTime = parseInt($scope.data.position);
+        $scope.data.nowRecording = true;
+        $scope.data.loadedTracks++;
+        $scope.data.recordIcon = "ion-android-microphone-off";
+    };
+
+    $scope.stopRecording = function() {
+        $scope.data.nowRecording = false;
+        $scope.data.tracks[$scope.data.loadedTracks - 1].stopRecord();
+        $scope.data.tracks[$scope.data.loadedTracks - 1].endTime = parseInt($scope.data.position) - 250;
+        $scope.data.tracks[$scope.data.loadedTracks - 1].isPlaying = false;
+        $scope.data.tracks[$scope.data.loadedTracks - 1].isRecording = true;
+        $scope.data.latestRecordingNumber++;
+        $scope.data.recordIcon = "ion-android-microphone";
+        $cordovaFile.writeFile(cordova.file.documentsDirectory + $scope.data.song.uid + "/" + tracksFactory.getArtistTitle() + "/recordings/", $scope.data.latestRecordingNumber - 1 + ".txt",  + $scope.data.tracks[$scope.data.loadedTracks - 1].startTime + "." + $scope.data.tracks[$scope.data.loadedTracks - 1].endTime, false)
+            .then(function(success) {
+                // do nothing
+            }, function(error) {
+                console.log(error);
+            });
+        $cordovaFile.createFile(cordova.file.documentsDirectory + $scope.data.song.uid + "/" + tracksFactory.getArtistTitle() + "/recordings/", $scope.data.latestRecordingNumber + ".wav", false)
+            .then(function(success) {
+                $scope.data.newRecording = new Media("documents://" + $scope.data.song.uid + "/" + tracksFactory.getArtistTitle() + "/recordings/" + $scope.data.latestRecordingNumber + ".wav", function(){}, null, mediaStatusRecording, $scope.data.tracks.length);
+                $scope.data.newRecording.play();
+                $scope.data.newRecording.stop();
+            }, function(error) {
+                console.log(error);
+            });
+    };
+
+    $scope.recordButton = function() {
+        if ($scope.data.nowRecording) {
+            $scope.stopRecording();
+        } else {
+            if (!$scope.data.isPlayingAll) {
+                $scope.playPauseAll();
+            }
+            $scope.startRecording();
+        }
+    };
+
+    $scope.deleteRecording = function(key) {
+        console.log($scope.data.tracks[key].recordingNumber);
+        $scope.data.loadedTracks--;
+        $scope.data.tracks.splice(key, 1);
+    }
 });

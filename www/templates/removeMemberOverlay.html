@@ -1,0 +1,18 @@
+<ion-modal-view style="position: absolute; top: 25%; left: 10%; right: 10%; background: #01273c; color: white; width: 80%; min-height: 30%;">
+<!-- cross -->
+    <div class="row" style="height: 10%; margin:0; padding: 0;">
+        <button class="col-20 col-offset-80 ion-close" style="background: none; border: none; padding: 5% 0%; color: white" ng-click="hide()"></button>
+    </div>
+
+    <!-- Message -->
+    <div class="row" style="width: 80%; margin: 0 10%; padding: 0 0 5% 0; display: inline-block; text-align: center; border-bottom: 2px dotted white;">
+        <p style="font-family: 'Aller Light'; font-size: 135%; text-align: center;">Are you sure you want to remove {{data.users[data.selectedMember.$value].displayName}}?</p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="row" style="width: 80%; margin: 0 10%; padding: 5% 0%; display: inline-block; text-align: center;">
+        <button style="border-radius: 5px; font-family: 'Aller Bold'; width: 30%; min-height: 30%; border: 1px solid white; color: #01273c; background: white; font-size: 110%; margin: 2% 0; padding: 2%;" ng-click="removeMember()">Yes</button>
+        <button style="border-radius: 5px; font-family: 'Aller Bold'; width: 30%; min-height: 30%; border: 1px solid white; color: #01273c; background: white; font-size: 110%; margin: 2% 0; padding: 2%;" ng-click="modal.hide()">No</button>
+
+    </div>
+</ion-modal-view>

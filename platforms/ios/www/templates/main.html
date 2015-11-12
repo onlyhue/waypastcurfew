@@ -1,31 +1,31 @@
-<ion-view view-title="main" class="centerHorizontal" nav-direction="forward">
+<ion-view>
 
-
-    <div class="row" style="height: 33%; padding: 0px; margin-bottom: 5px;" ui-sref="songs">
-        <!--
-            <button class="mainButton ion-music-note" style="border-color: #01273c; background: #01273c; font-size: 300%; width: 35%;" ion-track-tap="mainToSongs" ion-track-data="TIMESTAMP"></button>
-        -->
+    <div class="row" style="height: 23%; padding: 0px; margin-bottom: 0;" ng-click="songs()">
         <button class="mainButton ion-music-note" style="border-color: #01273c; background: #01273c; font-size: 300%; width: 35%;" ></button>
         <button class="mainButton" style="border-color: #01273c; background: #01273c; width: 65%; font-size: 180%; text-align: left;">
             <span style="text-transform: uppercase; font-weight: 100;">Song List</span>
         </button>
     </div>
-    <div class="row" style="height: 33%; padding: 0px; margin-bottom: 5px;" ui-sref="feedback">
-        <!--
-            <button class="mainButton ion-gear-b" style="border-color: #19bfef; background: #19bfef; font-size: 300%; width: 35%;" ion-track-tap="mainToAccount" ion-track-data="TIMESTAMP"></button>
-        -->
-        <button class="mainButton ion-chatbox-working" style="border-color: #19bfef; background: #19bfef; font-size: 300%; width: 35%;"></button>
-        <button class="mainButton" style="border-color: #19bfef; background: #19bfef; width: 65%; font-size: 180%; text-align: left;">
-            <span style="text-transform: uppercase; font-weight: 100;">Feedback</span>
+    <div class="row" style="height: 23%; padding: 0px; margin-bottom: 0;" ng-click="groups()">
+        <button class="mainButton icon-groups" style="border-color: #043172; background: #043172; font-size: 250%; width: 35%;"></button>
+        <button class="mainButton" style="border-color: #043172; background: #043172; width: 65%; font-size: 180%; text-align: left;">
+            <span style="text-transform: uppercase; font-weight: 100;">Groups</span>
         </button>
     </div>
-    <div class="row" style="height: 34%; padding: 0px; margin-bottom: 5px;" ui-sref="aboutWPC">
-        <!--
-            <button class="mainButton ion-information-circled" style="border-color: #ffffff; background: #ffffff; color: #043172; font-size: 300%; width: 35%;" ion-track-tap="mainToAboutWPC" ion-track-data="TIMESTAMP"></button>
-        -->
-        <button class="mainButton ion-information-circled" style="border-color: #ffffff; background: #ffffff; color: #043172; font-size: 300%; width: 35%;"></button>
-        <button class="mainButton" style="border-color: #ffffff; background: #ffffff; color: #043172; width: 65%; font-size: 180%; text-align: left;">
-            <span style="text-transform: uppercase; font-weight: 100;">About WPC</span>
+    <div class="row" style="height: 23%; padding: 0px; margin-bottom: 0;" ng-click="myAccount()">
+        <button class="mainButton ion-gear-a" style="border-color: #19BFEF; background: #19BFEF; font-size: 300%; width: 35%;" ></button>
+        <button class="mainButton" style="border-color: #19BFEF; background: #19BFEF; width: 65%; font-size: 180%; text-align: left;">
+            <span style="text-transform: uppercase; font-weight: 100;">My Account</span>
         </button>
     </div>
+    <div class="row" style="height: 23%; padding: 0px; margin-bottom: 0;" ng-click="events()">
+        <button class="mainButton ion-information-circled" style="border-color: #ffffff; background: #ffffff; font-size: 300%; width: 35%; color: #01273c"></button>
+        <button class="mainButton" style="border-color: #ffffff; background: #ffffff; width: 65%; font-size: 180%; text-align: left; color: #01273c;">
+            <span style="text-transform: uppercase; font-weight: 100;">The Band</span>
+        </button>
+    </div>
+    <div class="list" style="height: 10%; padding: 0px; margin-bottom: 0; border: none" ng-click="aboutWPC()">
+        <img src="img/wpc/Untitled.png"  style="width:100%;height:100%;">
+    </div>
+
 </ion-view>
